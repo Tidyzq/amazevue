@@ -1,6 +1,6 @@
 <template lang='jade'>
-  label.am-radio(:class='classes')
-    input.am-ucheck-radio(type='radio', v-model='model', :name='name', :value='label', :disabled='disabled')
+  label.am-checkbox(:class='classes')
+    input.am-ucheck-checkbox(type='checkbox', v-model='model', :name='name', :value='label', :disabled='disabled')
     span.am-ucheck-icons
       i.am-icon-unchecked
       i.am-icon-checked
@@ -10,8 +10,8 @@
 <script>
 export default {
   props: {
-    value: [String, Number, Boolean],
-    label: [String, Number, Boolean],
+    value: Boolean,
+    label: [String, Number],
     name: String,
     disabled: {
       type: Boolean,
@@ -24,34 +24,34 @@ export default {
   },
   data () {
     return {
-      _radioGroup: null
+      _checkboxGroup: null
     }
   },
   created () {
-    var radioGroup = this
-    while (radioGroup && radioGroup._radioGroup !== true && radioGroup.$parent) {
-      radioGroup = radioGroup.$parent
+    var checkboxGroup = this
+    while (checkboxGroup && checkboxGroup._checkboxGroup !== true && checkboxGroup.$parent) {
+      checkboxGroup = checkboxGroup.$parent
     }
-    if (!radioGroup._radioGroup) {
-      // not in radio group
-      this._radioGroup = null
+    if (!checkboxGroup._checkboxGroup) {
+      // not in checkbox group
+      this._checkboxGroup = null
     } else {
-      // in radio group
-      this._radioGroup = radioGroup
+      // in checkbox group
+      this._checkboxGroup = checkboxGroup
     }
   },
   computed: {
     model: {
       get () {
-        if (this._radioGroup) {
-          return this._radioGroup.value
+        if (this._checkboxGroup) {
+          return this._checkboxGroup.value
         } else {
           return this.value
         }
       },
       set (newVal) {
-        if (this._radioGroup) {
-          this._radioGroup.$emit('input', newVal)
+        if (this._checkboxGroup) {
+          this._checkboxGroup.$emit('input', newVal)
         } else {
           this.$emit('input', newVal)
         }
@@ -73,7 +73,7 @@ export default {
 <style lang='less'>
 @import '../less/variables.less';
 
-.am-radio {
+.am-checkbox {
   display: inline-block;
   margin-top: 0;
   margin-bottom: 0;
@@ -82,7 +82,7 @@ export default {
     margin-top: 0;
     margin-bottom: 0;
   }
-  .am-ucheck-radio {
+  .am-ucheck-checkbox {
     margin: 0 !important;
   }
   &.am-disabled {

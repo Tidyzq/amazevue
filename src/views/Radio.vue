@@ -78,11 +78,13 @@
       am-radio(:label='1') 1
       am-radio(:label='2') 2
       am-radio(:label='3') 3
+      am-radio(:label='4', :disabled='true') 4
     pre
       | am-radio-group(v-model='radio3')
-      | am-radio(:label='1') 1
-      | am-radio(:label='2') 2
-      | am-radio(:label='3') 3
+      |   am-radio(:label='1') 1
+      |   am-radio(:label='2') 2
+      |   am-radio(:label='3') 3
+      |   am-radio(:label='4', :disabled='true') 4
 
 </template>
 

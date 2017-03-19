@@ -5,6 +5,7 @@ import Home from '@/views/Home'
 import Button from '@/views/Button'
 import Grid from '@/views/Grid'
 import Radio from '@/views/Radio'
+import Checkbox from '@/views/Checkbox'
 
 Vue.use(Router)
 
@@ -27,6 +28,10 @@ export default new Router({
       path: '/radio',
       name: 'Radio',
       component: Radio
+    }, {
+      path: '/checkbox',
+      name: 'Checkbox',
+      component: Checkbox
     }
   ]
 })
