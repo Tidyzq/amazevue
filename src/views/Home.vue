@@ -5,6 +5,7 @@
       li: router-link(to='/grid') Grid
       li: router-link(to='/radio') Radio
       li: router-link(to='/checkbox') Checkbox
+      li: router-link(to='/input') Input
 </template>
 
 <script>

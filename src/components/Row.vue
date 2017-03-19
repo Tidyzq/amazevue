@@ -33,27 +33,27 @@ export default {
 }
 
 .am-neg-margin-horizontal-xs {
-  margin-left: -@spacing-xs!important;
-  margin-right: -@spacing-xs!important;
+  margin-left: -@global-spacing-xs!important;
+  margin-right: -@global-spacing-xs!important;
 }
 
 .am-neg-margin-horizontal-sm {
-  margin-left: -@spacing-sm!important;
-  margin-right: -@spacing-sm!important;
+  margin-left: -@global-spacing-sm!important;
+  margin-right: -@global-spacing-sm!important;
 }
 
 .am-neg-margin-horizontal-md {
-  margin-left: -@spacing-md!important;
-  margin-right: -@spacing-md!important;
+  margin-left: -@global-spacing!important;
+  margin-right: -@global-spacing!important;
 }
 
 .am-neg-margin-horizontal-lg {
-  margin-left: -@spacing-lg!important;
-  margin-right: -@spacing-lg!important;
+  margin-left: -@global-spacing-lg!important;
+  margin-right: -@global-spacing-lg!important;
 }
 
 .am-neg-margin-horizontal-xl {
-  margin-left: -@spacing-xl!important;
-  margin-right: -@spacing-xl!important;
+  margin-left: -@global-spacing-xl!important;
+  margin-right: -@global-spacing-xl!important;
 }
 </style>

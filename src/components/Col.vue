@@ -48,8 +48,8 @@ export default {
 @import '../less/variables.less';
 
 .am-padding-horizontal-md {
-  padding-left: @spacing-md;
-  padding-right: @spacing-md;
+  padding-left: @global-spacing;
+  padding-right: @global-spacing;
 }
 
 .am-lf {

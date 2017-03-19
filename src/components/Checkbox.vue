@@ -77,7 +77,7 @@ export default {
   display: inline-block;
   margin-top: 0;
   margin-bottom: 0;
-  padding-right: @spacing-xs;
+  padding-right: @global-spacing-xs;
   & + & {
     margin-top: 0;
     margin-bottom: 0;
