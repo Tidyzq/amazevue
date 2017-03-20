@@ -6,6 +6,7 @@
       li: router-link(to='/radio') Radio
       li: router-link(to='/checkbox') Checkbox
       li: router-link(to='/input') Input
+      li: router-link(to='/select') Select
 </template>
 
 <script>

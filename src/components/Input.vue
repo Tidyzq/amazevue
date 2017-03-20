@@ -2,25 +2,29 @@
 .am-input.am-input-group(v-if='this.$slots.prepend || this.$slots.append', :class='groupClasses')
   span(v-if='this.$slots.prepend', :class='prependClasses')
     slot(name='prepend')
-  textarea.am-form-field(v-if='textarea', :class='fieldClasses', v-model='model', :rows='rows', :placeholder='placeholder', :disabled='disabled')
-  input.am-form-field(v-else, :class='fieldClasses', type='text', v-model='model', :placeholder='placeholder', :disabled='disabled')
+  textarea.am-form-field(v-if='nativeType === "textarea"', :class='fieldClasses', v-model='model', :rows='rows', :placeholder='placeholder', :disabled='disabled')
+  input.am-form-field(v-else-if='nativeType === "text"', :class='fieldClasses', type='text', v-model='model', :placeholder='placeholder', :disabled='disabled')
+  input.am-form-field(v-else-if='nativeType === "number"', :class='fieldClasses', type='number', v-model.number='model', :placeholder='placeholder', :disabled='disabled')
+  input.am-form-field(v-else-if='nativeType === "password"', :class='fieldClasses', type='password', v-model='model', :placeholder='placeholder', :disabled='disabled')
   span(v-if='this.$slots.append', :class='appendClasses')
     slot(name='append')
-textarea.am-input.am-form-field(v-else-if='textarea', :class='fieldClasses', v-model='model', :rows='rows', :placeholder='placeholder', :disabled='disabled')
-input.am-input.am-form-field(v-else, :class='fieldClasses', type='text', v-model='model', :placeholder='placeholder', :disabled='disabled')
+textarea.am-input.am-form-field(v-else-if='nativeType === "textarea"', :class='fieldClasses', v-model='model', :rows='rows', :placeholder='placeholder', :disabled='disabled')
+input.am-input.am-form-field(v-else-if='nativeType === "text"', :class='fieldClasses', type='text', v-model='model', :placeholder='placeholder', :disabled='disabled')
+input.am-input.am-form-field(v-else-if='nativeType === "number"', :class='fieldClasses', type='number', v-model.number='model', :placeholder='placeholder', :disabled='disabled')
+input.am-input.am-form-field(v-else-if='nativeType === "password"', :class='fieldClasses', type='password', v-model='model', :placeholder='placeholder', :disabled='disabled')
 </template>
 
 <script>
 export default {
   props: {
-    value: String,
-    textarea: {
-      type: Boolean,
-      default: false
-    },
+    value: [String, Number],
     type: {
       type: String,
       default: 'default'
+    },
+    nativeType: {
+      type: String,
+      default: 'text'
     },
     rows: {
       type: Number,

@@ -5,12 +5,16 @@
     am-input(v-model='input1', placeholder='basic')
     pre
       | am-input(v-model='input1', placeholder='basic')
-    h2 Textarea
-    am-input(v-model='input2', placeholder='not resizeable', :rows='5', :textarea='true', :resize='false')
-    am-input(v-model='input2', placeholder='resizeable', :textarea='true')
+    h2 Native Type
+    am-input(v-model='input2', native-type='textarea', placeholder='not resizeable', :rows='5', :resize='false')
+    am-input(v-model='input2', native-type='textarea', placeholder='resizeable')
+    am-input(v-model='input2', native-type='password', placeholder='password')
+    am-input(v-model='input6', native-type='number', placeholder='number')
     pre
-      | am-input(v-model='input2', placeholder='not resizeable', :rows='5', :textarea='true', :resize='false')
-      | am-input(v-model='input2', placeholder='resizeable', :textarea='true')
+      | am-input(v-model='input2', native-type='textarea', placeholder='not resizeable', :rows='5', :resize='false')
+      | am-input(v-model='input2', native-type='textarea', placeholder='resizeable')
+      | am-input(v-model='input2', native-type='password', placeholder='password')
+      | am-input(v-model='input6', native-type='number', placeholder='number')
     h2 Color
     am-input(type='primary', v-model='input3', placeholder='primary')
     am-input(type='secondary', v-model='input3', placeholder='secondary')
@@ -28,29 +32,29 @@
       i.am-icon-user(slot='prepend')
     am-input(type='warning', v-model='input4', placeholder='Currency')
       span(slot='append') .00
-    am-input(type='secondary', v-model='input4', placeholder='Search', :append-btn='true')
+    am-input(type='secondary', v-model='input4', placeholder='Search', append-btn)
       am-button(slot='append', icon='search')
     pre
       | am-input(type='primary', v-model='input4', placeholder='User')
       |   i.am-icon-user(slot='prepend')
       | am-input(type='warning', v-model='input4', placeholder='Currency')
       |   span(slot='append') .00
-      | am-input(type='secondary', v-model='input4', placeholder='Search', :append-btn='true')
+      | am-input(type='secondary', v-model='input4', placeholder='Search', append-btn)
       |   am-button(slot='append', icon='search')
     h2 Disabled
-    am-input(type='primary', v-model='input4', placeholder='User', :disabled='true')
+    am-input(type='primary', v-model='input4', placeholder='User', disabled)
       i.am-icon-user(slot='prepend')
-    am-input(type='warning', v-model='input4', placeholder='Currency', :disabled='true')
+    am-input(type='warning', v-model='input4', placeholder='Currency', disabled)
       span(slot='append') .00
-    am-input(type='secondary', v-model='input4', placeholder='Search', :append-btn='true', :disabled='true')
-      am-button(slot='append', icon='search', :disabled='true')
+    am-input(type='secondary', v-model='input4', placeholder='Search', append-btn, disabled)
+      am-button(slot='append', icon='search', disabled)
     pre
-      | am-input(type='primary', v-model='input4', placeholder='User', :disabled='true')
+      | am-input(type='primary', v-model='input4', placeholder='User', disabled)
       |   i.am-icon-user(slot='prepend')
-      | am-input(type='warning', v-model='input4', placeholder='Currency', :disabled='true')
+      | am-input(type='warning', v-model='input4', placeholder='Currency', disabled)
       |   span(slot='append') .00
-      | am-input(type='secondary', v-model='input4', placeholder='Search', :append-btn='true', :disabled='true')
-      |   am-button(slot='append', icon='search', :disabled='true')
+      | am-input(type='secondary', v-model='input4', placeholder='Search', append-btn, disabled)
+      |   am-button(slot='append', icon='search', disabled)
     h2 Size
     am-input(size='lg', v-model='input5', placeholder='lg')
       span(slot='prepend') @
@@ -92,7 +96,8 @@ export default {
       input2: '',
       input3: '',
       input4: '',
-      input5: ''
+      input5: '',
+      input6: 0
     }
   }
 }

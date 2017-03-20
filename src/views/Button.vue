@@ -48,34 +48,34 @@
       | am-button(type='danger', shape='round') danger
     h2 Active
     .buttons
-      am-button(type='default', :active='true') default
-      am-button(type='primary', :active='true') primary
-      am-button(type='secondary', :active='true') secondary
-      am-button(type='success', :active='true') success
-      am-button(type='warning', :active='true') warning
-      am-button(type='danger', :active='true') danger
+      am-button(type='default', active) default
+      am-button(type='primary', active) primary
+      am-button(type='secondary', active) secondary
+      am-button(type='success', active) success
+      am-button(type='warning', active) warning
+      am-button(type='danger', active) danger
     pre
-      | am-button(type='default', :active='true') default
-      | am-button(type='primary', :active='true') primary
-      | am-button(type='secondary', :active='true') secondary
-      | am-button(type='success', :active='true') success
-      | am-button(type='warning', :active='true') warning
-      | am-button(type='danger', :active='true') danger
+      | am-button(type='default', active) default
+      | am-button(type='primary', active) primary
+      | am-button(type='secondary', active) secondary
+      | am-button(type='success', active) success
+      | am-button(type='warning', active) warning
+      | am-button(type='danger', active) danger
     h2 Disabled
     .buttons
-      am-button(type='default', :disabled='true') default
-      am-button(type='primary', :disabled='true') primary
-      am-button(type='secondary', :disabled='true') secondary
-      am-button(type='success', :disabled='true') success
-      am-button(type='warning', :disabled='true') warning
-      am-button(type='danger', :disabled='true') danger
+      am-button(type='default', disabled) default
+      am-button(type='primary', disabled) primary
+      am-button(type='secondary', disabled) secondary
+      am-button(type='success', disabled) success
+      am-button(type='warning', disabled) warning
+      am-button(type='danger', disabled) danger
     pre
-      | am-button(type='default', :disabled='true') default
-      | am-button(type='primary', :disabled='true') primary
-      | am-button(type='secondary', :disabled='true') secondary
-      | am-button(type='success', :disabled='true') success
-      | am-button(type='warning', :disabled='true') warning
-      | am-button(type='danger', :disabled='true') danger
+      | am-button(type='default', disabled) default
+      | am-button(type='primary', disabled) primary
+      | am-button(type='secondary', disabled) secondary
+      | am-button(type='success', disabled) success
+      | am-button(type='warning', disabled) warning
+      | am-button(type='danger', disabled) danger
     h2 Size
     .buttons
       am-button(type='default', size='xl') default-xl

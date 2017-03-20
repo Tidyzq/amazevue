@@ -53,13 +53,13 @@
       am-checkbox(label='a') a
       am-checkbox(label='b') b
       am-checkbox(label='c') c
-      am-checkbox(label='d', :disabled='true') d
+      am-checkbox(label='d', disabled) d
     pre
       | am-checkbox-group(v-model='checkbox3')
       |   am-checkbox(label='a') a
       |   am-checkbox(label='b') b
       |   am-checkbox(label='c') c
-      |   am-checkbox(label='d', :disabled='true') d
+      |   am-checkbox(label='d', disabled) d
 </template>
 
 <script>

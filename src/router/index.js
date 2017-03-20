@@ -7,6 +7,7 @@ import Grid from '@/views/Grid'
 import Radio from '@/views/Radio'
 import Checkbox from '@/views/Checkbox'
 import Input from '@/views/Input'
+import Select from '@/views/Select'
 
 Vue.use(Router)
 
@@ -37,6 +38,10 @@ export default new Router({
       path: '/input',
       name: 'Input',
       component: Input
+    }, {
+      path: '/select',
+      name: 'Select',
+      component: Select
     }
   ]
 })
