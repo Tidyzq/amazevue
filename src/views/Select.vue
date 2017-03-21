@@ -8,7 +8,7 @@
       am-option(value='C', label='C')
       am-option(value='D', label='D', disabled)
     pre
-      | am-select(type='primary', v-model='select1')
+      | am-select(v-model='select1')
       |   am-option(value='A', label='A')
       |   am-option(value='B', label='B')
       |   am-option(value='C', label='C')
@@ -117,16 +117,16 @@
       am-option(value='C', label='C')
       am-option(value='D', label='D', disabled)
     pre
-      | am-select(type='primary', v-model='select4')
-      | am-select(type='secondary', v-model='select4')
-      | am-select(type='success', v-model='select4')
-      | am-select(type='warning', v-model='select4')
-      | am-select(type='danger', v-model='select4')
-      | am-select(type='primary', v-model='select5', multiple)
-      | am-select(type='secondary', v-model='select5', multiple)
-      | am-select(type='success', v-model='select5', multiple)
-      | am-select(type='warning', v-model='select5', multiple)
-      | am-select(type='danger', v-model='select5', multiple)
+      | am-select(type='primary', v-model='select5')
+      | am-select(type='secondary', v-model='select5')
+      | am-select(type='success', v-model='select5')
+      | am-select(type='warning', v-model='select5')
+      | am-select(type='danger', v-model='select5')
+      | am-select(type='primary', v-model='select6', multiple)
+      | am-select(type='secondary', v-model='select6', multiple)
+      | am-select(type='success', v-model='select6', multiple)
+      | am-select(type='warning', v-model='select6', multiple)
+      | am-select(type='danger', v-model='select6', multiple)
 </template>
 
 <script>
@@ -147,7 +147,7 @@ export default {
       select3: ['A'],
       select4: 'A',
       select5: 'A',
-      select6: ['A']
+      select6: 'A'
     }
   }
 }

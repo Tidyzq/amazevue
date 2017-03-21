@@ -4,7 +4,7 @@
       span.am-selected-placeholder.am-fl(v-if='!value') {{placeholder}}
       span.am-selected-status.am-fl(v-else)
         span(v-if='!multiple') {{options[value]}}
-        span.am-selected-status-pill(v-else, v-for='val in value')
+        span.am-selected-status-pill(v-else-if='showStatusPill', v-for='val in value')
           | {{options[val]}}
           a.am-selected-close.am-close-spin(@click='OnClickClose(val, $event)') &times;
       i.am-selected-icon.am-icon-caret-down
@@ -60,6 +60,9 @@ export default {
       let classes = [`am-selected-${this.type}`]
       classes.push(this.multiple ? 'am-selected-multiple' : 'am-selected-single')
       return classes
+    },
+    showStatusPill () {
+      return Array.isArray(this.value)
     }
   },
   methods: {
@@ -68,7 +71,11 @@ export default {
       let content = this._content
       let body = this._body
       selected.addClass('am-active')
-      content.addClass('am-animation-slide-top-fixed')
+      content.addClass('am-animation-slide-top-fixed').css('min-width', selected.element.clientWidth + 'px')
+      this._windowResize = () => {
+        content.css('min-width', selected.element.clientWidth + 'px')
+      }
+      window.addEventListener('resize', this._windowResize)
       this._bodyClick = e => {
         if (!content.element.contains(e.target) && e.target !== content.element && this._active) {
           this.show = false
@@ -89,6 +96,7 @@ export default {
       let body = this._body
       this._active = false
       body.off('click', this._bodyClick)
+      window.removeEventListener('resize', this._windowResize)
       content.addClass('am-dropdown-animation')
         .on('transitionend animationend', () => {
           content.off('transitionend animationend')
@@ -98,14 +106,14 @@ export default {
     },
     OnSelect (val) {
       if (this.multiple) {
-        let value = Array.isArray(this.value) ? this.value : []
+        let value = Array.isArray(this.value) ? this.value.slice() : []
         let index = value.indexOf(val)
         if (index !== -1) {
           value.splice(index, 1)
         } else {
           value.push(val)
         }
-        return value
+        this.$emit('input', value)
       } else {
         this.$emit('input', val)
       }
