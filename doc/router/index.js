@@ -8,6 +8,7 @@ import Radio from 'doc/views/Radio'
 import Checkbox from 'doc/views/Checkbox'
 import Input from 'doc/views/Input'
 import Select from 'doc/views/Select'
+import DatePicker from 'doc/views/DatePicker'
 
 Vue.use(Router)
 
@@ -42,6 +43,10 @@ export default new Router({
       path: '/select',
       name: 'Select',
       component: Select
+    }, {
+      path: '/datepicker',
+      name: 'DatePicker',
+      component: DatePicker
     }
   ]
 })

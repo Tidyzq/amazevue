@@ -23,7 +23,7 @@ export function formatDate (date, format) {
     dd: d < 10 ? '0' + d : d
   }
   let rst = ''
-  formatParts = parseFormat(format)
+  let formatParts = parseFormat(format)
   for (let part of formatParts) {
     if (val[part]) {
       rst += val[part]
@@ -40,23 +40,32 @@ export function parseDate (dateStr, format) {
   date.setMinutes(0)
   date.setSeconds(0)
   date.setMilliseconds(0)
-  formatParts = parseFormat(format)
+  let formatParts = parseFormat(format)
   for (let part of formatParts) {
     let val = parseInt(dateStr, 10) || -1
     switch (part) {
-      case 'yyyy':
-        date.setFullYear(val)
-        break
-      case 'm':
-      case 'mm':
-        date.setMonth(val - 1)
-        break
-      case 'd':
-      case 'dd':
-        date.setDate(val)
-        break
+    case 'yyyy':
+      date.setFullYear(val)
+      break
+    case 'm':
+    case 'mm':
+      date.setMonth(val - 1)
+      break
+    case 'd':
+    case 'dd':
+      date.setDate(val)
+      break
     }
     dateStr = dateStr.substr(part.length)
   }
   return date
+}
+
+export function isLeapYear (year) {
+  return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0))
+}
+
+export function getDaysInMonth (year, month) {
+  let monthDays = [31, (isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+  return monthDays[month]
 }
