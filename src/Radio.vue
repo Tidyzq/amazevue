@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style lang='less'>
-@import '../less/variables.less';
+@import './less/variables.less';
 
 .am-radio {
   display: inline-block;

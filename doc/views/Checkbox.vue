@@ -63,10 +63,10 @@
 </template>
 
 <script>
-import AmCheckbox from '@/components/Checkbox'
-import AmCheckboxGroup from '@/components/CheckboxGroup'
-import AmRow from '@/components/Row'
-import AmCol from '@/components/Col'
+import AmCheckbox from 'src/Checkbox'
+import AmCheckboxGroup from 'src/CheckboxGroup'
+import AmRow from 'src/Row'
+import AmCol from 'src/Col'
 
 export default {
   components: {

@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "Vue2.0 components for Amaze UI",
   "author": "Tidyzq <tidyzq@tidyzq.com>",
+  "main": "dist/amazevue.js",
+  "style": "dist/amazevue.css",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -13,6 +15,11 @@
     "vue": "^2.2.2",
     "amazeui": "^2.7.2"
   },
+  "files": [
+    "README.md",
+    "src",
+    "dist"
+  ],
   "devDependencies": {
     "vue-router": "^2.2.0",
     "autoprefixer": "^6.7.2",

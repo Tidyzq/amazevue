@@ -78,10 +78,10 @@
 </template>
 
 <script>
-import AmInput from '@/components/Input'
-import AmButton from '@/components/Button'
-import AmRow from '@/components/Row'
-import AmCol from '@/components/Col'
+import AmInput from 'src/Input'
+import AmButton from 'src/Button'
+import AmRow from 'src/Row'
+import AmCol from 'src/Col'
 
 export default {
   components: {

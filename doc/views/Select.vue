@@ -130,9 +130,9 @@
 </template>
 
 <script>
-import AmSelect from '@/components/Select'
-import AmOption from '@/components/Option'
-import AmOptionGroup from '@/components/OptionGroup'
+import AmSelect from 'src/Select'
+import AmOption from 'src/Option'
+import AmOptionGroup from 'src/OptionGroup'
 
 export default {
   components: {

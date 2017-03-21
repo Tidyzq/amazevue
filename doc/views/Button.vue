@@ -118,7 +118,7 @@
 </template>
 
 <script>
-import AmButton from '@/components/Button'
+import AmButton from 'src/Button'
 
 export default {
   data () {

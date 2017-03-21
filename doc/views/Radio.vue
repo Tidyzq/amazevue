@@ -89,10 +89,10 @@
 </template>
 
 <script>
-import AmRadio from '@/components/Radio'
-import AmRadioGroup from '@/components/RadioGroup'
-import AmRow from '@/components/Row'
-import AmCol from '@/components/Col'
+import AmRadio from 'src/Radio'
+import AmRadioGroup from 'src/RadioGroup'
+import AmRow from 'src/Row'
+import AmCol from 'src/Col'
 
 export default {
   components: {

@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang='less'>
-@import '../less/variables.less';
+@import './less/variables.less';
 
 .am-neg-margin-horizontal-0 {
   margin-left: 0!important;

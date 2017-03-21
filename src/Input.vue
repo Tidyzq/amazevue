@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import '../less/variables.less';
+@import './less/variables.less';
 
 @lg-height: unit(ceil(unit(@form-font-size-lg * 1.2 + 0.5*2*@form-font-size-lg + 0.2) * 10), px);
 @sm-height: unit(ceil(unit(@form-font-size-sm * 1.2 + 0.5*2*@form-font-size-sm + 0.2) * 10), px);

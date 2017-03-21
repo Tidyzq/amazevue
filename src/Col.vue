@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style lang='less'>
-@import '../less/variables.less';
+@import './less/variables.less';
 
 .am-padding-horizontal-md {
   padding-left: @global-spacing;

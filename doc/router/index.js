@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/views/Home'
+import Home from 'doc/views/Home'
 
-import Button from '@/views/Button'
-import Grid from '@/views/Grid'
-import Radio from '@/views/Radio'
-import Checkbox from '@/views/Checkbox'
-import Input from '@/views/Input'
-import Select from '@/views/Select'
+import Button from 'doc/views/Button'
+import Grid from 'doc/views/Grid'
+import Radio from 'doc/views/Radio'
+import Checkbox from 'doc/views/Checkbox'
+import Input from 'doc/views/Input'
+import Select from 'doc/views/Select'
 
 Vue.use(Router)
 

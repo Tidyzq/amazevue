@@ -90,8 +90,8 @@
 </template>
 
 <script>
-import AmRow from '@/components/Row'
-import AmCol from '@/components/Col'
+import AmRow from 'src/Row'
+import AmCol from 'src/Col'
 
 export default {
   components: {

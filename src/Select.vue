@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import $ from '@/utils/extendHtmlElement'
+import $ from './utils/extendHtmlElement'
 
 export default {
   props: {
@@ -132,7 +132,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import '../less/variables.less';
+@import './less/variables.less';
 
 @selected-status-pill-fontsize: 16px;
 @selected-status-pill-spacing: .625em;
