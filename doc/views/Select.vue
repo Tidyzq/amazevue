@@ -147,7 +147,7 @@ export default {
       select3: ['A'],
       select4: 'A',
       select5: 'A',
-      select6: 'A'
+      select6: ['A']
     }
   }
 }

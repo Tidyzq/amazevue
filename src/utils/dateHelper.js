@@ -9,6 +9,7 @@ export function parseFormat (format) {
     rst.push(match[0])
     sta = match.index + match[0].length
   }
+  if (sta < format.length) rst.push(format.substr(sta))
   return rst
 }
 

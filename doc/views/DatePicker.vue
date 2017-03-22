@@ -21,6 +21,10 @@
       | am-date-picker(type='success', v-model='date4')
       | am-date-picker(type='warning', v-model='date4')
       | am-date-picker(type='danger', v-model='date4')
+    h2 Format
+    am-date-picker(v-model='date5', format='yyyy年m月d日')
+    pre
+      | am-date-picker(v-model='date5', format='yyyy年m月d日')
 </template>
 
 <script>
@@ -35,7 +39,8 @@ export default {
       date1: '1970-01-01',
       date2: '',
       date3: '2017-01-01',
-      date4: '1970-01-01'
+      date4: '1970-01-01',
+      date5: '1970年1月1日'
     }
   }
 }

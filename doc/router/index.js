@@ -14,6 +14,7 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
+  base: '/amazevue',
   routes: [
     {
       path: '/',
@@ -47,6 +48,7 @@ export default new Router({
       path: '/datepicker',
       name: 'DatePicker',
       component: DatePicker
-    }
+    },
+    { path: '*', redirect: '/' }
   ]
 })

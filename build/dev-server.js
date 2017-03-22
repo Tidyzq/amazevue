@@ -66,16 +66,15 @@ var uri = 'http://localhost:' + port
 
 devMiddleware.waitUntilValid(function () {
   console.log('> Listening at ' + uri + '\n')
+  // when env is testing, don't need open it
+  if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
+    opn(uri)
+  }
 })
 
 module.exports = app.listen(port, function (err) {
   if (err) {
     console.log(err)
     return
-  }
-
-  // when env is testing, don't need open it
-  if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-    opn(uri)
   }
 })
