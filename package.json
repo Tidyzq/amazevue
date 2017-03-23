@@ -5,7 +5,7 @@
   "author": "Tidyzq <tidyzq@tidyzq.com>",
   "main": "dist/amazevue.js",
   "style": "dist/amazevue.css",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
