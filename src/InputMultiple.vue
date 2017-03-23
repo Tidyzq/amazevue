@@ -1,6 +1,6 @@
 <template lang='jade'>
   .am-input-multiple(ref='main', :class='mainClasses')
-    button.am-input-multiple-btn.am-btn.am-btn-default(ref='toggle', type='button', @click.prevent='OnClickButton')
+    button.am-input-multiple-btn.am-btn.am-btn-default(ref='toggle', type='button', @click.prevent='OnClickButton', :disabled='disabled')
       span.am-input-multiple-placeholder.am-fl(v-if='!value') {{placeholder}}
       span.am-input-multiple-status.am-fl(v-else)
         span.am-input-multiple-status-pill(v-for='val in value')
@@ -18,6 +18,10 @@ export default {
     type: {
       type: String,
       default: 'default'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

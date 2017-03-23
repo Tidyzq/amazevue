@@ -17,6 +17,10 @@
       | am-input-multiple(type='success', v-model='input2')
       | am-input-multiple(type='warning', v-model='input2')
       | am-input-multiple(type='danger', v-model='input2')
+    h2 Disabled
+    am-input-multiple(v-model='input3', disabled)
+    pre
+      | am-input-multiple(v-model='input3', disabled)
 </template>
 
 <script>
@@ -29,7 +33,8 @@ export default {
   data () {
     return {
       input1: ['A'],
-      input2: ['Primary', 'Secondary', 'Success', 'Warning', 'Danger']
+      input2: ['Primary', 'Secondary', 'Success', 'Warning', 'Danger'],
+      input3: ['disabled']
     }
   }
 }
