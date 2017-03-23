@@ -10,6 +10,7 @@ import Input from 'doc/views/Input'
 import InputMultiple from 'doc/views/InputMultiple'
 import Select from 'doc/views/Select'
 import DatePicker from 'doc/views/DatePicker'
+import FileSelect from 'doc/views/FileSelect'
 
 Vue.use(Router)
 
@@ -50,9 +51,13 @@ export default new Router({
       name: 'Select',
       component: Select
     }, {
-      path: '/datepicker',
+      path: '/date-picker',
       name: 'DatePicker',
       component: DatePicker
+    }, {
+      path: '/file-select',
+      name: 'FileSelect',
+      component: FileSelect
     },
     { path: '*', redirect: '/' }
   ]

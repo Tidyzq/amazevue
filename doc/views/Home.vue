@@ -8,7 +8,8 @@
       li: router-link(to='/input') Input
       li: router-link(to='/input-multiple') Input Multiple
       li: router-link(to='/select') Select
-      li: router-link(to='/datepicker') DatePicker
+      li: router-link(to='/date-picker') DatePicker
+      li: router-link(to='/file-select') FileSelect
 </template>
 
 <script>
