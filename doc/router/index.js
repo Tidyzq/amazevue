@@ -7,6 +7,7 @@ import Grid from 'doc/views/Grid'
 import Radio from 'doc/views/Radio'
 import Checkbox from 'doc/views/Checkbox'
 import Input from 'doc/views/Input'
+import InputMultiple from 'doc/views/InputMultiple'
 import Select from 'doc/views/Select'
 import DatePicker from 'doc/views/DatePicker'
 
@@ -40,6 +41,10 @@ export default new Router({
       path: '/input',
       name: 'Input',
       component: Input
+    }, {
+      path: '/input-multiple',
+      name: 'InputMultiple',
+      component: InputMultiple
     }, {
       path: '/select',
       name: 'Select',
