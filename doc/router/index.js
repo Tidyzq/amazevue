@@ -11,6 +11,7 @@ import InputMultiple from 'doc/views/InputMultiple'
 import Select from 'doc/views/Select'
 import DatePicker from 'doc/views/DatePicker'
 import FileSelect from 'doc/views/FileSelect'
+import Form from 'doc/views/Form'
 
 Vue.use(Router)
 
@@ -58,6 +59,10 @@ export default new Router({
       path: '/file-select',
       name: 'FileSelect',
       component: FileSelect
+    }, {
+      path: '/form',
+      name: 'Form',
+      component: Form
     },
     { path: '*', redirect: '/' }
   ]

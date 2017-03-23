@@ -77,6 +77,7 @@ export default {
   display: inline-block;
   margin-top: 0;
   margin-bottom: 0;
+  padding-top: 0;
   padding-right: @global-spacing-xs;
   & + & {
     margin-top: 0;
@@ -84,6 +85,11 @@ export default {
   }
   .am-ucheck-checkbox {
     margin: 0 !important;
+  }
+  .am-ucheck-checkbox, .am-ucheck-icons {
+    margin: auto;
+    top: 0;
+    bottom: 0;
   }
   &.am-disabled {
     color: @input-bg-disabled;

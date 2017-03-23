@@ -77,7 +77,7 @@ export default {
   display: inline-block;
   margin-top: 0;
   margin-bottom: 0;
-  padding: 0;
+  padding-top: 0;
   padding-right: @global-spacing-xs;
   & + & {
     margin-top: 0;
@@ -87,7 +87,8 @@ export default {
     margin: 0 !important;
   }
   .am-ucheck-radio, .am-ucheck-icons {
-    top: auto;
+    margin: auto;
+    top: 0;
     bottom: 0;
   }
   &.am-disabled {
