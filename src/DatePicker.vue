@@ -3,7 +3,7 @@
     button.am-date-picker-btn.am-btn.am-dropdown-toggle.am-btn-default(@click='OnClickToggle')
       span.am-selected-placeholder.am-fl(v-if='!value') {{placeholder}}
       span.am-selected-status.am-fl(v-else) {{value}}
-    .am-datepicker.am-datepicker-dropdown(:class='contentClasses', ref='content')
+    .am-datepicker.am-datepicker-dropdown(v-if='renderContent', :class='contentClasses', ref='content')
       .am-datepicker-days(v-show='showType==="day"')
         table.am-datepicker-table
           thead
@@ -84,6 +84,7 @@ export default {
     return {
       Locales,
       show: false,
+      renderContent: false,
       showtype: 'day',
       dayShow: new Date(),
       monthShow: new Date(),
@@ -105,15 +106,15 @@ export default {
         return this.showtype
       },
       set (newVal) {
-        switch (newVal) {
-        case 'day':
-          if (this.mode !== 'year' && this.mode !== 'month') this.showtype = newVal
-          break
-        case 'month':
-          if (this.mode !== 'year') this.showtype = newVal
-          break
-        default:
+        var prior = {
+          'day': 0,
+          'month': 1,
+          'year': 2
+        }
+        if (prior[newVal] >= prior[this.mode]) {
           this.showtype = newVal
+        } else if (prior[this.mode] > prior[newVal]) {
+          this.showtype = this.mode
         }
       }
     },
@@ -241,7 +242,6 @@ export default {
   },
   mounted () {
     this._datepicker = new $(this.$refs.datepicker)
-    this._content = new $(this.$refs.content)
     this._body = new $(document)
   },
   watch: {
@@ -261,25 +261,28 @@ export default {
       this.dayShow = new Date(this.date)
       this.monthShow = new Date(this.date)
       this.yearShow = new Date(this.date)
-      let datepicker = this._datepicker, content = this._content, body = this._body
-      datepicker.addClass('am-active')
-      content.addClass('am-animation-slide-top-fixed')
-      this._bodyClick = e => {
-        if (!content.element.contains(e.target) && e.target !== content.element && this._active) {
-          this.show = false
-          body.off('click', this._bodyClick)
-          content.off('transitionend animationend')
+      this.renderContent = true
+      this.$nextTick(() => {
+        let datepicker = this._datepicker, content = new $(this.$refs.content), body = this._body
+        datepicker.addClass('am-active')
+        content.addClass('am-animation-slide-top-fixed')
+        this._bodyClick = e => {
+          if (!content.element.contains(e.target) && e.target !== content.element && this._active) {
+            this.show = false
+            body.off('click', this._bodyClick)
+            content.off('transitionend animationend')
+          }
         }
-      }
-      body.on('click', this._bodyClick)
-      content.on('transitionend animationend', () => {
-        content.off('transitionend animationend')
-          .removeClass('am-animation-slide-top-fixed')
-        this._active = true
+        body.on('click', this._bodyClick)
+        content.on('transitionend animationend', () => {
+          content.off('transitionend animationend')
+            .removeClass('am-animation-slide-top-fixed')
+          this._active = true
+        })
       })
     },
     close () {
-      let datepicker = this._datepicker, content = this._content, body = this._body
+      let datepicker = this._datepicker, content = new $(this.$refs.content), body = this._body
       this._active = false
       body.off('click', this._bodyClick)
       window.removeEventListener('resize', this._windowResize)
@@ -288,6 +291,7 @@ export default {
           content.off('transitionend animationend')
             .removeClass('am-dropdown-animation')
           datepicker.removeClass('am-active')
+          this.renderContent = false
         })
     },
     dayClasses (day) {

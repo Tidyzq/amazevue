@@ -25,6 +25,10 @@
     am-date-picker(v-model='date5', format='yyyy年m月d日')
     pre
       | am-date-picker(v-model='date5', format='yyyy年m月d日')
+    h2 Mode
+    am-date-picker(v-model='date6', mode='month', format='yyyy-mm')
+    pre
+      | am-date-picker(v-model='date6', mode='month', format='yyyy-mm')
 </template>
 
 <script>
@@ -40,7 +44,8 @@ export default {
       date2: '',
       date3: '2017-01-01',
       date4: '1970-01-01',
-      date5: '1970年1月1日'
+      date5: '1970年1月1日',
+      date6: '1970-01'
     }
   }
 }

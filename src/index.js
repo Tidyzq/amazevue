@@ -1,18 +1,18 @@
-import $ from './utils/extendHtmlElement'
-import AmButton from './Button'
-import AmCheckbox from './Checkbox'
-import AmCheckboxGroup from './CheckboxGroup'
-import AmCol from './Col'
-import AmDatePicker from './DatePicker'
-import AmInput from './Input'
-import AmOption from './Option'
-import AmOptionGroup from './OptionGroup'
-import AmRadio from './Radio'
-import AmRadioGroup from './RadioGroup'
-import AmRow from './Row'
-import AmSelect from './Select'
+let $ = require('./utils/extendHtmlElement')
+let AmButton = require('./Button')
+let AmCheckbox = require('./Checkbox')
+let AmCheckboxGroup = require('./CheckboxGroup')
+let AmCol = require('./Col')
+let AmDatePicker = require('./DatePicker')
+let AmInput = require('./Input')
+let AmOption = require('./Option')
+let AmOptionGroup = require('./OptionGroup')
+let AmRadio = require('./Radio')
+let AmRadioGroup = require('./RadioGroup')
+let AmRow = require('./Row')
+let AmSelect = require('./Select')
 
-export default {
+const Amazevue = {
   $,
   AmButton,
   AmCheckbox,
@@ -27,3 +27,5 @@ export default {
   AmRow,
   AmSelect
 }
+
+module.exports = Amazevue

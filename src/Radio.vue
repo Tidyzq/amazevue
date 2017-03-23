@@ -70,7 +70,7 @@ export default {
 }
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
 @import './less/variables.less';
 
 .am-radio {
@@ -84,6 +84,10 @@ export default {
   }
   .am-ucheck-radio {
     margin: 0 !important;
+  }
+  .am-ucheck-radio, .am-ucheck-icons {
+    top: auto;
+    bottom: 0;
   }
   &.am-disabled {
     color: @input-bg-disabled;

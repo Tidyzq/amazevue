@@ -171,6 +171,11 @@ export default {
   }
 }
 
+.am-selected-default .am-selected-btn {
+  background: white;
+  border-color: @btn-default-border;
+}
+
 .am-selected-default .am-selected-status-pill {
   color: @btn-default-color;
   background: @btn-default-bg;

@@ -43,19 +43,21 @@ export function parseDate (dateStr, format) {
   date.setMilliseconds(0)
   let formatParts = parseFormat(format)
   for (let part of formatParts) {
-    let val = parseInt(dateStr, 10) || -1
-    switch (part) {
-    case 'yyyy':
-      date.setFullYear(val)
-      break
-    case 'm':
-    case 'mm':
-      date.setMonth(val - 1)
-      break
-    case 'd':
-    case 'dd':
-      date.setDate(val)
-      break
+    let val = parseInt(dateStr.substr(0, part.length), 10)
+    if (!isNaN(val)) {
+      switch (part) {
+      case 'yyyy':
+        date.setFullYear(val)
+        break
+      case 'm':
+      case 'mm':
+        date.setMonth(val - 1)
+        break
+      case 'd':
+      case 'dd':
+        date.setDate(val)
+        break
+      }
     }
     dateStr = dateStr.substr(part.length)
   }
