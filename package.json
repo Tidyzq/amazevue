@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "description": "Vue2.0 components for Amaze UI",
   "author": "Tidyzq <tidyzq@tidyzq.com>",
+  "repository": {
+    "type": "git",
+    "url": "tidyzq/amazevue"
+  },
+  "homepage": "https://tidyzq.github.io/amazevue",
   "main": "dist/amazevue.js",
   "style": "dist/amazevue.css",
   "private": false,
@@ -19,8 +24,15 @@
   },
   "files": [
     "README.md",
+    "License.txt",
     "src",
     "dist"
+  ],
+  "keywords": [
+    "amazeui",
+    "vue-amazeui",
+    "amazeui",
+    "vue"
   ],
   "devDependencies": {
     "autoprefixer": "^6.7.2",
