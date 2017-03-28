@@ -4,14 +4,7 @@
 </template>
 
 <script>
-import AmRow from './Row'
-import AmCol from './Col'
-
 export default {
-  components: {
-    AmRow,
-    AmCol
-  },
   props: {
     form: Object,
     inline: Boolean,
@@ -24,15 +17,17 @@ export default {
       default: 2
     }
   },
+  data () {
+    return {
+      props: {}
+    }
+  },
   created () {
     this._form = true
   },
   computed: {
     formClasses () {
       return `am-form-label-${this.labelPosition}`
-    },
-    contentSpan () {
-      return this.labelPosition === 'top' ? 12 : 12 - this.labelSpan
     }
   },
   methods: {

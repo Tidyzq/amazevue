@@ -12,7 +12,8 @@ import AmCol from './Col'
 
 export default {
   props: {
-    label: String
+    label: String,
+    prop: String
   },
   components: {
     AmRow,
@@ -29,6 +30,14 @@ export default {
       return 12 - this.labelSpan
     }
   },
+  watch: {
+    prop (newVal, oldVal) {
+      if (this._form) {
+        if (oldVal) this.$delete(this._form.props, oldVal)
+        if (newVal) this.$set(this._form.props, newVal, this)
+      }
+    }
+  },
   created () {
     var form = this
     while (form && form._form !== true && form.$parent) {
@@ -41,6 +50,12 @@ export default {
     } else {
       // in form
       this._form = form
+      if (this.prop) this.$set(form.props, this.prop, this)
+    }
+  },
+  beforeDestroy () {
+    if (this._form && this.prop) {
+      this.$delete(this._form.props, this.prop)
     }
   }
 }
