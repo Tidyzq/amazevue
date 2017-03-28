@@ -127,6 +127,36 @@
       | am-select(type='success', v-model='select6', multiple)
       | am-select(type='warning', v-model='select6', multiple)
       | am-select(type='danger', v-model='select6', multiple)
+    h2 Max Hight
+    am-select(v-model='select7', max-height='200px')
+      am-option(value='A', label='A')
+      am-option(value='B', label='B')
+      am-option(value='C', label='C')
+      am-option(value='D', label='D')
+      am-option(value='E', label='E')
+      am-option(value='F', label='F')
+      am-option(value='G', label='G')
+      am-option(value='H', label='H')
+      am-option(value='I', label='I')
+      am-option(value='J', label='J')
+      am-option(value='K', label='K')
+      am-option(value='L', label='L')
+      am-option(value='M', label='M')
+      am-option(value='N', label='N')
+      am-option(value='O', label='O')
+      am-option(value='P', label='P')
+      am-option(value='Q', label='Q')
+      am-option(value='R', label='R')
+      am-option(value='S', label='S')
+      am-option(value='T', label='T')
+      am-option(value='U', label='U')
+      am-option(value='V', label='V')
+      am-option(value='W', label='W')
+      am-option(value='X', label='X')
+      am-option(value='Y', label='Y')
+      am-option(value='Z', label='Z')
+    pre
+      | am-select(v-model='select7', max-height='200px')
 </template>
 
 <script>
@@ -147,7 +177,8 @@ export default {
       select3: ['A'],
       select4: 'A',
       select5: 'A',
-      select6: ['A']
+      select6: ['A'],
+      select7: 'A'
     }
   }
 }

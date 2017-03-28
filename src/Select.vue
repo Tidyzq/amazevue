@@ -8,7 +8,7 @@
           | {{options[val]}}
           a.am-selected-close.am-close-spin(@click='OnClickClose(val, $event)') &times;
       i.am-selected-icon.am-icon-caret-down
-    .am-selected-content.am-dropdown-content(ref='content')
+    .am-selected-content.am-dropdown-content(:style='{"max-height": maxHeight}', ref='content')
       ul.am-selected-list
         slot
 </template>
@@ -27,7 +27,8 @@ export default {
     multiple: {
       type: Boolean,
       default: false
-    }
+    },
+    maxHeight: String
   },
   data () {
     return {
@@ -198,6 +199,11 @@ export default {
   text-shadow: @close-text-shadow;
   opacity: .2;
   transition: all .3s;
+}
+
+.am-selected-content {
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 </style>
