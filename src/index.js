@@ -15,6 +15,7 @@ let AmSelect = require('./Select')
 let AmFileSelect = require('./FileSelect')
 let AmForm = require('./Form')
 let AmFormItem = require('./FormItem')
+let AmPagination = require('./Pagination')
 let AmTable = require('./Table')
 let AmTableColumn = require('./TableColumn')
 
@@ -36,6 +37,7 @@ const Amazevue = {
   AmFileSelect,
   AmForm,
   AmFormItem,
+  AmPagination,
   AmTable,
   AmTableColumn
 }
