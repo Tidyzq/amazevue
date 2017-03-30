@@ -23,12 +23,12 @@ ul.am-pagination(:class='paginationClasses')
         a 1
       li.am-disabled(v-if='omitLeft')
         a ...
-      template(v-for='index in showPages')
+      template(v-for='index in showPages', :key='index')
         li(:class='{"am-active": page === index}', @click='page=index')
           a {{ index }}
       li.am-disabled(v-if='omitRight')
         a ...
-      li(:class='{"am-active": page === pageCount}', @click='page=pageCount')
+      li(v-if='pageCount>1', :class='{"am-active": page === pageCount}', @click='page=pageCount')
         a {{ pageCount }}
 </template>
 
@@ -84,7 +84,7 @@ export default {
       this.size = newVal
     },
     size (newVal) {
-      this.$emit('size-change')
+      this.$emit('size-change', newVal)
     },
     pageCount (newVal) {
       let page = Math.max(1, Math.min(this.page, newVal))
@@ -133,7 +133,7 @@ export default {
     showPages () {
       let start = this.showStart
       let end = this.showEnd
-      let pages = new Array(end - start)
+      let pages = new Array(Math.max(0, end - start))
       for (let i = 0; i < pages.length; ++i) {
         pages[i] = start + i
       }
