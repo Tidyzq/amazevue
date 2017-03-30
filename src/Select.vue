@@ -174,7 +174,7 @@ export default {
 
 .am-selected-default .am-selected-btn {
   background: white;
-  border-color: @btn-default-border;
+  border-color: @input-group-label-border-color;
 }
 
 .am-selected-default .am-selected-status-pill {

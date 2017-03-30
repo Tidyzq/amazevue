@@ -87,53 +87,53 @@ export default {
   width: 100%;
   position: relative;
   display: inline-block;
-  .am-input-multiple-btn {
-    cursor: text;
-    background: white;
-    width: 100%;
-    padding-left: 10px;
-    text-align: right;
-  }
-  .am-input-multiple-status {
-    width: auto;
-    white-space: normal;
-    text-align: left;
-    display: block;
-    word-wrap: normal;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-  .am-input-multiple-status-pill {
-    cursor: auto;
-    display: inline-block;
-    line-height: @input-multiple-status-pill-fontsize;
-    font-size: @input-multiple-status-pill-fontsize;
-    padding-left: @input-multiple-status-pill-spacing;
-    border-radius: 0;
-    margin-right: @input-multiple-status-pill-spacing;
-    border: 1px solid @btn-default-border;
-  }
-  .am-input-multiple-close {
-    display: inline-block;
-    text-align: center;
-    width: 19px;
-    font-size: 16px;
-    font-weight: bold;
-    color: @close-color;
-    text-shadow: @close-text-shadow;
-    opacity: .2;
-    transition: all .3s;
-  }
-  .am-input-multiple-input {
-    height: 19px;
-    display: block;
-    line-height: @input-multiple-status-pill-fontsize;
-    font-size: @input-multiple-status-pill-fontsize;
-    border: none;
-    outline: 0;
-    box-shadow: none;
-    width: 1em;
-  }
+}
+.am-input-multiple-btn {
+  cursor: text;
+  background: white;
+  width: 100%;
+  padding-left: 10px;
+  text-align: right;
+}
+.am-input-multiple-status {
+  width: auto;
+  white-space: normal;
+  text-align: left;
+  display: block;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.am-input-multiple-status-pill {
+  cursor: auto;
+  display: inline-block;
+  line-height: @input-multiple-status-pill-fontsize;
+  font-size: @input-multiple-status-pill-fontsize;
+  padding-left: @input-multiple-status-pill-spacing;
+  border-radius: 0;
+  margin-right: @input-multiple-status-pill-spacing;
+  border: 1px solid @btn-default-border;
+}
+.am-input-multiple-close {
+  display: inline-block;
+  text-align: center;
+  width: 19px;
+  font-size: 16px;
+  font-weight: bold;
+  color: @close-color;
+  text-shadow: @close-text-shadow;
+  opacity: .2;
+  transition: all .3s;
+}
+.am-input-multiple-input {
+  height: 19px;
+  display: block;
+  line-height: @input-multiple-status-pill-fontsize;
+  font-size: @input-multiple-status-pill-fontsize;
+  border: none;
+  outline: 0;
+  box-shadow: none;
+  width: 1rem;
 }
 
 .input-multiple-variant(@type, @color, @bg-color, @border-color) {
@@ -149,7 +149,7 @@ export default {
 
 .am-input-multiple-default .am-input-multiple-btn {
   background: white;
-  border-color: @btn-default-border;
+  border-color: @input-group-label-border-color;
 }
 
 .am-input-multiple-default .am-input-multiple-status-pill {

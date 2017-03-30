@@ -12,6 +12,7 @@ import Select from 'doc/views/Select'
 import DatePicker from 'doc/views/DatePicker'
 import FileSelect from 'doc/views/FileSelect'
 import Form from 'doc/views/Form'
+import Pagination from 'doc/views/Pagination'
 
 Vue.use(Router)
 
@@ -63,6 +64,10 @@ export default new Router({
       path: '/form',
       name: 'Form',
       component: Form
+    }, {
+      path: '/pagination',
+      name: 'Pagination',
+      component: Pagination
     },
     { path: '*', redirect: '/' }
   ]

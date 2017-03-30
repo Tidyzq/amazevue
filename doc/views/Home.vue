@@ -11,6 +11,7 @@
       li: router-link(to='/date-picker') DatePicker
       li: router-link(to='/file-select') FileSelect
       li: router-link(to='/form') Form
+      li: router-link(to='/pagination') Pagination
 </template>
 
 <script>
