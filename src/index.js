@@ -15,6 +15,8 @@ let AmSelect = require('./Select')
 let AmFileSelect = require('./FileSelect')
 let AmForm = require('./Form')
 let AmFormItem = require('./FormItem')
+let AmTable = require('./Table')
+let AmTableColumn = require('./TableColumn')
 
 const Amazevue = {
   $,
@@ -33,7 +35,9 @@ const Amazevue = {
   AmSelect,
   AmFileSelect,
   AmForm,
-  AmFormItem
+  AmFormItem,
+  AmTable,
+  AmTableColumn
 }
 
 module.exports = Amazevue

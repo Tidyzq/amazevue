@@ -14,15 +14,15 @@
       | pagination(placement='left', :total='70')
       | pagination(placement='right', :total='70')
     h2 Layout
-    pagination(:total='1000', :layout='["total", "pager"]')
-    pagination(:total='1000', :layout='["sizes", "pager"]')
-    pagination(:total='1000', :layout='["pager", "jumper"]')
-    pagination(:total='1000', :layout='["total", "sizes", "pager", "jumper"]')
+    pagination(:total='1000', :layout='["total", "prev", "pager", "next"]')
+    pagination(:total='1000', :layout='["sizes", "prev", "pager", "next"]')
+    pagination(:total='1000', :layout='["prev", "pager", "next", "jumper"]')
+    pagination(:total='1000', :layout='["total", "sizes", "prev", "pager", "next", "jumper"]')
     pre
-      | pagination(:total='1000', :layout='["total", "pager"]')
-      | pagination(:total='1000', :layout='["sizes", "pager"]')
-      | pagination(:total='1000', :layout='["pager", "jumper"]')
-      | pagination(:total='1000', :layout='["total", "sizes", "pager", "jumper"]')
+      | pagination(:total='1000', :layout='["total", "prev", "pager", "next"]')
+      | pagination(:total='1000', :layout='["sizes", "prev", "pager", "next"]')
+      | pagination(:total='1000', :layout='["prev", "pager", "next", "jumper"]')
+      | pagination(:total='1000', :layout='["total", "sizes", "prev", "pager", "next", "jumper"]')
 </template>
 
 <script>
@@ -31,11 +31,6 @@ import Pagination from 'src/Pagination'
 export default {
   components: {
     Pagination
-  },
-  methods: {
-    Change () {
-      console.log('change')
-    }
   }
 }
 

@@ -12,6 +12,7 @@
       li: router-link(to='/file-select') FileSelect
       li: router-link(to='/form') Form
       li: router-link(to='/pagination') Pagination
+      li: router-link(to='/table') Table
 </template>
 
 <script>

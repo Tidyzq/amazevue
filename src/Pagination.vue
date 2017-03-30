@@ -12,11 +12,13 @@ ul.am-pagination(:class='paginationClasses')
         | 前往
         am-input.am-pagination-jumper-input(v-model.number='inputPage')
         | 页
-    template(v-else-if='component === "pager"')
-      li(:class='{"am-disabled": !decreaseable}', @click='page=1')
-        a &laquo;
+    template(v-else-if='component === "prev"')
       li(:class='{"am-disabled": !decreaseable}', @click='page-=1')
         a &lsaquo;
+    template(v-else-if='component === "next"')
+      li(:class='{"am-disabled": !increaseable}', @click='page+=1')
+        a &rsaquo;
+    template(v-else-if='component === "pager"')
       li(:class='{"am-active": page === 1}', @click='page=1')
         a 1
       li.am-disabled(v-if='omitLeft')
@@ -28,10 +30,6 @@ ul.am-pagination(:class='paginationClasses')
         a ...
       li(:class='{"am-active": page === pageCount}', @click='page=pageCount')
         a {{ pageCount }}
-      li(:class='{"am-disabled": !increaseable}', @click='page+=1')
-        a &rsaquo;
-      li(:class='{"am-disabled": !increaseable}', @click='page=pageCount')
-        a &raquo;
 </template>
 
 <script>
@@ -70,7 +68,7 @@ export default {
     layout: {
       type: Array,
       default () {
-        return ['pager']
+        return ['prev', 'pager', 'next']
       }
     }
   },
@@ -122,7 +120,7 @@ export default {
       return this.showStart > 2
     },
     omitRight () {
-      return this.showEnd < this.pageCount - 1
+      return this.showEnd < this.pageCount
     },
     showStart () {
       let start = Math.ceil(this.page - (this.keep / 2))
@@ -133,18 +131,17 @@ export default {
       return Math.min(end, this.pageCount)
     },
     showPages () {
-      let pages = []
       let start = this.showStart
       let end = this.showEnd
-      for (let i = start; i < end; ++i) {
-        pages.push(i)
+      let pages = new Array(end - start)
+      for (let i = 0; i < pages.length; ++i) {
+        pages[i] = start + i
       }
       return pages
     }
   },
   methods: {
     OnInputPage () {
-      console.log('enter')
       let page = Math.max(1, Math.min(this.pageCount, this.inputPage))
       this.page = page
     }
@@ -158,7 +155,7 @@ export default {
 
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
 @import './less/variables.less';
 
 .am-pagination {
@@ -183,10 +180,6 @@ export default {
   text-decoration: none;
   line-height: 1.2;
   border: 1px solid #ddd;
-  & > .am-selected-btn {
-    border: none;
-    vertical-align: initial;
-  }
 }
 
 .am-pagination-jumper-input {
@@ -196,4 +189,11 @@ export default {
   width: 4rem;
 }
 
+</style>
+
+<style lang='less'>
+.am-pagination-sizes-select > .am-selected-btn {
+  border: none;
+  vertical-align: initial;
+}
 </style>
