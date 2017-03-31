@@ -11,10 +11,8 @@ export default {
       default: '0'
     }
   },
-  data () {
-    return {
-
-    }
+  created () {
+    this._row = true
   },
   computed: {
     classes () {

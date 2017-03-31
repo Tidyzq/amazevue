@@ -1,7 +1,7 @@
 <template lang='jade'>
   .am-selected.am-dropdown(ref='selected', :class='selectedClasses')
     button.am-selected-btn.am-btn.am-dropdown-toggle.am-btn-default(ref='toggle', type='button', @click='OnClickToggle')
-      span.am-selected-placeholder.am-fl(v-if='!options.hasOwnProperty(value)') {{placeholder}}
+      span.am-selected-placeholder.am-fl(v-if='showPlaceholder') {{placeholder}}
       span.am-selected-status.am-fl(v-else)
         span(v-if='!multiple') {{options[value]}}
         span.am-selected-status-pill(v-else-if='showStatusPill', v-for='val in value')
@@ -64,6 +64,9 @@ export default {
     },
     showStatusPill () {
       return Array.isArray(this.value)
+    },
+    showPlaceholder () {
+      return (!Array.isArray(this.value) || !this.value.some(v => this.options.hasOwnProperty(v))) && !this.options.hasOwnProperty(this.value)
     }
   },
   methods: {

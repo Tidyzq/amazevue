@@ -1,9 +1,12 @@
 <template lang='jade'>
   form.am-form(:class='formClasses', @submit.prevent='OnSubmit')
-    slot
+    am-row(:gutter='gutter')
+      slot
 </template>
 
 <script>
+import AmRow from './Row'
+
 export default {
   props: {
     form: Object,
@@ -15,7 +18,11 @@ export default {
     labelSpan: {
       type: Number,
       default: 2
-    }
+    },
+    gutter: String
+  },
+  components: {
+    AmRow
   },
   data () {
     return {

@@ -1,9 +1,10 @@
 <template lang='jade'>
-  am-row.am-form-item
-    am-col(:span='labelSpan')
-      label.am-form-item-label {{label}}
-    am-col(:span='contentSpan')
-      slot
+  am-col(:span='span', :offset='offset')
+    am-row.am-form-item
+      am-col(:span='labelSpan')
+        label.am-form-item-label {{label}}
+      am-col(:span='contentSpan')
+        slot
 </template>
 
 <script>
@@ -13,7 +14,9 @@ import AmCol from './Col'
 export default {
   props: {
     label: String,
-    prop: String
+    prop: String,
+    span: [Number, Object],
+    offset: [Number, Object]
   },
   components: {
     AmRow,

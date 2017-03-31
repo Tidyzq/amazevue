@@ -117,7 +117,7 @@ export default {
 @import './less/variables.less';
 
 .am-table-sort {
-  color: @gray-lighter;
+  color: lighten(@gray-light, 10%);
   padding-left: @global-spacing-xs;
 }
 

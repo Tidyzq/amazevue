@@ -1,5 +1,5 @@
 <template lang='jade'>
-  div(:class='classes')
+  .am-lf(:class='classes')
     slot
 </template>
 
@@ -7,37 +7,51 @@
 export default {
   props: {
     span: {
-      type: Number,
+      type: [Number, Object],
       default: 12
     },
-    offset: Number,
-    sm: [Number, Object],
-    md: [Number, Object],
-    lg: [Number, Object]
+    offset: {
+      type: [Number, Object],
+      default: 0
+    }
+  },
+  data () {
+    return {
+      _row: null
+    }
+  },
+  created () {
+    let row = this
+    while (row && row._row !== true && row.$parent) {
+      row = row.$parent
+    }
+    if (row._row) {
+      this._row = row
+    }
   },
   computed: {
+    spanObj () {
+      return typeof this.span === 'object' ? this.span : { sm: this.span }
+    },
+    offsetObj () {
+      return typeof this.offset === 'object' ? this.offset : { sm: this.offset }
+    },
+    gutter () {
+      return this._row ? this._row.gutter : '0'
+    },
     classes () {
-      let classes = ['am-lf']
-      let setup = {}
-      let gutter = this.$parent.gutter || '0'
+      let classes = []
+      let sizes = ['sm', 'md', 'lg']
+      let span = this.spanObj
+      let offset = this.offsetObj
+      sizes.forEach(size => {
+        if (span[size]) classes.push(`am-u-${size}-${span[size]}`)
+        if (offset[size]) classes.push(`am-u-${size}-offset-${offset[size]}`)
+      })
+      let gutter = this.gutter
       if (gutter) {
         classes.push(`am-padding-horizontal-${gutter}`)
       }
-      (['sm', 'md', 'lg']).forEach(size => {
-        if (typeof this[size] === 'number') {
-          setup[size] = {span: this[size]}
-        } else if (typeof this[size] === 'object') {
-          setup[size] = this[size]
-        }
-      })
-      if (!setup.sm) setup.sm = { span: this.span, offset: this.offset }
-      Object.keys(setup).forEach(size => {
-        let s = setup[size]
-        if (s) {
-          if (s.span) classes.push(`am-u-${size}-${s.span}`)
-          if (s.offset) classes.push(`am-u-${size}-offset-${s.offset}`)
-        }
-      })
       return classes
     }
   }

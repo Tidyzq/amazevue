@@ -71,6 +71,34 @@
       | am-form(:label-span='1')
       |   am-form-item(label='Label1')
       |     am-input(placeholder='Input1', v-model='form3.input')
+    h2 Item Span
+    am-form(label-position='top', gutter='sm')
+      am-form-item(label='Label1', :span='3')
+        am-input(placeholder='Input1', v-model='form2.input')
+      am-form-item(label='Label2', :span='3')
+        am-select(placeholder='Select2', v-model='form2.select')
+          am-option(value='1', label='1')
+          am-option(value='2', label='2')
+      am-form-item(label='Label3', :span='3')
+        am-radio-group(v-model='form2.radio')
+          am-radio(:label='true') true
+          am-radio(:label='false') false
+      am-form-item(:span='3')
+        am-button(type='primary') Submit
+    pre
+      | am-form(label-position='top', gutter='sm')
+      |   am-form-item(label='Label1', :span='3')
+      |     am-input(placeholder='Input1', v-model='form2.input')
+      |   am-form-item(label='Label2', :span='3')
+      |     am-select(placeholder='Select2', v-model='form2.select')
+      |       am-option(value='1', label='1')
+      |       am-option(value='2', label='2')
+      |   am-form-item(label='Label3', :span='3')
+      |     am-radio-group(v-model='form2.radio')
+      |       am-radio(:label='true') true
+      |       am-radio(:label='false') false
+      |   am-form-item(:span='3')
+      |     am-button(type='primary') Submit
 </template>
 
 <script>

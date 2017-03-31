@@ -77,10 +77,10 @@
       |   am-col(:span='6', :offset='3'): .grid-content.bg-purple
     h3 Reactive
     am-row.am-margin-bottom-sm(gutter='sm')
-      am-col(:sm='3', :md='2', :lg='1'): .grid-content.bg-purple
-      am-col(:sm='3', :md='4', :lg='5'): .grid-content.bg-purple
-      am-col(:sm='3', :md='4', :lg='5'): .grid-content.bg-purple
-      am-col(:sm='3', :md='2', :lg='1'): .grid-content.bg-purple
+      am-col(:span='{"sm":3,"md":2,"lg":1}'): .grid-content.bg-purple
+      am-col(:span='{"sm":3,"md":4,"lg":5}'): .grid-content.bg-purple
+      am-col(:span='{"sm":3,"md":4,"lg":5}'): .grid-content.bg-purple
+      am-col(:span='{"sm":3,"md":2,"lg":1}'): .grid-content.bg-purple
     pre
       | am-row.am-margin-bottom-sm(gutter='sm')
       |   am-col(:sm='3', :md='2', :lg='1'): .grid-content.bg-purple
