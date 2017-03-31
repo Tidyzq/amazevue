@@ -18,6 +18,10 @@ export default {
       default () {
         return []
       }
+    },
+    noWrap: {
+      type: String,
+      default: 'none'
     }
   },
   data () {
@@ -35,8 +39,13 @@ export default {
     this._table = true
   },
   watch: {
+    data (newVal) {
+      this.select = this.select.filter(row => {
+        return newVal.some(item => item === row)
+      })
+    },
     selection (newVal) {
-      this.$set(this, 'select', newVal)
+      this.select = newVal
     },
     select (newVal) {
       this.$emit('selectionChange', newVal)
@@ -49,18 +58,28 @@ export default {
     let colgroup = h('colgroup', {}, this.$slots.default)
     let header = h(
       'thead',
-      {},
-      [h(
-        'tr',
-        {},
-        this.columns.map(column => {
-          return column.renderHeader(h)
-        })
-      )]
+      {
+        class: {
+          'am-text-nowrap': this.noWrap === 'header'
+        }
+      },
+      [
+        h(
+          'tr',
+          {},
+          this.columns.map(column => {
+            return column.renderHeader(h)
+          })
+        )
+      ]
     )
     let body = h(
       'tbody',
-      {},
+      {
+        class: {
+          'am-text-nowrap': this.noWrap === 'body'
+        }
+      },
       this.data.map((row, index) => {
         return h(
           'tr',
@@ -79,7 +98,8 @@ export default {
         'am-table-bordered': this.border,
         'am-table-striped': this.stripe,
         'am-table-hover': this.hover,
-        'am-table-compact': this.compact
+        'am-table-compact': this.compact,
+        'am-text-nowrap': this.noWrap === 'all'
       }
     }, [
       colgroup,

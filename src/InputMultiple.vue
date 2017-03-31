@@ -125,14 +125,15 @@ export default {
   opacity: .2;
   transition: all .3s;
 }
-.am-input-multiple-input {
+.am-input-multiple .am-input-multiple-input {
+  padding: 0;
   height: 19px;
   display: block;
   line-height: @input-multiple-status-pill-fontsize;
   font-size: @input-multiple-status-pill-fontsize;
   border: none;
   outline: 0;
-  box-shadow: none;
+  box-shadow: none !important;
   width: 1rem;
 }
 

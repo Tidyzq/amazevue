@@ -9,7 +9,8 @@ export default {
     label: String,
     select: Boolean,
     sortable: Boolean,
-    width: String
+    width: String,
+    noWrap: Boolean
   },
   data () {
     return {
@@ -73,6 +74,7 @@ export default {
   },
   methods: {
     renderHeader (h) {
+      let children = []
       if (this.select) {
         let checkbox = h('am-checkbox', {
           domProps: {
@@ -84,15 +86,9 @@ export default {
             }
           }
         })
-        return h('th', {
-          style: {
-            width: this.width
-          }
-        }, [
-          checkbox
-        ])
+        children = [checkbox]
       } else {
-        let children = [this.label]
+        children = [this.label]
         if (this.sortable) {
           children.push(h('span', {
             staticClass: 'am-table-sort'
@@ -121,14 +117,18 @@ export default {
             })
           ]))
         }
-        return h('th', {
-          style: {
-            width: this.width
-          }
-        }, children)
       }
+      return h('th', {
+        class: {
+          'am-text-nowrap': this.noWrap
+        },
+        style: {
+          width: this.width
+        }
+      }, children)
     },
     renderBody (h, rowData) {
+      let children = []
       if (this.select) {
         let checkbox = h('am-checkbox', {
           domProps: {
@@ -143,14 +143,17 @@ export default {
             label: rowData
           }
         })
-        return h('td', {}, [
-          checkbox
-        ])
-      } else if (this.prop) {
-        return h('td', {}, rowData[this.prop])
+        children = [checkbox]
+      } else if (this.$scopedSlots.default) {
+        children = this.$scopedSlots.default(rowData)
       } else {
-        return h('td', {}, this.$scopedSlots.default(rowData))
+        children = rowData[this.prop]
       }
+      return h('td', {
+        class: {
+          'am-text-nowrap': this.noWrap
+        }
+      }, children)
     }
   }
 }

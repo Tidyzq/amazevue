@@ -10,6 +10,8 @@
           am-option(value='1', label='1')
           am-option(value='2', label='2')
       am-form-item(label='Label3')
+        am-input-multiple(placeholder='InputMultiple1', v-model='form1.inputMultiple')
+      am-form-item(label='Label4')
         am-radio-group(v-model='form1.radio')
           am-radio(:label='true') true
           am-radio(:label='false') false
@@ -75,6 +77,7 @@
 import AmForm from 'src/Form'
 import AmFormItem from 'src/FormItem'
 import AmInput from 'src/Input'
+import AmInputMultiple from 'src/InputMultiple'
 import AmButton from 'src/Button'
 import AmSelect from 'src/Select'
 import AmOption from 'src/Option'
@@ -86,6 +89,7 @@ export default {
     AmForm,
     AmFormItem,
     AmInput,
+    AmInputMultiple,
     AmButton,
     AmSelect,
     AmOption,
@@ -97,6 +101,7 @@ export default {
       form1: {
         input: '',
         select: '',
+        inputMultiple: [],
         radio: true
       },
       form2: {

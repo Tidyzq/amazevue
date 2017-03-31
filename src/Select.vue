@@ -1,7 +1,7 @@
 <template lang='jade'>
   .am-selected.am-dropdown(ref='selected', :class='selectedClasses')
     button.am-selected-btn.am-btn.am-dropdown-toggle.am-btn-default(ref='toggle', type='button', @click='OnClickToggle')
-      span.am-selected-placeholder.am-fl(v-if='!value') {{placeholder}}
+      span.am-selected-placeholder.am-fl(v-if='!options.hasOwnProperty(value)') {{placeholder}}
       span.am-selected-status.am-fl(v-else)
         span(v-if='!multiple') {{options[value]}}
         span.am-selected-status-pill(v-else-if='showStatusPill', v-for='val in value')
@@ -78,7 +78,7 @@ export default {
       }
       window.addEventListener('resize', this._windowResize)
       this._bodyClick = e => {
-        if (!content.element.contains(e.target) && e.target !== content.element && this._active) {
+        if ((!this.multiple || (!content.element.contains(e.target) && e.target !== content.element)) && this._active) {
           this.show = false
           body.off('click', this._bodyClick)
           content.off('transitionend animationend')
