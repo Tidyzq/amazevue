@@ -11,7 +11,7 @@
 export default {
   props: {
     value: [Boolean, Array],
-    label: [String, Number],
+    label: [String, Number, Object],
     name: String,
     disabled: {
       type: Boolean,

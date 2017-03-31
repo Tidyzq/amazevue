@@ -23,8 +23,8 @@ ul.am-pagination(:class='paginationClasses')
         a 1
       li.am-disabled(v-if='omitLeft')
         a ...
-      template(v-for='index in showPages', :key='index')
-        li(:class='{"am-active": page === index}', @click='page=index')
+      template(v-for='index in showPages')
+        li(:class='{"am-active": page === index}', @click='page=index', :key='index')
           a {{ index }}
       li.am-disabled(v-if='omitRight')
         a ...

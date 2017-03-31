@@ -37,6 +37,7 @@
       |   am-table-column(prop='value', label='Value')
     h2 Sort
     am-table(:data='table2', hover, compact, @sortChange='SortChange')
+      am-table-column(select, width='10px')
       am-table-column(prop='label', label='Label', sortable)
       am-table-column(prop='value', label='Value', sortable)
     pre

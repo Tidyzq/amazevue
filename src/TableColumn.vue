@@ -56,7 +56,7 @@ export default {
         return this.selected.length === this._table.data.length
       },
       set (newVal) {
-        this.$set(this._table, 'select', newVal ? Object.keys(this._table.data) : [])
+        this.$set(this._table, 'select', newVal ? this._table.data.slice() : [])
       }
     },
     sort: {
@@ -128,7 +128,7 @@ export default {
         }, children)
       }
     },
-    renderBody (h, rowData, rowIndex) {
+    renderBody (h, rowData) {
       if (this.select) {
         let checkbox = h('am-checkbox', {
           domProps: {
@@ -140,7 +140,7 @@ export default {
             }
           },
           props: {
-            label: rowIndex.toString()
+            label: rowData
           }
         })
         return h('td', {}, [
