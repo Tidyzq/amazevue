@@ -12,13 +12,19 @@ export default {
     border: Boolean,
     stripe: Boolean,
     hover: Boolean,
-    compact: Boolean
+    compact: Boolean,
+    selection: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
   },
   data () {
     return {
       columns: [],
       props: {},
-      select: [],
+      select: this.selection,
       sort: {
         prop: '',
         order: ''
@@ -29,8 +35,11 @@ export default {
     this._table = true
   },
   watch: {
-    select () {
-      this.$emit('selectionChange')
+    selection (newVal) {
+      this.$set(this, 'select', newVal)
+    },
+    select (newVal) {
+      this.$emit('selectionChange', newVal)
     },
     sort (newVal) {
       this.$emit('sortChange', newVal)
