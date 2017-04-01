@@ -1,20 +1,26 @@
 <template lang='jade'>
   .am-selected.am-dropdown(ref='selected', :class='selectedClasses')
-    button.am-selected-btn.am-btn.am-dropdown-toggle.am-btn-default(ref='toggle', type='button', @click='OnClickToggle')
-      span.am-selected-placeholder.am-fl(v-if='showPlaceholder') {{placeholder}}
+    am-button.am-selected-btn.am-dropdown-toggle(:active='show', @click='OnClickToggle')
+      span.am-selected-placeholder.am-fl(v-if='showPlaceholder') {{ placeholder }}
       span.am-selected-status.am-fl(v-else)
-        span(v-if='!multiple') {{options[value]}}
+        span(v-if='!multiple') {{ options[value] }}
         span.am-selected-status-pill(v-else-if='showStatusPill', v-for='val in value')
-          | {{options[val]}}
-          a.am-selected-close.am-close-spin(@click='OnClickClose(val, $event)') &times;
+          | {{ options[val] }}
+          a.am-selected-close.am-close-spin(ref='pillCloseBtns') &times;
       i.am-selected-icon.am-icon-caret-down
-    .am-selected-content.am-dropdown-content(:style='{"max-height": maxHeight}', ref='content')
-      ul.am-selected-list
-        slot
+    transition(
+      name='am-select-transition',
+      enter-active-class='am-animation-slide-top-fixed',
+      leave-active-class='am-dropdown-animation',
+      @after-enter='AfterOpen',
+      @before-leave='BeforeClose')
+      .am-selected-content.am-dropdown-content(ref='content', v-show='show')
+        ul.am-selected-list(:style='listStyle')
+          slot
 </template>
 
 <script>
-import $ from './utils/extendHtmlElement'
+import AmButton from './Button'
 
 export default {
   props: {
@@ -28,21 +34,26 @@ export default {
       type: Boolean,
       default: false
     },
-    maxHeight: String
+    maxHeight: {
+      type: String,
+      default: '40rem'
+    }
+  },
+  components: {
+    AmButton
   },
   data () {
     return {
       show: false,
+      active: false,
       options: {}
     }
   },
   watch: {
     show (newVal) {
       if (newVal) {
-        this.open()
         this.$emit('open')
       } else {
-        this.close()
         this.$emit('close')
       }
     }
@@ -52,15 +63,34 @@ export default {
     this.$on('select', this.OnSelect)
   },
   mounted () {
-    this._selected = new $(this.$refs.selected)
-    this._content = new $(this.$refs.content)
-    this._body = new $(document)
+    this._documentListener = e => {
+      let content = this.$refs.content
+      if (this.active && content && (!this.multiple || (!content.contains(e.target) && e.target !== content))) {
+        this.show = false
+      }
+    }
+    document.addEventListener('click', this._documentListener)
+  },
+  beforeDestroy () {
+    document.removeEventListener('click', this._documentListener)
   },
   computed: {
     selectedClasses () {
-      let classes = [`am-selected-${this.type}`]
-      classes.push(this.multiple ? 'am-selected-multiple' : 'am-selected-single')
-      return classes
+      return {
+        ['am-selected-' + this.type]: true,
+        'am-selected-multiple': this.multiple,
+        'am-selected-single': !this.multiple
+      }
+    },
+    toggleClasses () {
+      return {
+        'am-active': this.show
+      }
+    },
+    listStyle () {
+      return {
+        'max-height': this.maxHeight
+      }
     },
     showStatusPill () {
       return Array.isArray(this.value)
@@ -70,43 +100,11 @@ export default {
     }
   },
   methods: {
-    open () {
-      let selected = this._selected
-      let content = this._content
-      let body = this._body
-      selected.addClass('am-active')
-      content.addClass('am-animation-slide-top-fixed').css('min-width', selected.element.clientWidth + 'px')
-      this._windowResize = () => {
-        content.css('min-width', selected.element.clientWidth + 'px')
-      }
-      window.addEventListener('resize', this._windowResize)
-      this._bodyClick = e => {
-        if ((!this.multiple || (!content.element.contains(e.target) && e.target !== content.element)) && this._active) {
-          this.show = false
-          body.off('click', this._bodyClick)
-          content.off('transitionend animationend')
-        }
-      }
-      body.on('click', this._bodyClick)
-      content.on('transitionend animationend', () => {
-        content.off('transitionend animationend')
-          .removeClass('am-animation-slide-top-fixed')
-        this._active = true
-      })
+    AfterOpen () {
+      this.active = true
     },
-    close () {
-      let selected = this._selected
-      let content = this._content
-      let body = this._body
-      this._active = false
-      body.off('click', this._bodyClick)
-      window.removeEventListener('resize', this._windowResize)
-      content.addClass('am-dropdown-animation')
-        .on('transitionend animationend', () => {
-          content.off('transitionend animationend')
-            .removeClass('am-dropdown-animation')
-          selected.removeClass('am-active')
-        })
+    BeforeClose () {
+      this.active = false
     },
     OnSelect (val) {
       if (this.multiple) {
@@ -123,10 +121,14 @@ export default {
       }
     },
     OnClickToggle (e) {
-      let target = new $(e.target)
-      if (!target.hasClass('am-selected-close')) {
-        this.show = !this.show
+      if (this.$refs.pillCloseBtns) {
+        let index = this.$refs.pillCloseBtns.indexOf(e.target)
+        if (index !== -1) {
+          this.OnClickClose(this.value[index])
+          return
+        }
       }
+      this.show = !this.show
     },
     OnClickClose (val) {
       this.$emit('select', val)
@@ -205,6 +207,11 @@ export default {
 }
 
 .am-selected-content {
+  width: 100%;
+  display: block;
+}
+
+.am-selected-list {
   overflow-x: hidden;
   overflow-y: scroll;
 }
