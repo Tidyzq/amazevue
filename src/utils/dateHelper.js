@@ -72,3 +72,21 @@ export function getDaysInMonth (year, month) {
   let monthDays = [31, (isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
   return monthDays[month]
 }
+
+export function beforeMonth (date, month) {
+  return (date.getFullYear() < month.getFullYear()) ||
+    (date.getFullYear() === month.getFullYear() && date.getMonth() < month.getMonth())
+}
+
+export function afterMonth (date, month) {
+  return (date.getFullYear() > month.getFullYear()) ||
+    (date.getFullYear() === month.getFullYear() && date.getMonth() > month.getMonth())
+}
+
+export function beforeYear (date, year) {
+  return date.getFullYear() < year.getFullYear()
+}
+
+export function afterYear (date, year) {
+  return date.getFullYear() > year.getFullYear()
+}
