@@ -14,6 +14,7 @@ import FileSelect from 'doc/views/FileSelect'
 import Form from 'doc/views/Form'
 import Pagination from 'doc/views/Pagination'
 import Table from 'doc/views/Table'
+import Modal from 'doc/views/Modal'
 
 Vue.use(Router)
 
@@ -73,6 +74,10 @@ export default new Router({
       path: '/table',
       name: 'Table',
       component: Table
+    }, {
+      path: '/modal',
+      name: 'Modal',
+      component: Modal
     },
     { path: '*', redirect: '/' }
   ]

@@ -1,4 +1,3 @@
-let $ = require('./utils/extendHtmlElement')
 let AmButton = require('./Button')
 let AmCheckbox = require('./Checkbox')
 let AmCheckboxGroup = require('./CheckboxGroup')
@@ -18,9 +17,9 @@ let AmFormItem = require('./FormItem')
 let AmPagination = require('./Pagination')
 let AmTable = require('./Table')
 let AmTableColumn = require('./TableColumn')
+let AmModal = require('./Modal')
 
 const Amazevue = {
-  $,
   AmButton,
   AmCheckbox,
   AmCheckboxGroup,
@@ -39,7 +38,8 @@ const Amazevue = {
   AmFormItem,
   AmPagination,
   AmTable,
-  AmTableColumn
+  AmTableColumn,
+  AmModal
 }
 
 module.exports = Amazevue

@@ -13,6 +13,7 @@
       li: router-link(to='/form') Form
       li: router-link(to='/pagination') Pagination
       li: router-link(to='/table') Table
+      li: router-link(to='/modal') Modal
 </template>
 
 <script>
