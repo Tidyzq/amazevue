@@ -15,6 +15,7 @@ import Form from 'doc/views/Form'
 import Pagination from 'doc/views/Pagination'
 import Table from 'doc/views/Table'
 import Modal from 'doc/views/Modal'
+import Tab from 'doc/views/Tab'
 
 Vue.use(Router)
 
@@ -78,6 +79,10 @@ export default new Router({
       path: '/modal',
       name: 'Modal',
       component: Modal
+    }, {
+      path: '/tab',
+      name: 'Tab',
+      component: Tab
     },
     { path: '*', redirect: '/' }
   ]

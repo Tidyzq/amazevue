@@ -18,6 +18,8 @@ let AmPagination = require('./Pagination')
 let AmTable = require('./Table')
 let AmTableColumn = require('./TableColumn')
 let AmModal = require('./Modal')
+let AmTabSet = require('./TabSet')
+let AmTab = require('./Tab')
 
 const Amazevue = {
   AmButton,
@@ -39,7 +41,9 @@ const Amazevue = {
   AmPagination,
   AmTable,
   AmTableColumn,
-  AmModal
+  AmModal,
+  AmTabSet,
+  AmTab
 }
 
 module.exports = Amazevue

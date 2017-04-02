@@ -14,6 +14,7 @@
       li: router-link(to='/pagination') Pagination
       li: router-link(to='/table') Table
       li: router-link(to='/modal') Modal
+      li: router-link(to='/tab') Tab
 </template>
 
 <script>
