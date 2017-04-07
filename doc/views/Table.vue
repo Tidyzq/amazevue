@@ -26,8 +26,9 @@
       |   am-table-column(prop='label', label='Label')
       |   am-table-column(prop='value', label='Value')
     h2 Select
+    am-button(@click='select1=!select1') Select
     am-table(:data='table1', hover, compact)
-      am-table-column(select, width='10px')
+      am-table-column(prop='label', label='Label', :select='select1', width='10px')
       am-table-column(prop='label', label='Label')
       am-table-column(prop='value', label='Value')
     pre
@@ -45,13 +46,15 @@
       |   am-table-column(prop='label', label='Label', sortable)
       |   am-table-column(prop='value', label='Value', sortable)
     h2 Template
+    am-button(@click='change1+=1') Change
     am-table(:data='table1', hover, compact)
       am-table-column(prop='label', label='Label')
       am-table-column(prop='value', label='Value')
+        template(scope='row') {{ row.value + change1 }}
       am-table-column(label='Operation', width='200px')
         template(scope='row')
-          am-button(size='xs', icon='eye', @click='Check(row)') Check
-          am-button(type='danger', size='xs', icon='trash', @click='Delete(row)') Delete
+          am-button(size='xs', icon='eye', @click='Check(row)')  Check
+          am-button(type='danger', size='xs', icon='trash', @click='Delete(row)')  Delete
 </template>
 
 <script>
@@ -74,6 +77,8 @@ export default {
   },
   data () {
     return {
+      select1: false,
+      change1: 0,
       table1: [
         {
           label: 'A',

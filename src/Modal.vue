@@ -2,7 +2,7 @@
 .modal-wrapper
   transition(
     name='am-modal-transition',
-    @before-enter='handleBeforeOpen',
+    @after-enter='handleAfterOpen',
     @before-leave='handleBeforeClose',
     leave-active-class='am-modal-out')
       .am-modal.am-modal-no-btntab(v-show='show', ref='modal', :class='{"am-modal-active": active}', tabindex='-1', :style='{"z-index": 1010 + 20 * zIndex}', @click='handleDimmerClick')
@@ -51,7 +51,7 @@ export default {
     }
   },
   methods: {
-    handleBeforeOpen () {
+    handleAfterOpen () {
       this.$nextTick(() => {
         this.active = true
       })

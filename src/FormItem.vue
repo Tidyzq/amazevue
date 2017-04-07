@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     labelSpan () {
-      return this._form ? this._form.labelSpan : 2
+      return this._form.labelPosition === 'top' ? 12 : this._form.labelSpan
     },
     contentSpan () {
       if (this._form) {

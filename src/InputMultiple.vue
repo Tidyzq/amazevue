@@ -1,16 +1,16 @@
 <template lang='jade'>
   .am-input-multiple(ref='main', :class='mainClasses')
     button.am-input-multiple-btn.am-btn.am-btn-default(ref='toggle', type='button', @click.prevent='OnClickButton', :disabled='disabled')
-      span.am-input-multiple-placeholder.am-fl(v-if='!value') {{placeholder}}
+      span.am-input-multiple-placeholder.am-fl(v-if='showPlaceholder') {{placeholder}}
       span.am-input-multiple-status.am-fl(v-else)
         span.am-input-multiple-status-pill(v-for='val in value')
           | {{val}}
-          a.am-input-multiple-close.am-close-spin(@click='OnClickClose(val)') &times;
+          a.am-input-multiple-close.am-close-spin(ref='pillCloseBtns') &times;
       input.am-input-multiple-input.am-fl(type='text', ref='input', v-model='inputing', @keydown.enter='OnEnter')
 </template>
 
 <script>
-import $ from './utils/extendHtmlElement'
+// import $ from './utils/extendHtmlElement'
 
 export default {
   props: {
@@ -22,33 +22,46 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    }
+    },
+    placeholder: String
   },
   data () {
     return {
       inputing: ''
     }
   },
-  mounted () {
-    this._input = new $(this.$refs.input)
-  },
   computed: {
     mainClasses () {
       return `am-input-multiple-${this.type}`
+    },
+    showPlaceholder () {
+      return (!Array.isArray(this.value) || !this.value.length) && !this.inputing
     }
   },
   watch: {
     inputing (newVal) {
-      let input = this._input
-      input.css('width', ((newVal.length + 1) * 1) + 'em')
+      let input = this.$refs.input
+      input.style.width = ((newVal.length + 1) * 1) + 'em'
     }
+  },
+  mounted () {
+    let input = this.$refs.input
+    input.addEventListener('focusout', () => {
+      if (this.inputing) {
+        this.OnEnter()
+      }
+    })
   },
   methods: {
     OnClickButton (e) {
-      let target = new $(e.target)
-      if (!target.hasClass('am-input-multiple-close')) {
-        this.$refs.input.focus()
+      if (this.$refs.pillCloseBtns) {
+        let index = this.$refs.pillCloseBtns.indexOf(e.target)
+        if (index !== -1) {
+          this.OnClickClose(this.value[index])
+          return
+        }
       }
+      this.$refs.input.focus()
     },
     OnEnter () {
       this.add(this.inputing)
@@ -164,5 +177,10 @@ export default {
 .input-multiple-variant(success, @btn-success-color, @btn-success-bg, @btn-success-border);
 .input-multiple-variant(warning, @btn-warning-color, @btn-warning-bg, @btn-warning-border);
 .input-multiple-variant(danger, @btn-danger-color, @btn-danger-bg, @btn-danger-border);
+
+.am-input-multiple-placeholder {
+  width: 0;
+  opacity: .65;
+}
 
 </style>

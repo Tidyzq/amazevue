@@ -1,8 +1,6 @@
 <template lang='jade'>
-.am-tab-panel(:class=`{
-    "am-fade": transition == "fade",
+.am-tab-panel(v-show='show', :class=`{
     "am-active": show,
-    "am-in": show,
   }`)
   slot
 </template>

@@ -68,7 +68,7 @@ export default {
           'tr',
           {},
           this.columns.map(column => {
-            return column.renderHeader(h)
+            return column.renderHeader.call(this._renderProxy, h)
           })
         )
       ]
@@ -87,7 +87,7 @@ export default {
             key: index
           },
           this.columns.map(column => {
-            return column.renderBody(h, row, index)
+            return column.renderBody.call(this._renderProxy, h, row, index)
           })
         )
       })

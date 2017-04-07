@@ -21,6 +21,10 @@
     am-input-multiple(v-model='input3', disabled)
     pre
       | am-input-multiple(v-model='input3', disabled)
+    h2 Placeholder
+    am-input-multiple(v-model='input4', placeholder='Placeholder')
+    pre
+      | am-input-multiple(v-model='input4', placeholder='Placeholder')
 </template>
 
 <script>
@@ -34,7 +38,8 @@ export default {
     return {
       input1: ['A'],
       input2: ['Primary', 'Secondary', 'Success', 'Warning', 'Danger'],
-      input3: ['disabled']
+      input3: ['disabled'],
+      input4: []
     }
   }
 }
