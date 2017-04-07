@@ -32,18 +32,19 @@
       |   am-col(:span='3'): .grid-content.bg-purple
       |   am-col(:span='3'): .grid-content.bg-purple-light
     h2 Gutter
-    am-row.am-margin-bottom-sm(gutter='sm')
-      am-col(:span='8'): .grid-content.bg-purple
-      am-col(:span='4'): .grid-content.bg-purple
-    am-row.am-margin-bottom-sm(gutter='sm')
-      am-col(:span='4'): .grid-content.bg-purple
-      am-col(:span='4'): .grid-content.bg-purple
-      am-col(:span='2'): .grid-content.bg-purple
-      am-col(:span='2'): .grid-content.bg-purple
-    am-row.am-margin-bottom-sm(gutter='sm')
-      am-col(:span='2'): .grid-content.bg-purple
-      am-col(:span='8'): .grid-content.bg-purple
-      am-col(:span='2'): .grid-content.bg-purple
+    div(style='width: 100%;')
+      am-row.am-margin-bottom-sm(gutter='sm')
+        am-col(:span='8'): .grid-content.bg-purple
+        am-col(:span='4'): .grid-content.bg-purple
+      am-row.am-margin-bottom-sm(gutter='sm')
+        am-col(:span='4'): .grid-content.bg-purple
+        am-col(:span='4'): .grid-content.bg-purple
+        am-col(:span='2'): .grid-content.bg-purple
+        am-col(:span='2'): .grid-content.bg-purple
+      am-row.am-margin-bottom-sm(gutter='sm')
+        am-col(:span='2'): .grid-content.bg-purple
+        am-col(:span='8'): .grid-content.bg-purple
+        am-col(:span='2'): .grid-content.bg-purple
     pre
       | am-row.am-margin-bottom-sm(gutter='sm')
       |   am-col(:span='8'): .grid-content.bg-purple

@@ -1,5 +1,5 @@
 <template lang='jade'>
-  .am-g(:class='classes')
+  .am-g.am-row(:class='classes')
     slot
 </template>
 
@@ -24,6 +24,10 @@ export default {
 
 <style lang='less' scoped>
 @import './less/variables.less';
+
+.am-row {
+  width: auto;
+}
 
 .am-neg-margin-horizontal-0 {
   margin-left: 0!important;
