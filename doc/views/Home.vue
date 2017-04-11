@@ -15,6 +15,7 @@
       li: router-link(to='/table') Table
       li: router-link(to='/modal') Modal
       li: router-link(to='/tab') Tab
+      li: router-link(to='/collapse') Collapse
 </template>
 
 <script>

@@ -145,7 +145,7 @@ export default {
         })
         children = [checkbox]
       } else if (this.$scopedSlots.default) {
-        children = this.$scopedSlots.default(rowData)
+        children = this.$scopedSlots.default.call(this._renderProxy, rowData)
       } else {
         children = rowData[this.prop]
       }

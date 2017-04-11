@@ -16,6 +16,7 @@ import Pagination from 'doc/views/Pagination'
 import Table from 'doc/views/Table'
 import Modal from 'doc/views/Modal'
 import Tab from 'doc/views/Tab'
+import Collapse from 'doc/views/Collapse'
 
 Vue.use(Router)
 
@@ -83,6 +84,10 @@ export default new Router({
       path: '/tab',
       name: 'Tab',
       component: Tab
+    }, {
+      path: '/collapse',
+      name: 'Collapse',
+      component: Collapse
     },
     { path: '*', redirect: '/' }
   ]
