@@ -68,7 +68,7 @@ export default {
           date: new Date(date),
           day: date.getDate(),
           type,
-          disabled: (minDate && date <= minDate) || (maxDate && date > maxDate)
+          disabled: (minDate && date < minDate) || (maxDate && date > maxDate)
         })
         if (date.getDay() === ((this.locales.weekStart + 6) % 7)) {
           present.push(week)
