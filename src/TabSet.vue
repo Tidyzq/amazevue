@@ -1,12 +1,14 @@
 <template lang='jade'>
 .am-tab-set.am-tabs
   ul.am-tabs-nav.am-nav.am-nav-tabs(:class=`{
-      "am-nav-justify": navJustify,
+      'am-nav-justify': justify,
     }`)
     li.am-tab-header(v-for='tab in tabs', key='tab.name', :class='{ "am-active": tab.show, "am-disabled": tab.disabled }', @click.prevent="select(tab)")
       a {{ tab.header }}
   slot(name='beforeEach')
-  .am-tabs-bd
+  .am-tabs-bd(:class=`{
+      'am-tabs-bd-ofv': overflow
+    }`)
     slot
 </template>
 
@@ -14,14 +16,8 @@
 
 export default {
   props: {
-    navJustify: {
-      type: Boolean,
-      defualt: false
-    },
-    effect: {
-      type: String,
-      default: 'fade'
-    },
+    justify: Boolean,
+    overflow: Boolean,
     value: [String, Number]
   },
   computed: {
@@ -66,4 +62,5 @@ export default {
 .am-tab-header > a {
   cursor: pointer;
 }
+
 </style>

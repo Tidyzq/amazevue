@@ -5,22 +5,78 @@
   am-tab-set(v-model='tab1')
     am-tab(header='First', name='1')
       p 1
+      p 1
+      p 1
     am-tab(header='Second', name='2')
       p 2
+  pre
+    | am-tab-set(v-model='tab1')
+    |   am-tab(header='First', name='1')
+    |     p 1
+    |     p 1
+    |     p 1
+    |   am-tab(header='Second', name='2')
+    |     p 2
+  h2 Overflow
+  am-tab-set(v-model='tab2', overflow)
+    am-tab(header='First', name='1')
+      p 1
+      p 1
+      p 1
+    am-tab(header='Second', name='2')
+      p 2
+      am-select
+        am-option(v-for='(_, index) in Array(10)', key='index', :label='index.toString()', :value='index')
+  pre
+    | am-tab-set(v-model='tab2', overflow)
+    |   am-tab(header='First', name='1')
+    |     p 1
+    |     p 1
+    |     p 1
+    |   am-tab(header='Second', name='2')
+    |     p 2
+    |     am-select
+    |       am-option(v-for='(_, index) in Array(10)', key='index', :label='index.toString()', :value='index')
+  h2 Justify
+  am-tab-set(v-model='tab3', justify)
+    am-tab(header='First', name='1')
+      p 1
+      p 1
+      p 1
+    am-tab(header='Second', name='2')
+      p 2
+    am-tab(header='Third', name='3')
+      p 3
+  pre
+    | am-tab-set(v-model='tab2', justify)
+    |   am-tab(header='First', name='1')
+    |     p 1
+    |     p 1
+    |     p 1
+    |   am-tab(header='Second', name='2')
+    |     p 2
+    |   am-tab(header='Third', name='3')
+    |     p 3
 </template>
 
 <script>
 import AmTabSet from 'src/TabSet'
 import AmTab from 'src/Tab'
+import AmSelect from 'src/Select'
+import AmOption from 'src/Option'
 
 export default {
   components: {
     AmTabSet,
-    AmTab
+    AmTab,
+    AmSelect,
+    AmOption
   },
   data () {
     return {
-      tab1: '1'
+      tab1: '1',
+      tab2: '1',
+      tab3: '1'
     }
   }
 }

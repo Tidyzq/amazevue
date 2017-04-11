@@ -1,6 +1,6 @@
 <template lang='jade'>
-.am-tab-panel(v-show='show', :class=`{
-    "am-active": show,
+.am-tab-panel(:class=`{
+    "am-active": show
   }`)
   slot
 </template>
@@ -23,9 +23,6 @@ export default {
   computed: {
     show () {
       return this._tabset && this._tabset.show === this.name
-    },
-    transition () {
-      return this._tabset ? this._tabset.effect : null
     }
   },
   created () {
