@@ -52,8 +52,10 @@ export default {
       set (newVal) {
         if (this._radioGroup) {
           this._radioGroup.$emit('input', newVal)
+          this._radioGroup.$emit('select', this.label)
         } else {
           this.$emit('input', newVal)
+          this.$emit('select', this.label)
         }
       }
     },

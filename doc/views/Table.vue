@@ -55,6 +55,15 @@
         template(scope='row')
           am-button(size='xs', icon='eye', @click='Check(row)')  Check
           am-button(type='danger', size='xs', icon='trash', @click='Delete(row)')  Delete
+    pre
+      | am-table(:data='table1', hover, compact)
+      |   am-table-column(prop='label', label='Label')
+      |   am-table-column(prop='value', label='Value')
+      |     template(scope='row') {{ row.value + change1 }}
+      |   am-table-column(label='Operation', width='200px')
+      |     template(scope='row')
+      |       am-button(size='xs', icon='eye', @click='Check(row)')  Check
+      |       am-button(type='danger', size='xs', icon='trash', @click='Delete(row)')  Delete
 </template>
 
 <script>

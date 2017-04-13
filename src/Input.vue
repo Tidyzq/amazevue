@@ -17,7 +17,7 @@ input.am-input.am-form-field(v-else-if='nativeType === "password"', :class='fiel
 <script>
 export default {
   props: {
-    value: [String, Number],
+    value: [String, Number, Boolean, Array, Object],
     type: {
       type: String,
       default: 'default'

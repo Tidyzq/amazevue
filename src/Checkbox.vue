@@ -52,8 +52,10 @@ export default {
       set (newVal) {
         if (this._checkboxGroup) {
           this._checkboxGroup.$emit('input', newVal)
+          this._checkboxGroup.$emit('select', this.label)
         } else {
           this.$emit('input', newVal)
+          this.$emit('select', this.label)
         }
       }
     },

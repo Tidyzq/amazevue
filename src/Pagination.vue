@@ -159,6 +159,7 @@ export default {
 @import './less/variables.less';
 
 .am-pagination {
+  clear: both;
   & > li > a {
     cursor: pointer;
   }
