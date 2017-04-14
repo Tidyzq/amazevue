@@ -10,6 +10,7 @@ import AmForm from './Form'
 import AmFormItem from './FormItem'
 import AmInput from './Input'
 import AmInputMultiple from './InputMultiple'
+import AmLoading from './Loading'
 import AmModal from './Modal'
 import AmOption from './Option'
 import AmOptionGroup from './OptionGroup'
@@ -36,6 +37,7 @@ const Components = [
   AmFormItem,
   AmInput,
   AmInputMultiple,
+  AmLoading,
   AmModal,
   AmOption,
   AmOptionGroup,
@@ -73,6 +75,7 @@ const Amazevue = {
   AmFormItem,
   AmInput,
   AmInputMultiple,
+  AmLoading,
   AmModal,
   AmOption,
   AmOptionGroup,

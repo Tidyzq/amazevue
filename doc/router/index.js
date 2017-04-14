@@ -1,22 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from 'doc/views/Home'
+import Home from '../views/Home'
 
-import Button from 'doc/views/Button'
-import Grid from 'doc/views/Grid'
-import Radio from 'doc/views/Radio'
-import Checkbox from 'doc/views/Checkbox'
-import Input from 'doc/views/Input'
-import InputMultiple from 'doc/views/InputMultiple'
-import Select from 'doc/views/Select'
-import DatePicker from 'doc/views/DatePicker'
-import FileSelect from 'doc/views/FileSelect'
-import Form from 'doc/views/Form'
-import Pagination from 'doc/views/Pagination'
-import Table from 'doc/views/Table'
-import Modal from 'doc/views/Modal'
-import Tab from 'doc/views/Tab'
-import Collapse from 'doc/views/Collapse'
+import Button from '../views/Button'
+import Grid from '../views/Grid'
+import Radio from '../views/Radio'
+import Checkbox from '../views/Checkbox'
+import Input from '../views/Input'
+import InputMultiple from '../views/InputMultiple'
+import Select from '../views/Select'
+import DatePicker from '../views/DatePicker'
+import FileSelect from '../views/FileSelect'
+import Form from '../views/Form'
+import Pagination from '../views/Pagination'
+import Table from '../views/Table'
+import Modal from '../views/Modal'
+import Tab from '../views/Tab'
+import Collapse from '../views/Collapse'
+import Loading from '../views/Loading'
 
 Vue.use(Router)
 
@@ -88,6 +89,10 @@ export default new Router({
       path: '/collapse',
       name: 'Collapse',
       component: Collapse
+    }, {
+      path: '/loading',
+      name: 'Loading',
+      component: Loading
     },
     { path: '*', redirect: '/' }
   ]
