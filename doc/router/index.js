@@ -18,6 +18,7 @@ import Modal from '../views/Modal'
 import Tab from '../views/Tab'
 import Collapse from '../views/Collapse'
 import Loading from '../views/Loading'
+import Alert from '../views/Alert'
 
 Vue.use(Router)
 
@@ -93,6 +94,10 @@ export default new Router({
       path: '/loading',
       name: 'Loading',
       component: Loading
+    }, {
+      path: '/alert',
+      name: 'Alert',
+      component: Alert
     },
     { path: '*', redirect: '/' }
   ]

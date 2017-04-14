@@ -17,6 +17,7 @@
       li: router-link(to='/tab') Tab
       li: router-link(to='/collapse') Collapse
       li: router-link(to='/loading') Loading
+      li: router-link(to='/alert') Alert
 </template>
 
 <script>

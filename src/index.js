@@ -1,3 +1,4 @@
+import AmAlert from './Alert'
 import AmButton from './Button'
 import AmCheckbox from './Checkbox'
 import AmCheckboxGroup from './CheckboxGroup'
@@ -25,6 +26,7 @@ import AmTableColumn from './TableColumn'
 import AmTabSet from './TabSet'
 
 const Components = [
+  AmAlert,
   AmButton,
   AmCheckbox,
   AmCheckboxGroup,
@@ -63,6 +65,7 @@ const install = function (Vue, opts = {}) {
 
 const Amazevue = {
   install,
+  AmAlert,
   AmButton,
   AmCheckbox,
   AmCheckboxGroup,
