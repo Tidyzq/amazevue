@@ -19,6 +19,7 @@ import Tab from '../views/Tab'
 import Collapse from '../views/Collapse'
 import Loading from '../views/Loading'
 import Alert from '../views/Alert'
+import Message from '../views/Message'
 
 Vue.use(Router)
 
@@ -98,6 +99,10 @@ export default new Router({
       path: '/alert',
       name: 'Alert',
       component: Alert
+    }, {
+      path: '/message',
+      name: 'Message',
+      component: Message
     },
     { path: '*', redirect: '/' }
   ]

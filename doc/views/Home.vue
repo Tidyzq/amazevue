@@ -18,6 +18,7 @@
       li: router-link(to='/collapse') Collapse
       li: router-link(to='/loading') Loading
       li: router-link(to='/alert') Alert
+      li: router-link(to='/message') Message
 </template>
 
 <script>

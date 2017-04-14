@@ -29,7 +29,7 @@ export default {
 
 .am-loading-mask {
   position: absolute;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   z-index: 10000;
   top: 0;
   bottom: 0;
