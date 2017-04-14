@@ -12,6 +12,7 @@ import AmRow from './Row'
 import AmCol from './Col'
 
 export default {
+  name: 'AmFormItem',
   props: {
     label: String,
     prop: String,

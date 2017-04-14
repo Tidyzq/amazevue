@@ -28,12 +28,7 @@
 </template>
 
 <script>
-import AmInputMultiple from 'src/InputMultiple'
-
 export default {
-  components: {
-    AmInputMultiple
-  },
   data () {
     return {
       input1: ['A'],

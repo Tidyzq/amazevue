@@ -50,14 +50,7 @@
 </template>
 
 <script>
-import AmModal from 'src/Modal'
-import AmButton from 'src/Button'
-
 export default {
-  components: {
-    AmModal,
-    AmButton
-  },
   data () {
     return {
       modal1: false,

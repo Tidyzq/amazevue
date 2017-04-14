@@ -60,18 +60,7 @@
 </template>
 
 <script>
-import AmTabSet from 'src/TabSet'
-import AmTab from 'src/Tab'
-import AmSelect from 'src/Select'
-import AmOption from 'src/Option'
-
 export default {
-  components: {
-    AmTabSet,
-    AmTab,
-    AmSelect,
-    AmOption
-  },
   data () {
     return {
       tab1: '1',

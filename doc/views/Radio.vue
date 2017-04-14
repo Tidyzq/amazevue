@@ -89,18 +89,7 @@
 </template>
 
 <script>
-import AmRadio from 'src/Radio'
-import AmRadioGroup from 'src/RadioGroup'
-import AmRow from 'src/Row'
-import AmCol from 'src/Col'
-
 export default {
-  components: {
-    AmRadio,
-    AmRadioGroup,
-    AmRow,
-    AmCol
-  },
   data () {
     return {
       radio1: true,

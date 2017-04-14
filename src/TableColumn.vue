@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'AmTableColumn',
   props: {
     prop: String,
     label: String,

@@ -19,6 +19,7 @@
 import * as DateHelper from './utils/dateHelper'
 
 export default {
+  name: 'AmDatePickerYears',
   props: {
     locales: Object,
     show: Boolean,

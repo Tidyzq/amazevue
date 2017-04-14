@@ -118,15 +118,10 @@
 </template>
 
 <script>
-import AmButton from 'src/Button'
-
 export default {
   data () {
     return {
     }
-  },
-  components: {
-    AmButton
   }
 }
 </script>

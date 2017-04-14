@@ -32,12 +32,7 @@
 </template>
 
 <script>
-import AmDatePicker from 'src/DatePicker'
-
 export default {
-  components: {
-    AmDatePicker
-  },
   data () {
     return {
       date1: '1970-01-01',

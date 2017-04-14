@@ -160,16 +160,7 @@
 </template>
 
 <script>
-import AmSelect from 'src/Select'
-import AmOption from 'src/Option'
-import AmOptionGroup from 'src/OptionGroup'
-
 export default {
-  components: {
-    AmSelect,
-    AmOption,
-    AmOptionGroup
-  },
   data () {
     return {
       select1: 'A',

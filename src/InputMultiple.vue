@@ -10,9 +10,8 @@
 </template>
 
 <script>
-// import $ from './utils/extendHtmlElement'
-
 export default {
+  name: 'AmInputMultiple',
   props: {
     value: Array,
     type: {

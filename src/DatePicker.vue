@@ -61,6 +61,7 @@ const prior = {
 }
 
 export default {
+  name: 'AmDatePicker',
   props: {
     value: String,
     placeholder: String,

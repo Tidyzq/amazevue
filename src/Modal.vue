@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  name: 'AmModal',
   props: {
     title: String,
     value: {

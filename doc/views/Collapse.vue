@@ -82,14 +82,7 @@
 </template>
 
 <script>
-import AmCollapse from 'src/Collapse'
-import AmCollapseSet from 'src/CollapseSet'
-
 export default {
-  components: {
-    AmCollapse,
-    AmCollapseSet
-  },
   data () {
     return {
       collapse1: [],

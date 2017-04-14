@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'AmOptionGroup',
   props: {
     label: String
   },

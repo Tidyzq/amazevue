@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'AmOption',
   props: {
     value: [String, Number, Boolean],
     label: String,

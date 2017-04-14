@@ -102,28 +102,7 @@
 </template>
 
 <script>
-import AmForm from 'src/Form'
-import AmFormItem from 'src/FormItem'
-import AmInput from 'src/Input'
-import AmInputMultiple from 'src/InputMultiple'
-import AmButton from 'src/Button'
-import AmSelect from 'src/Select'
-import AmOption from 'src/Option'
-import AmRadioGroup from 'src/RadioGroup'
-import AmRadio from 'src/Radio'
-
 export default {
-  components: {
-    AmForm,
-    AmFormItem,
-    AmInput,
-    AmInputMultiple,
-    AmButton,
-    AmSelect,
-    AmOption,
-    AmRadioGroup,
-    AmRadio
-  },
   data () {
     return {
       form1: {

@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'AmRadio',
   props: {
     value: [String, Number, Boolean],
     label: [String, Number, Boolean],

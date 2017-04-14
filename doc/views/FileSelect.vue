@@ -38,12 +38,7 @@
 </template>
 
 <script>
-import AmFileSelect from 'src/FileSelect'
-
 export default {
-  components: {
-    AmFileSelect
-  },
   data () {
     return {
       files1: [],

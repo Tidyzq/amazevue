@@ -26,6 +26,7 @@
 
 <script>
 export default {
+  name: 'AmCollapse',
   props: {
     type: {
       type: String,

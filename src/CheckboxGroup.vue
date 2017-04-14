@@ -5,6 +5,7 @@
 
 <script>
 export default {
+  name: 'AmCheckboxGroup',
   props: {
     value: Array
   },

@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: 'AmTab',
   props: {
     header: String,
     name: {

@@ -78,18 +78,7 @@
 </template>
 
 <script>
-import AmInput from 'src/Input'
-import AmButton from 'src/Button'
-import AmRow from 'src/Row'
-import AmCol from 'src/Col'
-
 export default {
-  components: {
-    AmInput,
-    AmButton,
-    AmRow,
-    AmCol
-  },
   data () {
     return {
       input1: '',

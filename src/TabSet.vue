@@ -15,6 +15,7 @@
 <script>
 
 export default {
+  name: 'AmTabSet',
   props: {
     justify: Boolean,
     overflow: Boolean,

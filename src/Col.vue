@@ -5,6 +5,7 @@
 
 <script>
 export default {
+  name: 'AmCol',
   props: {
     span: {
       type: [Number, Object],

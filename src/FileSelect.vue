@@ -9,6 +9,7 @@
 import AmButton from './Button'
 
 export default {
+  name: 'AmFileSelect',
   components: {
     AmButton
   },

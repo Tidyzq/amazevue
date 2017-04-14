@@ -2,6 +2,7 @@
 import AmCheckbox from './Checkbox'
 
 export default {
+  name: 'AmTable',
   props: {
     data: {
       type: Array,

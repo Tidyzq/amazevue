@@ -8,6 +8,7 @@
 import AmRow from './Row'
 
 export default {
+  name: 'AmForm',
   props: {
     form: Object,
     inline: Boolean,

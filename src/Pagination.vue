@@ -38,6 +38,7 @@ import AmOption from './Option'
 import AmInput from './Input'
 
 export default {
+  name: 'AmPagination',
   props: {
     placement: {
       type: String,

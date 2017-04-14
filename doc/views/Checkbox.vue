@@ -63,18 +63,7 @@
 </template>
 
 <script>
-import AmCheckbox from 'src/Checkbox'
-import AmCheckboxGroup from 'src/CheckboxGroup'
-import AmRow from 'src/Row'
-import AmCol from 'src/Col'
-
 export default {
-  components: {
-    AmCheckbox,
-    AmCheckboxGroup,
-    AmRow,
-    AmCol
-  },
   data () {
     return {
       checkbox1: true,

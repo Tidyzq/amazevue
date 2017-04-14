@@ -23,6 +23,7 @@
 import AmButton from './Button'
 
 export default {
+  name: 'AmSelect',
   props: {
     value: [Array, String, Number, Boolean],
     placeholder: String,

@@ -9,7 +9,6 @@ export default {
 }
 </script>
 
-<style src='amazeui/dist/css/amazeui.css'></style>
 <style lang='less' scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

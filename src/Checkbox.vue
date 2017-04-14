@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'AmCheckbox',
   props: {
     value: [Boolean, Array],
     label: [String, Number, Object],

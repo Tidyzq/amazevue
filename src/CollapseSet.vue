@@ -5,6 +5,7 @@
 
 <script>
 export default {
+  name: 'AmCollapseSet',
   props: {
     value: [Number, String, Boolean, Array],
     accordion: Boolean

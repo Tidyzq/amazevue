@@ -91,14 +91,7 @@
 </template>
 
 <script>
-import AmRow from 'src/Row'
-import AmCol from 'src/Col'
-
 export default {
-  components: {
-    AmRow,
-    AmCol
-  },
   data () {
     return {
 

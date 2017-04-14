@@ -46,20 +46,22 @@
       |   am-table-column(prop='label', label='Label', sortable)
       |   am-table-column(prop='value', label='Value', sortable)
     h2 Template
-    am-button(@click='change1+=1') Change
+    am-button(@click='OnChange') Change
     am-table(:data='table1', hover, compact)
       am-table-column(prop='label', label='Label')
       am-table-column(prop='value', label='Value')
-        template(scope='row') {{ row.value + change1 }}
+      am-table-column(label='Scoped Value')
+        template(scope='row') {{ row.value }}
       am-table-column(label='Operation', width='200px')
         template(scope='row')
           am-button(size='xs', icon='eye', @click='Check(row)')  Check
           am-button(type='danger', size='xs', icon='trash', @click='Delete(row)')  Delete
-    pre
+    pre(v-pre)
       | am-table(:data='table1', hover, compact)
       |   am-table-column(prop='label', label='Label')
       |   am-table-column(prop='value', label='Value')
-      |     template(scope='row') {{ row.value + change1 }}
+      |   am-table-column(label='Scoped Value')
+      |     template(scope='row') {{ row.value }}
       |   am-table-column(label='Operation', width='200px')
       |     template(scope='row')
       |       am-button(size='xs', icon='eye', @click='Check(row)')  Check
@@ -67,10 +69,6 @@
 </template>
 
 <script>
-import AmTable from 'src/Table'
-import AmTableColumn from 'src/TableColumn'
-import AmButton from 'src/Button'
-
 function getCompare (sort) {
   let prop = sort.prop, order = (sort.order === 'ASC')
   return (a, b) => {
@@ -79,11 +77,6 @@ function getCompare (sort) {
 }
 
 export default {
-  components: {
-    AmTable,
-    AmTableColumn,
-    AmButton
-  },
   data () {
     return {
       select1: false,
@@ -129,6 +122,11 @@ export default {
     },
     Delete (row) {
       console.log('delete', row)
+    },
+    OnChange () {
+      this.table1.map(item => {
+        item.value += 1
+      })
     }
   }
 }

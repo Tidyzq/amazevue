@@ -5,6 +5,7 @@
 
 <script>
 export default {
+  name: 'AmRadioGroup',
   props: {
     value: [String, Number, Boolean]
   },
