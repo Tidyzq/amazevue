@@ -14,6 +14,8 @@ import AmInputMultiple from './InputMultiple'
 import AmLoading from './Loading'
 import AmMessage from './Message'
 import AmModal from './Modal'
+import AmNav from './Nav'
+import AmNavItem from './NavItem'
 import AmOption from './Option'
 import AmOptionGroup from './OptionGroup'
 import AmPagination from './Pagination'
@@ -21,10 +23,12 @@ import AmRadio from './Radio'
 import AmRadioGroup from './RadioGroup'
 import AmRow from './Row'
 import AmSelect from './Select'
+import AmSubNav from './SubNav'
 import AmTab from './Tab'
 import AmTable from './Table'
 import AmTableColumn from './TableColumn'
 import AmTabSet from './TabSet'
+import AmTopbar from './Topbar'
 
 const Components = [
   AmAlert,
@@ -43,6 +47,8 @@ const Components = [
   AmLoading,
   AmMessage,
   AmModal,
+  AmNav,
+  AmNavItem,
   AmOption,
   AmOptionGroup,
   AmPagination,
@@ -50,10 +56,12 @@ const Components = [
   AmRadioGroup,
   AmRow,
   AmSelect,
+  AmSubNav,
   AmTab,
   AmTable,
   AmTableColumn,
   AmTabSet,
+  AmTopbar,
 ]
 
 const install = function (Vue) {
@@ -83,6 +91,8 @@ const Amazevue = {
   AmLoading,
   AmMessage,
   AmModal,
+  AmNav,
+  AmNavItem,
   AmOption,
   AmOptionGroup,
   AmPagination,
@@ -90,10 +100,12 @@ const Amazevue = {
   AmRadioGroup,
   AmRow,
   AmSelect,
+  AmSubNav,
   AmTab,
   AmTable,
   AmTableColumn,
   AmTabSet,
+  AmTopbar,
 }
 
 export default Amazevue

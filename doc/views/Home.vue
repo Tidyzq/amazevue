@@ -19,6 +19,8 @@
       li: router-link(to='/loading') Loading
       li: router-link(to='/alert') Alert
       li: router-link(to='/message') Message
+      li: router-link(to='/topbar') Topbar
+      li: router-link(to='/nav') Nav
 </template>
 
 <script>

@@ -20,6 +20,8 @@ import Collapse from '../views/Collapse'
 import Loading from '../views/Loading'
 import Alert from '../views/Alert'
 import Message from '../views/Message'
+import Topbar from '../views/Topbar'
+import Nav from '../views/Nav'
 
 Vue.use(Router)
 
@@ -103,6 +105,14 @@ export default new Router({
       path: '/message',
       name: 'Message',
       component: Message,
+    }, {
+      path: '/topbar',
+      name: 'Topbar',
+      component: Topbar,
+    }, {
+      path: '/nav',
+      name: 'Nav',
+      component: Nav,
     },
     { path: '*', redirect: '/' },
   ],
