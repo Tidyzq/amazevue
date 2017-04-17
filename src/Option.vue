@@ -1,6 +1,6 @@
 <template lang='jade'>
   li(:class='classes', @click='OnClick')
-    span.am-selected-text {{label}}
+    span.am-selected-text {{ label }}
     i.am-icon-check
 </template>
 
@@ -8,16 +8,16 @@
 export default {
   name: 'AmOption',
   props: {
-    value: [String, Number, Boolean],
+    value: [ String, Number, Boolean ],
     label: String,
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data () {
     return {
-      _select: null
+      _select: null,
     }
   },
   created () {
@@ -28,7 +28,7 @@ export default {
     if (!select._select) {
       // not in select
       this._select = null
-      console.warn('Option needs Select to work')
+      throw new Error('Option needs Select to work')
     } else {
       // in select
       this._select = select
@@ -46,7 +46,7 @@ export default {
       if (this._select) {
         this.$set(this._select.options, this.value, newVal)
       }
-    }
+    },
   },
   beforeDestroy () {
     if (this._select) {
@@ -67,16 +67,16 @@ export default {
     classes () {
       return {
         'am-checked': this.checked,
-        'am-disabled': this.disabled
+        'am-disabled': this.disabled,
       }
-    }
+    },
   },
   methods: {
     OnClick () {
       if (this._select) {
         this._select.$emit('select', this.value)
       }
-    }
-  }
+    },
+  },
 }
 </script>

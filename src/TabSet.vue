@@ -19,7 +19,7 @@ export default {
   props: {
     justify: Boolean,
     overflow: Boolean,
-    value: [String, Number]
+    value: [ String, Number ],
   },
   computed: {
     show: {
@@ -28,22 +28,22 @@ export default {
       },
       set (newVal) {
         this.$emit('select', newVal)
-      }
-    }
+      },
+    },
   },
   watch: {
     value (newVal) {
-      this.show = this.value
+      this.show = newVal
     },
     show (newVal) {
       this.$emit('input', newVal)
       this.$emit('select', newVal)
-    }
+    },
   },
   data () {
     return {
       tabs: [],
-      show: this.value
+      show: this.value,
     }
   },
   created () {
@@ -54,8 +54,8 @@ export default {
       if (!tab.disabled) {
         this.show = tab.name
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

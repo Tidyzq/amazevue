@@ -7,10 +7,10 @@
 export default {
   name: 'AmCheckboxGroup',
   props: {
-    value: Array
+    value: Array,
   },
   created () {
     this._checkboxGroup = true
-  }
+  },
 }
 </script>

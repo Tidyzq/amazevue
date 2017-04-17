@@ -68,9 +68,9 @@ export default {
     return {
       checkbox1: true,
       checkbox2: true,
-      checkbox3: ['a']
+      checkbox3: [ 'a' ],
     }
-  }
+  },
 }
 </script>
 

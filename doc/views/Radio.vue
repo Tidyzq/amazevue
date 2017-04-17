@@ -94,9 +94,9 @@ export default {
     return {
       radio1: true,
       radio2: true,
-      radio3: 1
+      radio3: 1,
     }
-  }
+  },
 }
 </script>
 

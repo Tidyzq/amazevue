@@ -165,13 +165,13 @@ export default {
     return {
       select1: 'A',
       select2: '',
-      select3: ['A'],
+      select3: [ 'A' ],
       select4: 'A',
       select5: 'A',
-      select6: ['A'],
-      select7: 'A'
+      select6: [ 'A' ],
+      select7: 'A',
     }
-  }
+  },
 }
 </script>
 

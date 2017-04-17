@@ -27,6 +27,6 @@ export default {
     return {
 
     }
-  }
+  },
 }
 </script>

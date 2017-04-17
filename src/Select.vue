@@ -25,29 +25,29 @@ import AmButton from './Button'
 export default {
   name: 'AmSelect',
   props: {
-    value: [Array, String, Number, Boolean],
+    value: [ Array, String, Number, Boolean ],
     placeholder: String,
     type: {
       type: String,
-      default: 'default'
+      default: 'default',
     },
     multiple: {
       type: Boolean,
-      default: false
+      default: false,
     },
     maxHeight: {
       type: String,
-      default: '40rem'
-    }
+      default: '40rem',
+    },
   },
   components: {
-    AmButton
+    AmButton,
   },
   data () {
     return {
       show: false,
       active: false,
-      options: {}
+      options: {},
     }
   },
   watch: {
@@ -57,7 +57,7 @@ export default {
       } else {
         this.$emit('close')
       }
-    }
+    },
   },
   created () {
     this._select = true
@@ -65,7 +65,7 @@ export default {
   },
   mounted () {
     this._documentListener = e => {
-      let content = this.$refs.content
+      const content = this.$refs.content
       if (this.active && content && (!this.multiple || (!content.contains(e.target) && e.target !== content))) {
         this.show = false
       }
@@ -80,17 +80,17 @@ export default {
       return {
         ['am-selected-' + this.type]: true,
         'am-selected-multiple': this.multiple,
-        'am-selected-single': !this.multiple
+        'am-selected-single': !this.multiple,
       }
     },
     toggleClasses () {
       return {
-        'am-active': this.show
+        'am-active': this.show,
       }
     },
     listStyle () {
       return {
-        'max-height': this.maxHeight
+        'max-height': this.maxHeight,
       }
     },
     showStatusPill () {
@@ -98,7 +98,7 @@ export default {
     },
     showPlaceholder () {
       return (!Array.isArray(this.value) || !this.value.some(v => this.options.hasOwnProperty(v))) && !this.options.hasOwnProperty(this.value)
-    }
+    },
   },
   methods: {
     AfterOpen () {
@@ -109,8 +109,8 @@ export default {
     },
     OnSelect (val) {
       if (this.multiple) {
-        let value = Array.isArray(this.value) ? this.value.slice() : []
-        let index = value.indexOf(val)
+        const value = Array.isArray(this.value) ? this.value.slice() : []
+        const index = value.indexOf(val)
         if (index !== -1) {
           value.splice(index, 1)
         } else {
@@ -123,7 +123,7 @@ export default {
     },
     OnClickToggle (e) {
       if (this.$refs.pillCloseBtns) {
-        let index = this.$refs.pillCloseBtns.indexOf(e.target)
+        const index = this.$refs.pillCloseBtns.indexOf(e.target)
         if (index !== -1) {
           this.OnClickClose(this.value[index])
           return
@@ -133,8 +133,8 @@ export default {
     },
     OnClickClose (val) {
       this.$emit('select', val)
-    }
-  }
+    },
+  },
 }
 </script>
 

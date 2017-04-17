@@ -86,9 +86,9 @@ export default {
       input3: '',
       input4: '',
       input5: '',
-      input6: 0
+      input6: 0,
     }
-  }
+  },
 }
 </script>
 

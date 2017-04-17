@@ -53,14 +53,14 @@ const Components = [
   AmTab,
   AmTable,
   AmTableColumn,
-  AmTabSet
+  AmTabSet,
 ]
 
-const install = function (Vue, opts = {}) {
+const install = function (Vue) {
   if (install.installed) {
     return
   }
-  for (let component of Components) {
+  for (const component of Components) {
     Vue.component(component.name, component)
   }
 }
@@ -93,7 +93,7 @@ const Amazevue = {
   AmTab,
   AmTable,
   AmTableColumn,
-  AmTabSet
+  AmTabSet,
 }
 
 export default Amazevue

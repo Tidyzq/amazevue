@@ -30,80 +30,80 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
     }, {
       path: '/button',
       name: 'Button',
-      component: Button
+      component: Button,
     }, {
       path: '/grid',
       name: 'Grid',
-      component: Grid
+      component: Grid,
     }, {
       path: '/radio',
       name: 'Radio',
-      component: Radio
+      component: Radio,
     }, {
       path: '/checkbox',
       name: 'Checkbox',
-      component: Checkbox
+      component: Checkbox,
     }, {
       path: '/input',
       name: 'Input',
-      component: Input
+      component: Input,
     }, {
       path: '/input-multiple',
       name: 'InputMultiple',
-      component: InputMultiple
+      component: InputMultiple,
     }, {
       path: '/select',
       name: 'Select',
-      component: Select
+      component: Select,
     }, {
       path: '/date-picker',
       name: 'DatePicker',
-      component: DatePicker
+      component: DatePicker,
     }, {
       path: '/file-select',
       name: 'FileSelect',
-      component: FileSelect
+      component: FileSelect,
     }, {
       path: '/form',
       name: 'Form',
-      component: Form
+      component: Form,
     }, {
       path: '/pagination',
       name: 'Pagination',
-      component: Pagination
+      component: Pagination,
     }, {
       path: '/table',
       name: 'Table',
-      component: Table
+      component: Table,
     }, {
       path: '/modal',
       name: 'Modal',
-      component: Modal
+      component: Modal,
     }, {
       path: '/tab',
       name: 'Tab',
-      component: Tab
+      component: Tab,
     }, {
       path: '/collapse',
       name: 'Collapse',
-      component: Collapse
+      component: Collapse,
     }, {
       path: '/loading',
       name: 'Loading',
-      component: Loading
+      component: Loading,
     }, {
       path: '/alert',
       name: 'Alert',
-      component: Alert
+      component: Alert,
     }, {
       path: '/message',
       name: 'Message',
-      component: Message
+      component: Message,
     },
-    { path: '*', redirect: '/' }
-  ]
+    { path: '*', redirect: '/' },
+  ],
 })

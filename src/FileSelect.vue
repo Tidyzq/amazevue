@@ -11,7 +11,7 @@ import AmButton from './Button'
 export default {
   name: 'AmFileSelect',
   components: {
-    AmButton
+    AmButton,
   },
   props: {
     value: Array,
@@ -20,7 +20,7 @@ export default {
     icon: String,
     shape: String,
     size: String,
-    type: String
+    type: String,
   },
   data () {
     return {}
@@ -30,13 +30,13 @@ export default {
       this.$refs.file.click()
     },
     OnFileChange (e) {
-      let files = [], fileList = e.target.files
+      const files = [], fileList = e.target.files
       for (var i = 0; i < fileList.length; i++) {
         files.push(fileList.item(i))
       }
       this.$emit('input', files)
-    }
-  }
+    },
+  },
 }
 </script>
 

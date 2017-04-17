@@ -70,7 +70,7 @@
 
 <script>
 function getCompare (sort) {
-  let prop = sort.prop, order = (sort.order === 'ASC')
+  const prop = sort.prop, order = (sort.order === 'ASC')
   return (a, b) => {
     return (a[prop] < b[prop]) ^ order
   }
@@ -84,33 +84,33 @@ export default {
       table1: [
         {
           label: 'A',
-          value: 3
+          value: 3,
         }, {
           label: 'B',
-          value: 1
+          value: 1,
         }, {
           label: 'C',
-          value: 2
+          value: 2,
         }, {
           label: 'D',
-          value: 4
-        }
+          value: 4,
+        },
       ],
       table2: [
         {
           label: 'A',
-          value: 3
+          value: 3,
         }, {
           label: 'B',
-          value: 1
+          value: 1,
         }, {
           label: 'C',
-          value: 2
+          value: 2,
         }, {
           label: 'D',
-          value: 4
-        }
-      ]
+          value: 4,
+        },
+      ],
     }
   },
   methods: {
@@ -127,7 +127,7 @@ export default {
       this.table1.map(item => {
         item.value += 1
       })
-    }
-  }
+    },
+  },
 }
 </script>

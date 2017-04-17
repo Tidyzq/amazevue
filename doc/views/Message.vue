@@ -54,8 +54,8 @@ export default {
       message7: false,
       message8: false,
       message9: false,
-      message10: false
+      message10: false,
     }
-  }
+  },
 }
 </script>

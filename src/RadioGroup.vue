@@ -7,10 +7,10 @@
 export default {
   name: 'AmRadioGroup',
   props: {
-    value: [String, Number, Boolean]
+    value: [ String, Number, Boolean ],
   },
   created () {
     this._radioGroup = true
-  }
+  },
 }
 </script>

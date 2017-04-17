@@ -48,8 +48,8 @@ export default {
   data () {
     return {
       alert1: true,
-      alert2: true
+      alert2: true,
     }
-  }
+  },
 }
 </script>

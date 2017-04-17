@@ -88,8 +88,8 @@ export default {
       collapse1: [],
       collapse2: '',
       collapse3: [],
-      collapse4: []
+      collapse4: [],
     }
-  }
+  },
 }
 </script>

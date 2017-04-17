@@ -14,20 +14,20 @@ export default {
     inline: Boolean,
     labelPosition: {
       type: String,
-      default: 'right'
+      default: 'right',
     },
     labelSpan: {
       type: Number,
-      default: 2
+      default: 2,
     },
-    gutter: String
+    gutter: String,
   },
   components: {
-    AmRow
+    AmRow,
   },
   data () {
     return {
-      props: {}
+      props: {},
     }
   },
   created () {
@@ -36,13 +36,13 @@ export default {
   computed: {
     formClasses () {
       return `am-form-label-${this.labelPosition}`
-    }
+    },
   },
   methods: {
     OnSubmit () {
       console.log('submit')
-    }
-  }
+    },
+  },
 }
 </script>
 

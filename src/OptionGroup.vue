@@ -8,11 +8,11 @@
 export default {
   name: 'AmOptionGroup',
   props: {
-    label: String
+    label: String,
   },
   data () {
     return {}
-  }
+  },
 }
 </script>
 

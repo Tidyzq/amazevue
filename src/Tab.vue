@@ -12,19 +12,19 @@ export default {
     header: String,
     name: {
       required: true,
-      type: [String, Number]
+      type: [ String, Number ],
     },
-    disabled: Boolean
+    disabled: Boolean,
   },
   data () {
     return {
-      _tabset: null
+      _tabset: null,
     }
   },
   computed: {
     show () {
       return this._tabset && this._tabset.show === this.name
-    }
+    },
   },
   created () {
     let tabset = this
@@ -39,9 +39,9 @@ export default {
     }
   },
   beforeDestroy () {
-    let tabset = this._tabset
-    let index = tabset.tabs.indexOf(this)
+    const tabset = this._tabset
+    const index = tabset.tabs.indexOf(this)
     this._tabset.tabs.splice(index, 1)
-  }
+  },
 }
 </script>

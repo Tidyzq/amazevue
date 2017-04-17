@@ -44,8 +44,8 @@ export default {
       files1: [],
       files2: [],
       files3: [],
-      files4: []
+      files4: [],
     }
-  }
+  },
 }
 </script>

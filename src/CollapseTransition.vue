@@ -13,32 +13,32 @@ transition(
 <script>
 export default {
   props: {
-    show: Boolean
+    show: Boolean,
   },
   data () {
     return {
       animatingClientHeight: false,
-      animatingZeroHeight: false
+      animatingZeroHeight: false,
     }
   },
   computed: {
     collapseStyle () {
-      let style = {}
+      const style = {}
       if (this.animatingClientHeight) {
-        style['height'] = this.$refs.transitionBody.clientHeight + 'px'
+        style.height = this.$refs.transitionBody.clientHeight + 'px'
       }
       if (this.animatingZeroHeight) {
-        style['height'] = '0px'
+        style.height = '0px'
       }
       return style
-    }
+    },
   },
   watch: {
     show (newVal, oldVal) {
       if (!newVal && oldVal) {
         this.handleBeforeLeave()
       }
-    }
+    },
   },
   methods: {
     handleBeforeEnter () {
@@ -56,7 +56,7 @@ export default {
     handleAfterLeave () {
       this.animatingClientHeight = false
       this.animatingZeroHeight = false
-    }
-  }
+    },
+  },
 }
 </script>

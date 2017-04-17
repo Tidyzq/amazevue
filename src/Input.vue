@@ -18,34 +18,34 @@ input.am-input.am-form-field(v-else-if='nativeType === "password"', :class='fiel
 export default {
   name: 'AmInput',
   props: {
-    value: [String, Number, Boolean, Array, Object],
+    value: [ String, Number, Boolean, Array, Object ],
     type: {
       type: String,
-      default: 'default'
+      default: 'default',
     },
     nativeType: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
     rows: {
       type: Number,
-      default: 3
+      default: 3,
     },
     resize: {
       type: Boolean,
-      default: true
+      default: true,
     },
     size: {
       type: String,
-      default: 'md'
+      default: 'md',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     placeholder: String,
     prependBtn: Boolean,
-    appendBtn: Boolean
+    appendBtn: Boolean,
   },
   data () {
     return {
@@ -59,7 +59,7 @@ export default {
       },
       set (newVal) {
         this.$emit('input', newVal)
-      }
+      },
     },
     groupClasses () {
       return {
@@ -69,7 +69,7 @@ export default {
         'am-input-group-secondary': this.type === 'secondary',
         'am-input-group-success': this.type === 'success',
         'am-input-group-warning': this.type === 'warning',
-        'am-input-group-danger': this.type === 'danger'
+        'am-input-group-danger': this.type === 'danger',
       }
     },
     fieldClasses () {
@@ -81,7 +81,7 @@ export default {
         'am-form-field-secondary': this.type === 'secondary',
         'am-form-field-success': this.type === 'success',
         'am-form-field-warning': this.type === 'warning',
-        'am-form-field-danger': this.type === 'danger'
+        'am-form-field-danger': this.type === 'danger',
       }
     },
     prependClasses () {
@@ -89,8 +89,8 @@ export default {
     },
     appendClasses () {
       return this.appendBtn ? 'am-input-group-btn' : 'am-input-group-label'
-    }
-  }
+    },
+  },
 }
 </script>
 

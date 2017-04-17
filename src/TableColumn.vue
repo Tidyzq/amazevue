@@ -11,18 +11,18 @@ export default {
     select: Boolean,
     sortable: Boolean,
     width: String,
-    noWrap: Boolean
+    noWrap: Boolean,
   },
   data () {
     return {
-      _table: null
+      _table: null,
     }
   },
   watch: {
     prop (newVal, oldVal) {
       this.$delete(this._table.props, oldVal)
       this.$set(this._table.props, newVal, this)
-    }
+    },
   },
   created () {
     let table = this
@@ -39,7 +39,7 @@ export default {
   },
   beforeDestroy () {
     this.$delete(this._table.props, this.prop)
-    let index = this._table.columns.indexOf(this)
+    const index = this._table.columns.indexOf(this)
     if (index !== -1) {
       this._table.columns.splice(index, 1)
     }
@@ -51,7 +51,7 @@ export default {
       },
       set (newVal) {
         this.$set(this._table, 'select', newVal)
-      }
+      },
     },
     selectedAll: {
       get () {
@@ -59,7 +59,7 @@ export default {
       },
       set (newVal) {
         this.$set(this._table, 'select', newVal ? this._table.data.slice() : [])
-      }
+      },
     },
     sort: {
       get () {
@@ -68,83 +68,83 @@ export default {
       set (newVal) {
         this.$set(this._table, 'sort', {
           prop: this.prop,
-          order: newVal
+          order: newVal,
         })
-      }
-    }
+      },
+    },
   },
   methods: {
     renderHeader (h) {
       let children = []
       if (this.select) {
-        let checkbox = h('am-checkbox', {
+        const checkbox = h('am-checkbox', {
           domProps: {
-            value: this.selectedAll
+            value: this.selectedAll,
           },
           on: {
-            input: (event) => {
+            input: event => {
               this.selectedAll = event
-            }
-          }
+            },
+          },
         })
-        children = [checkbox]
+        children = [ checkbox ]
       } else {
-        children = [this.label]
+        children = [ this.label ]
         if (this.sortable) {
           children.push(h('span', {
-            staticClass: 'am-table-sort'
+            staticClass: 'am-table-sort',
           }, [
             h('span', {
               staticClass: 'am-icon-caret-up am-table-sort-btn',
               class: {
-                'am-active': this.sort === 'ASC'
+                'am-active': this.sort === 'ASC',
               },
               on: {
                 click: () => {
                   this.sort = 'ASC'
-                }
-              }
+                },
+              },
             }),
             h('span', {
               staticClass: 'am-icon-caret-down am-table-sort-btn',
               class: {
-                'am-active': this.sort === 'DESC'
+                'am-active': this.sort === 'DESC',
               },
               on: {
                 click: () => {
                   this.sort = 'DESC'
-                }
-              }
-            })
+                },
+              },
+            }),
           ]))
         }
       }
       return h('th', {
         class: {
-          'am-text-nowrap': this.noWrap
+          'am-text-nowrap': this.noWrap,
         },
         style: {
-          width: this.width
-        }
+          width: this.width,
+        },
       }, children)
     },
     renderBody (h, rowData) {
       let children = []
       if (this.select) {
-        let checkbox = h('am-checkbox', {
+        const checkbox = h('am-checkbox', {
           domProps: {
-            value: this.selected
+            value: this.selected,
           },
           on: {
-            input: (event) => {
+            input: event => {
               this.selected = event
-            }
+            },
           },
           props: {
-            label: rowData
-          }
+            label: rowData,
+          },
         })
-        children = [checkbox]
+        children = [ checkbox ]
       } else if (this.$scopedSlots.default) {
         children = this.$scopedSlots.default.call(this._renderProxy, rowData)
       } else {
@@ -152,10 +152,10 @@ export default {
       }
       return h('td', {
         class: {
-          'am-text-nowrap': this.noWrap
-        }
+          'am-text-nowrap': this.noWrap,
+        },
       }, children)
-    }
-  }
+    },
+  },
 }
 </script>

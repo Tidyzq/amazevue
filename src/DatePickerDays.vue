@@ -25,39 +25,40 @@ export default {
     locales: Object,
     date: Date,
     minDate: Date,
-    maxDate: Date
+    maxDate: Date,
   },
   data () {
-    let presenting = new Date(this.date)
+    const presenting = new Date(this.date)
     presenting.setDate(1)
     return {
-      presenting
+      presenting,
     }
   },
   computed: {
     presentingStr () {
-      let presenting = this.presenting
+      const presenting = this.presenting
       return presenting.getFullYear() + this.locales.year[0] + ' ' + this.locales.months[presenting.getMonth()]
     },
     startDate () {
-      let presenting = this.presenting
-      let prevMonth = new Date(presenting.getFullYear(), presenting.getMonth() - 1, 1, 0, 0, 0, 0)
-      let daysInMonth = DateHelper.getDaysInMonth(prevMonth.getFullYear(), prevMonth.getMonth())
+      const presenting = this.presenting
+      const prevMonth = new Date(presenting.getFullYear(), presenting.getMonth() - 1, 1, 0, 0, 0, 0)
+      const daysInMonth = DateHelper.getDaysInMonth(prevMonth.getFullYear(), prevMonth.getMonth())
       prevMonth.setDate(daysInMonth)
       prevMonth.setDate(daysInMonth - (prevMonth.getDay() - this.locales.weekStart + 7) % 7)
       return prevMonth
     },
     endDate () {
-      let prevMonth = this.startDate
-      let nextMonth = new Date(prevMonth)
+      const prevMonth = this.startDate
+      const nextMonth = new Date(prevMonth)
       nextMonth.setDate(nextMonth.getDate() + 42)
       return nextMonth
     },
     days () {
-      let startDate = this.startDate, endDate = this.endDate
-      let maxDate = this.maxDate, minDate = this.minDate
-      let date = new Date(startDate)
-      let present = [], week = []
+      const startDate = this.startDate, endDate = this.endDate
+      const maxDate = this.maxDate, minDate = this.minDate
+      const date = new Date(startDate)
+      const present = []
+      let week = []
       while (date.valueOf() < endDate.valueOf()) {
         let type = 'cur'
         if (date.getMonth() === startDate.getMonth()) {
@@ -69,7 +70,7 @@ export default {
           date: new Date(date),
           day: date.getDate(),
           type,
-          disabled: (minDate && date < minDate) || (maxDate && date > maxDate)
+          disabled: (minDate && date < minDate) || (maxDate && date > maxDate),
         })
         if (date.getDay() === ((this.locales.weekStart + 6) % 7)) {
           present.push(week)
@@ -79,23 +80,23 @@ export default {
       }
       present.push(week)
       return present
-    }
+    },
   },
   watch: {
     date () {
-      let presenting = new Date(this.date)
+      const presenting = new Date(this.date)
       presenting.setDate(1)
       this.presenting = presenting
-    }
+    },
   },
   methods: {
     GoPrev () {
-      let presenting = new Date(this.startDate)
+      const presenting = new Date(this.startDate)
       presenting.setDate(1)
       this.presenting = presenting
     },
     GoNext () {
-      let presenting = new Date(this.endDate)
+      const presenting = new Date(this.endDate)
       presenting.setDate(1)
       this.presenting = presenting
     },
@@ -114,9 +115,9 @@ export default {
                      day.date.getMonth() === this.date.getMonth() &&
                      day.date.getDate() === this.date.getDate(),
         'am-datepicker-new': day.type === 'new',
-        'am-disabled': day.disabled
+        'am-disabled': day.disabled,
       }
-    }
-  }
+    },
+  },
 }
 </script>

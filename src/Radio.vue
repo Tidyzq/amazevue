@@ -11,21 +11,21 @@
 export default {
   name: 'AmRadio',
   props: {
-    value: [String, Number, Boolean],
-    label: [String, Number, Boolean],
+    value: [ String, Number, Boolean ],
+    label: [ String, Number, Boolean ],
     name: String,
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     type: {
       type: String,
-      default: 'primary'
-    }
+      default: 'primary',
+    },
   },
   data () {
     return {
-      _radioGroup: null
+      _radioGroup: null,
     }
   },
   created () {
@@ -58,7 +58,7 @@ export default {
           this.$emit('input', newVal)
           this.$emit('select', this.label)
         }
-      }
+      },
     },
     classes () {
       return {
@@ -66,10 +66,10 @@ export default {
         'am-secondary': this.type === 'secondary',
         'am-success': this.type === 'success',
         'am-warning': this.type === 'warning',
-        'am-danger': this.type === 'danger'
+        'am-danger': this.type === 'danger',
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

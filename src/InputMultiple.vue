@@ -16,17 +16,17 @@ export default {
     value: Array,
     type: {
       type: String,
-      default: 'default'
+      default: 'default',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    placeholder: String
+    placeholder: String,
   },
   data () {
     return {
-      inputing: ''
+      inputing: '',
     }
   },
   computed: {
@@ -35,16 +35,16 @@ export default {
     },
     showPlaceholder () {
       return (!Array.isArray(this.value) || !this.value.length) && !this.inputing
-    }
+    },
   },
   watch: {
     inputing (newVal) {
-      let input = this.$refs.input
+      const input = this.$refs.input
       input.style.width = ((newVal.length + 1) * 1) + 'em'
-    }
+    },
   },
   mounted () {
-    let input = this.$refs.input
+    const input = this.$refs.input
     input.addEventListener('focusout', () => {
       if (this.inputing) {
         this.OnEnter()
@@ -54,7 +54,7 @@ export default {
   methods: {
     OnClickButton (e) {
       if (this.$refs.pillCloseBtns) {
-        let index = this.$refs.pillCloseBtns.indexOf(e.target)
+        const index = this.$refs.pillCloseBtns.indexOf(e.target)
         if (index !== -1) {
           this.OnClickClose(this.value[index])
           return
@@ -70,22 +70,22 @@ export default {
       this.remove(val)
     },
     add (val) {
-      let index = this.value.indexOf(val)
+      const index = this.value.indexOf(val)
       if (index === -1) {
-        let v = this.value.slice()
+        const v = this.value.slice()
         v.push(val)
         this.$emit('input', v)
       }
     },
     remove (val) {
-      let index = this.value.indexOf(val)
+      const index = this.value.indexOf(val)
       if (index !== -1) {
-        let v = this.value.slice()
+        const v = this.value.slice()
         v.splice(index, 1)
         this.$emit('input', v)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

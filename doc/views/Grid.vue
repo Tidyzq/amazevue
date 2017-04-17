@@ -96,7 +96,7 @@ export default {
     return {
 
     }
-  }
+  },
 }
 </script>
 

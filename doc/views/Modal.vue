@@ -57,8 +57,8 @@ export default {
       modal2: false,
       modal3: false,
       modal4: false,
-      modal5: false
+      modal5: false,
     }
-  }
+  },
 }
 </script>

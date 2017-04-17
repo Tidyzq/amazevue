@@ -65,8 +65,8 @@ export default {
     return {
       tab1: '1',
       tab2: '1',
-      tab3: '1'
+      tab3: '1',
     }
-  }
+  },
 }
 </script>

@@ -9,17 +9,17 @@ export default {
   props: {
     gutter: {
       type: String,
-      default: '0'
-    }
+      default: '0',
+    },
   },
   created () {
     this._row = true
   },
   computed: {
     classes () {
-      return [`am-neg-margin-horizontal-${this.gutter}`]
-    }
-  }
+      return [ `am-neg-margin-horizontal-${this.gutter}` ]
+    },
+  },
 }
 </script>
 

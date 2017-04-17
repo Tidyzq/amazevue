@@ -10,29 +10,29 @@ export default {
   props: {
     size: {
       type: String,
-      default: 'md'
+      default: 'md',
     },
     shape: {
       type: String,
-      default: 'square'
+      default: 'square',
     },
     type: {
       type: String,
-      default: 'default'
+      default: 'default',
     },
     nativeType: {
       type: String,
-      default: 'button'
+      default: 'button',
     },
     active: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    icon: String
+    icon: String,
   },
   computed: {
     classes () {
@@ -50,14 +50,16 @@ export default {
         'am-btn-warning': this.type === 'warning',
         'am-btn-danger': this.type === 'danger',
         'am-active': this.active,
-        'am-disabled': this.disabled
+        'am-disabled': this.disabled,
       }
-    }
+    },
   },
   methods: {
     onClick (e) {
-      if (!this.disabled) this.$emit('click', e)
-    }
-  }
+      if (!this.disabled) {
+        this.$emit('click', e)
+      }
+    },
+  },
 }
 </script>

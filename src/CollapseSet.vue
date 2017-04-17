@@ -7,13 +7,13 @@
 export default {
   name: 'AmCollapseSet',
   props: {
-    value: [Number, String, Boolean, Array],
-    accordion: Boolean
+    value: [ Number, String, Boolean, Array ],
+    accordion: Boolean,
   },
   data () {
     return {
       // collpases: [],
-      show: this.value
+      show: this.value,
     }
   },
   created () {
@@ -26,7 +26,7 @@ export default {
     show (newVal) {
       this.$emit('input', newVal)
       this.$emit('change', newVal)
-    }
-  }
+    },
+  },
 }
 </script>

@@ -27,16 +27,16 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'default'
+      default: 'default',
     },
     title: String,
     description: String,
     value: {
       type: Boolean,
-      default: true
+      default: true,
     },
     closeable: Boolean,
-    showIcon: Boolean
+    showIcon: Boolean,
   },
   computed: {
     show: {
@@ -45,20 +45,20 @@ export default {
       },
       set (newVal) {
         this.$emit('input', newVal)
-      }
-    }
+      },
+    },
   },
   watch: {
     value (newVal) {
       this.show = newVal
-    }
+    },
   },
   methods: {
     handleClose () {
       this.show = false
       this.$emit('input', false)
-    }
-  }
+    },
+  },
 }
 </script>
 

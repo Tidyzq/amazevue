@@ -32,24 +32,24 @@ export default {
       table1: [
         {
           label: 'A',
-          value: 3
+          value: 3,
         }, {
           label: 'B',
-          value: 1
+          value: 1,
         }, {
           label: 'C',
-          value: 2
+          value: 2,
         }, {
           label: 'D',
-          value: 4
-        }
-      ]
+          value: 4,
+        },
+      ],
     }
   },
   methods: {
     SwitchLoading1 () {
       this.loading1 = !this.loading1
-    }
-  }
+    },
+  },
 }
 </script>

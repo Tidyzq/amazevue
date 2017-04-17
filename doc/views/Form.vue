@@ -109,19 +109,19 @@ export default {
         input: '',
         select: '',
         inputMultiple: [],
-        radio: true
+        radio: true,
       },
       form2: {
         labelPosition: 'left',
         input: '',
         select: '',
-        radio: true
+        radio: true,
       },
       form3: {
-        input: ''
-      }
+        input: '',
+      },
     }
-  }
+  },
 }
 </script>
 

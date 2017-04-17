@@ -8,7 +8,7 @@ export default {
       type: Array,
       default () {
         return []
-      }
+      },
     },
     border: Boolean,
     stripe: Boolean,
@@ -18,12 +18,12 @@ export default {
       type: Array,
       default () {
         return []
-      }
+      },
     },
     noWrap: {
       type: String,
-      default: 'none'
-    }
+      default: 'none',
+    },
   },
   data () {
     return {
@@ -32,8 +32,8 @@ export default {
       select: this.selection,
       sort: {
         prop: '',
-        order: ''
-      }
+        order: '',
+      },
     }
   },
   created () {
@@ -53,16 +53,16 @@ export default {
     },
     sort (newVal) {
       this.$emit('sortChange', newVal)
-    }
+    },
   },
   render (h) {
-    let colgroup = h('colgroup', {}, this.$slots.default)
-    let header = h(
+    const colgroup = h('colgroup', {}, this.$slots.default)
+    const header = h(
       'thead',
       {
         class: {
-          'am-text-nowrap': this.noWrap === 'header'
-        }
+          'am-text-nowrap': this.noWrap === 'header',
+        },
       },
       [
         h(
@@ -71,21 +71,21 @@ export default {
           this.columns.map(column => {
             return column.renderHeader.call(this._renderProxy, h)
           })
-        )
+        ),
       ]
     )
-    let body = h(
+    const body = h(
       'tbody',
       {
         class: {
-          'am-text-nowrap': this.noWrap === 'body'
-        }
+          'am-text-nowrap': this.noWrap === 'body',
+        },
       },
       this.data.map((row, index) => {
         return h(
           'tr',
           {
-            key: index
+            key: index,
           },
           this.columns.map(column => {
             return column.renderBody.call(this._renderProxy, h, row, index)
@@ -100,17 +100,17 @@ export default {
         'am-table-striped': this.stripe,
         'am-table-hover': this.hover,
         'am-table-compact': this.compact,
-        'am-text-nowrap': this.noWrap === 'all'
-      }
+        'am-text-nowrap': this.noWrap === 'all',
+      },
     }, [
       colgroup,
       header,
-      body
+      body,
     ])
   },
   components: {
-    AmCheckbox
-  }
+    AmCheckbox,
+  },
 }
 </script>
 

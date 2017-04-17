@@ -13,11 +13,11 @@ export default {
   name: 'AmLoading',
   props: {
     loading: Boolean,
-    text: String
+    text: String,
   },
   data () {
     return {}
-  }
+  },
 }
 </script>
 

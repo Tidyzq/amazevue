@@ -23,19 +23,19 @@ export default {
     title: String,
     value: {
       type: Boolean,
-      default: false
+      default: false,
     },
     closeButton: Boolean,
     dimmerClose: Boolean,
     zIndex: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   data () {
     return {
       active: false,
-      show: this.value
+      show: this.value,
     }
   },
   watch: {
@@ -49,7 +49,7 @@ export default {
     },
     value (newVal) {
       this.show = newVal
-    }
+    },
   },
   methods: {
     handleAfterOpen () {
@@ -70,8 +70,8 @@ export default {
       if (this.dimmerClose && e.target === this.$refs.modal) {
         this.show = false
       }
-    }
-  }
+    },
+  },
 }
 
 </script>

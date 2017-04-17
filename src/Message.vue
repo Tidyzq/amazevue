@@ -17,32 +17,32 @@ import AmAlert from './Alert'
 export default {
   name: 'AmMessage',
   components: {
-    AmAlert
+    AmAlert,
   },
   props: {
     title: String,
     message: String,
     type: {
       type: String,
-      default: 'default'
+      default: 'default',
     },
     placement: {
       type: String,
-      default: 'top'
+      default: 'top',
     },
     width: {
       type: Number,
-      default: 300
+      default: 300,
     },
     value: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    duration: Number
+    duration: Number,
   },
   data () {
     return {
-      show: Boolean(this.value)
+      show: Boolean(this.value),
     }
   },
   computed: {
@@ -52,8 +52,8 @@ export default {
       },
       set (newVal) {
         this.show = newVal
-      }
-    }
+      },
+    },
   },
   watch: {
     value (newVal) {
@@ -74,8 +74,8 @@ export default {
         }
       }
       this.$emit('input', newVal)
-    }
-  }
+    },
+  },
 }
 </script>
 

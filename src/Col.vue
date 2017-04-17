@@ -8,17 +8,17 @@ export default {
   name: 'AmCol',
   props: {
     span: {
-      type: [Number, Object],
-      default: 12
+      type: [ Number, Object ],
+      default: 12,
     },
     offset: {
-      type: [Number, Object],
-      default: 0
-    }
+      type: [ Number, Object ],
+      default: 0,
+    },
   },
   data () {
     return {
-      _row: null
+      _row: null,
     }
   },
   created () {
@@ -41,21 +41,22 @@ export default {
       return this._row ? this._row.gutter : '0'
     },
     classes () {
-      let classes = []
-      let sizes = ['sm', 'md', 'lg']
-      let span = this.spanObj
-      let offset = this.offsetObj
+      const classes = [], sizes = [ 'sm', 'md', 'lg' ], span = this.spanObj, offset = this.offsetObj
       sizes.forEach(size => {
-        if (span[size]) classes.push(`am-u-${size}-${span[size]}`)
-        if (offset[size]) classes.push(`am-u-${size}-offset-${offset[size]}`)
+        if (span[size]) {
+          classes.push(`am-u-${size}-${span[size]}`)
+        }
+        if (offset[size]) {
+          classes.push(`am-u-${size}-offset-${offset[size]}`)
+        }
       })
-      let gutter = this.gutter
+      const gutter = this.gutter
       if (gutter) {
         classes.push(`am-padding-horizontal-${gutter}`)
       }
       return classes
-    }
-  }
+    },
+  },
 }
 </script>
 

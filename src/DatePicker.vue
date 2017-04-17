@@ -46,18 +46,18 @@ import DatePickerMonthes from './DatePickerMonthes'
 import DatePickerYears from './DatePickerYears'
 
 const locales = {
-  days: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
-  daysShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
-  daysMin: ['日', '一', '二', '三', '四', '五', '六'],
-  months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-  monthsShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+  days: [ '星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六' ],
+  daysShort: [ '周日', '周一', '周二', '周三', '周四', '周五', '周六' ],
+  daysMin: [ '日', '一', '二', '三', '四', '五', '六' ],
+  months: [ '一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月' ],
+  monthsShort: [ '一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月' ],
   weekStart: 1,
-  year: ['年']
+  year: [ '年' ],
 }
 const prior = {
   day: 0,
   month: 1,
-  year: 2
+  year: 2,
 }
 
 export default {
@@ -67,24 +67,24 @@ export default {
     placeholder: String,
     type: {
       type: String,
-      default: 'secondary'
+      default: 'secondary',
     },
     mode: {
       type: String,
-      default: 'day'
+      default: 'day',
     },
     format: {
       type: String,
-      default: 'yyyy-mm-dd'
+      default: 'yyyy-mm-dd',
     },
     min: String,
-    max: String
+    max: String,
   },
   components: {
     DatePickerDays,
     DatePickerMonthes,
     DatePickerYears,
-    AmButton
+    AmButton,
   },
   data () {
     return {
@@ -92,7 +92,7 @@ export default {
       prior,
       show: false,
       active: false,
-      showtype: 'day'
+      showtype: 'day',
     }
   },
   computed: {
@@ -101,9 +101,9 @@ export default {
         return DateHelper.parseDate(this.value, this.format)
       },
       set (newVal) {
-        let value = DateHelper.formatDate(newVal, this.format)
+        const value = DateHelper.formatDate(newVal, this.format)
         this.$emit('input', value)
-      }
+      },
     },
     showType: {
       get () {
@@ -115,7 +115,7 @@ export default {
         } else if (prior[this.mode] > prior[newVal]) {
           this.showtype = this.mode
         }
-      }
+      },
     },
     contentClasses () {
       return `am-datepicker-${this.type}`
@@ -125,14 +125,14 @@ export default {
     },
     minDate () {
       return this.min ? DateHelper.parseDate(this.min, this.format) : null
-    }
+    },
   },
   watch: {
     show (newVal) {
       if (newVal) {
         this.showType = 'day'
       }
-    }
+    },
   },
   created () {
     this.$on('open', () => {
@@ -145,7 +145,7 @@ export default {
       this.show = !this.show
     })
     this._documentListener = e => {
-      let content = this.$refs.content
+      const content = this.$refs.content
       if (this.active && content && !content.contains(e.target) && content !== e.target) {
         this.show = false
       }
@@ -164,8 +164,8 @@ export default {
     },
     OnClickToggle () {
       this.show = !this.show
-    }
-  }
+    },
+  },
 }
 </script>
 

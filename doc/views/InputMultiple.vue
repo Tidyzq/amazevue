@@ -31,12 +31,12 @@
 export default {
   data () {
     return {
-      input1: ['A'],
-      input2: ['Primary', 'Secondary', 'Success', 'Warning', 'Danger'],
-      input3: ['disabled'],
-      input4: []
+      input1: [ 'A' ],
+      input2: [ 'Primary', 'Secondary', 'Success', 'Warning', 'Danger' ],
+      input3: [ 'disabled' ],
+      input4: [],
     }
-  }
+  },
 }
 </script>
 

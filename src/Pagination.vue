@@ -42,42 +42,42 @@ export default {
   props: {
     placement: {
       type: String,
-      default: 'center'
+      default: 'center',
     },
     currentPage: {
       type: Number,
-      default: 1
+      default: 1,
     },
     pageSize: {
       type: Number,
-      default: 10
+      default: 10,
     },
     pageSizes: {
       type: Array,
       default () {
-        return [5, 10, 15, 20]
-      }
+        return [ 5, 10, 15, 20 ]
+      },
     },
     total: {
       type: Number,
-      default: 1
+      default: 1,
     },
     keep: {
       type: Number,
-      default: 5
+      default: 5,
     },
     layout: {
       type: Array,
       default () {
-        return ['prev', 'pager', 'next']
-      }
-    }
+        return [ 'prev', 'pager', 'next' ]
+      },
+    },
   },
   data () {
     return {
       page: this.currentPage,
       size: this.pageSize,
-      inputPage: this.currentPage
+      inputPage: this.currentPage,
     }
   },
   watch: {
@@ -88,17 +88,17 @@ export default {
       this.$emit('size-change', newVal)
     },
     pageCount (newVal) {
-      let page = Math.max(1, Math.min(this.page, newVal))
+      const page = Math.max(1, Math.min(this.page, newVal))
       this.page = page
     },
     currentPage (newVal) {
-      let page = Math.max(1, Math.min(this.pageCount, newVal))
+      const page = Math.max(1, Math.min(this.pageCount, newVal))
       this.page = page
     },
     page (newVal) {
       this.inputPage = newVal
       this.$emit('current-change', newVal)
-    }
+    },
   },
   computed: {
     pageCount () {
@@ -108,7 +108,7 @@ export default {
       return {
         'am-pagination-left': this.placement === 'left',
         'am-pagination-centered': this.placement === 'center',
-        'am-pagination-right': this.placement === 'right'
+        'am-pagination-right': this.placement === 'right',
       }
     },
     decreaseable () {
@@ -124,34 +124,34 @@ export default {
       return this.showEnd < this.pageCount
     },
     showStart () {
-      let start = Math.ceil(this.page - (this.keep / 2))
+      const start = Math.ceil(this.page - (this.keep / 2))
       return Math.max(2, Math.min(start, this.pageCount - this.keep))
     },
     showEnd () {
-      let end = this.showStart + this.keep
+      const end = this.showStart + this.keep
       return Math.min(end, this.pageCount)
     },
     showPages () {
-      let start = this.showStart
-      let end = this.showEnd
-      let pages = new Array(Math.max(0, end - start))
+      const start = this.showStart
+      const end = this.showEnd
+      const pages = new Array(Math.max(0, end - start))
       for (let i = 0; i < pages.length; ++i) {
         pages[i] = start + i
       }
       return pages
-    }
+    },
   },
   methods: {
     OnInputPage () {
-      let page = Math.max(1, Math.min(this.pageCount, this.inputPage))
+      const page = Math.max(1, Math.min(this.pageCount, this.inputPage))
       this.page = page
-    }
+    },
   },
   components: {
     AmSelect,
     AmOption,
-    AmInput
-  }
+    AmInput,
+  },
 }
 
 </script>
