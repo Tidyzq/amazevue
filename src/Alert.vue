@@ -38,9 +38,14 @@ export default {
     closeable: Boolean,
     showIcon: Boolean
   },
-  data () {
-    return {
-      show: Boolean(this.value)
+  computed: {
+    show: {
+      get () {
+        return this.value
+      },
+      set (newVal) {
+        this.$emit('input', newVal)
+      }
     }
   },
   watch: {
@@ -52,7 +57,6 @@ export default {
     handleClose () {
       this.show = false
       this.$emit('input', false)
-      this.$emit('close')
     }
   }
 }

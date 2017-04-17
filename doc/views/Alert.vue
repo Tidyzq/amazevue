@@ -20,9 +20,9 @@
   pre
     | am-alert(type='primary', title='Primary', description='This is an alert')
   h2 Closeable
-  am-alert(type='primary', title='Primary', description='This is an alert', closeable)
+  am-alert(type='primary', title='Primary', description='This is an alert', v-model='alert1', closeable)
   pre
-    | am-alert(type='primary', title='Primary', description='This is an alert', closeable)
+    | am-alert(type='primary', title='Primary', description='This is an alert', v-model='alert1', closeable)
   h2 Show Icon
   am-alert(type='default', title='Default', show-icon)
   am-alert(type='primary', title='Primary', show-icon)
@@ -38,13 +38,18 @@
     | am-alert(type='warning', title='Warning', show-icon)
     | am-alert(type='danger', title='Danger', show-icon)
   h2 Show Icon with Description
-  am-alert(type='primary', title='Primary', description='This is an alert', closeable, show-icon)
+  am-alert(type='primary', title='Primary', description='This is an alert', v-model='alert2', closeable, show-icon)
   pre
-    | am-alert(type='primary', title='Primary', description='This is an alert', closeable, show-icon)
+    | am-alert(type='primary', title='Primary', description='This is an alert', v-model='alert2', closeable, show-icon)
 </template>
 
 <script>
 export default {
-
+  data () {
+    return {
+      alert1: true,
+      alert2: true
+    }
+  }
 }
 </script>
