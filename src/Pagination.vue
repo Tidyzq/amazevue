@@ -13,10 +13,10 @@ ul.am-pagination(:class='paginationClasses')
         am-input.am-pagination-jumper-input(v-model.number='inputPage')
         | 页
     template(v-else-if='component === "prev"')
-      li(:class='{"am-disabled": !decreaseable}', @click='page-=1')
+      li(:class='{"am-disabled": !decreaseable}', @click='decreaseable&&(page-=1)')
         a &lsaquo;
     template(v-else-if='component === "next"')
-      li(:class='{"am-disabled": !increaseable}', @click='page+=1')
+      li(:class='{"am-disabled": !increaseable}', @click='increaseable&&(page+=1)')
         a &rsaquo;
     template(v-else-if='component === "pager"')
       li(:class='{"am-active": page === 1}', @click='page=1')
