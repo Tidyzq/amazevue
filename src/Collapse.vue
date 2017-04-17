@@ -12,21 +12,20 @@
       template(v-if='$slots.title')
         slot(name='title')
       template(v-else) {{ title }}
-  transition(
-    @before-enter='handleBeforeEnter',
-    @after-enter='handleAfterEnter',
-    @before-leave='handleBeforeLeave',
-    @after-leave='handleAfterLeave',
-    enter-active-class='am-collapsing'
-    leave-active-class='am-collapsing')
-    .am-panel-collapse(v-show='show', :style='collapseStyle')
-      .am-panel-bd(ref='panelBd')
+  .am-panel-collapse
+    collapse-transition(:show='show')
+      .am-panel-bd
         slot
 </template>
 
 <script>
+import CollapseTransition from './CollapseTransition'
+
 export default {
   name: 'AmCollapse',
+  components: {
+    CollapseTransition
+  },
   props: {
     type: {
       type: String,
@@ -40,8 +39,6 @@ export default {
   },
   data () {
     return {
-      animatingClientHeight: false,
-      animatingZeroHeight: false,
       collapseSet: null
     }
   },
@@ -65,23 +62,6 @@ export default {
       } else {
         return Array.isArray(show) && show.some(item => item === this.name)
       }
-    },
-    collapseStyle () {
-      let style = {}
-      if (this.animatingClientHeight) {
-        style['height'] = this.$refs.panelBd.clientHeight + 'px'
-      }
-      if (this.animatingZeroHeight) {
-        style['height'] = '0px'
-      }
-      return style
-    }
-  },
-  watch: {
-    show (newVal, oldVal) {
-      if (!newVal && oldVal) {
-        this.animatingClientHeight = true
-      }
     }
   },
   methods: {
@@ -96,19 +76,6 @@ export default {
           show.push(this.name)
         }
       }
-    },
-    handleBeforeEnter () {
-      this.animatingClientHeight = true
-    },
-    handleAfterEnter () {
-      this.animatingClientHeight = false
-    },
-    handleBeforeLeave () {
-      this.animatingZeroHeight = true
-    },
-    handleAfterLeave () {
-      this.animatingClientHeight = false
-      this.animatingZeroHeight = false
     }
   }
 }
