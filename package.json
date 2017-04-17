@@ -50,6 +50,7 @@
     "css-loader": "^0.26.1",
     "eslint": "^3.14.1",
     "eslint-config-standard": "^6.2.1",
+    "eslint-config-tidyzq": "git+ssh://git@github.com/tidyzq/eslint-config-tidyzq.git",
     "eslint-friendly-formatter": "^2.0.7",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-html": "^2.0.0",
