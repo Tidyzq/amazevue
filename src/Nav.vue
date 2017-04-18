@@ -1,5 +1,8 @@
 <template lang='jade'>
-ul.am-nav
+ul.am-nav(:class=`{
+    'am-nav-pills': mode === 'pills',
+    'am-nav-tabs': mode === 'tabs',
+  }`)
   slot
 </template>
 
@@ -8,10 +11,15 @@ export default {
   name: 'AmNav',
   props: {
     value: null,
+    mode: {
+      type: String,
+      default: 'vertical',
+    },
   },
   data () {
     return {
       items: [],
+      padding: 0,
     }
   },
   computed: {

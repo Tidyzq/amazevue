@@ -6,6 +6,7 @@ import AmCol from './Col'
 import AmCollapse from './Collapse'
 import AmCollapseSet from './CollapseSet'
 import AmDatePicker from './DatePicker'
+import AmDropdown from './Dropdown'
 import AmFileSelect from './FileSelect'
 import AmForm from './Form'
 import AmFormItem from './FormItem'
@@ -39,6 +40,7 @@ const Components = [
   AmCollapse,
   AmCollapseSet,
   AmDatePicker,
+  AmDropdown,
   AmFileSelect,
   AmForm,
   AmFormItem,
@@ -83,6 +85,7 @@ const Amazevue = {
   AmCollapse,
   AmCollapseSet,
   AmDatePicker,
+  AmDropdown,
   AmFileSelect,
   AmForm,
   AmFormItem,

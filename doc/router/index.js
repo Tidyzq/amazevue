@@ -22,6 +22,7 @@ import Alert from '../views/Alert'
 import Message from '../views/Message'
 import Topbar from '../views/Topbar'
 import Nav from '../views/Nav'
+import Dropdown from '../views/Dropdown'
 
 Vue.use(Router)
 
@@ -113,6 +114,10 @@ export default new Router({
       path: '/nav',
       name: 'Nav',
       component: Nav,
+    }, {
+      path: '/dropdown',
+      name: 'Dropdown',
+      component: Dropdown,
     },
     { path: '*', redirect: '/' },
   ],

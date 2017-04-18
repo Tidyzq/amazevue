@@ -3,7 +3,10 @@ li.am-nav-item(:class=`{
     'am-active': active,
     'am-disabled': disabled,
   }`)
-  a(@click='handleClick')
+  a(@click='handleClick', :style=`{
+      'padding-left': usePadding ? padding + 'em' : false,
+    }`)
+    span.am-margin-right-xs(v-if='icon', :class='`am-icon-${icon}`')
     slot
 </template>
 
@@ -17,6 +20,7 @@ export default {
     },
     defaultActive: Boolean,
     disabled: Boolean,
+    icon: String,
   },
   data () {
     return {
@@ -47,6 +51,15 @@ export default {
     active () {
       return this.rootNav.active === this.index
     },
+    padding () {
+      return this.parentNav.padding + 1
+    },
+    mode () {
+      return this.parentNav.mode
+    },
+    usePadding () {
+      return this.mode === 'vertical'
+    },
   },
   methods: {
     handleClick () {
@@ -61,7 +74,7 @@ export default {
 <style lang='less' scoped>
 
 .am-nav-item {
-  margin: 0;
+  margin-top: 0;
   cursor: pointer;
 }
 
