@@ -1,6 +1,6 @@
 <template lang='jade'>
   button.am-btn(:type='nativeType', :class='classes', @click='onClick')
-    i(v-if='icon', :class='"am-icon-"+icon')
+    i.am-margin-right-xs(v-if='icon', :class='`am-icon-${icon}`')
     slot
 </template>
 
@@ -37,18 +37,9 @@ export default {
   computed: {
     classes () {
       return {
-        'am-btn-xl': this.size === 'xl',
-        'am-btn-lg': this.size === 'lg',
-        'am-btn-sm': this.size === 'sm',
-        'am-btn-xs': this.size === 'xs',
-        'am-radius': this.shape === 'radius',
-        'am-round': this.shape === 'round',
-        'am-btn-default': this.type === 'default',
-        'am-btn-primary': this.type === 'primary',
-        'am-btn-secondary': this.type === 'secondary',
-        'am-btn-success': this.type === 'success',
-        'am-btn-warning': this.type === 'warning',
-        'am-btn-danger': this.type === 'danger',
+        [`am-btn-${this.size}`]: true,
+        [`am-${this.shape}`]: true,
+        [`am-btn-${this.type}`]: true,
         'am-active': this.active,
         'am-disabled': this.disabled,
       }

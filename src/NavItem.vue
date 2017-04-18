@@ -6,7 +6,7 @@ li.am-nav-item(:class=`{
   a(@click='handleClick', :style=`{
       'padding-left': usePadding ? padding + 'em' : false,
     }`)
-    span.am-margin-right-xs(v-if='icon', :class='`am-icon-${icon}`')
+    i.am-margin-right-xs(v-if='icon', :class='`am-icon-${icon}`')
     slot
 </template>
 

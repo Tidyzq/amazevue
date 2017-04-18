@@ -104,17 +104,17 @@
       |   am-button(type='primary', size='xs') primary-xs
     h2 Icon
     .buttons
-      am-button(type='default', icon='cog')  Setting
-      am-button(type='warning', icon='shopping-cart')  Purchase
+      am-button(type='default', icon='cog') Setting
+      am-button(type='warning', icon='shopping-cart') Purchase
       am-button(type='default')
-        i.am-icon-spinner.am-icon-spin
-        |  Loading
+        i.am-margin-right-xs.am-icon-spinner.am-icon-spin
+        | Loading
     pre
-      | am-button(type='default', icon='cog')  Setting
-      | am-button(type='warning', icon='shopping-cart')  Purchase
+      | am-button(type='default', icon='cog') Setting
+      | am-button(type='warning', icon='shopping-cart') Purchase
       | am-button(type='default')
-      |   i.am-icon-spinner.am-icon-spin
-      |   |  Loading
+      |   i.am-margin-right-xs.am-icon-spinner.am-icon-spin
+      |   | Loading
 </template>
 
 <script>

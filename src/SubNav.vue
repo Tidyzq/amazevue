@@ -5,7 +5,7 @@ li.am-sub-nav-item.am-nav-item(:class=`{
   a(@click='handleClick', :style=`{
       'padding-left': useDropdown ? false : padding + 'em',
     }`)
-    span.am-margin-right-xs(v-if='icon', :class='`am-icon-${icon}`')
+    i.am-margin-right-xs(v-if='icon', :class='`am-icon-${icon}`')
     slot(name='title')
     span.am-sub-nav-caret.am-fr.am-icon-caret-down(:class=`{
       'am-sub-nav-caret-open': collapse
