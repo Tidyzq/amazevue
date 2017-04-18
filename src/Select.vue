@@ -95,6 +95,7 @@ export default {
         }
         this.$emit('input', value)
       } else {
+        this.show = false
         this.$emit('input', val)
       }
     },

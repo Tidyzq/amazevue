@@ -5,7 +5,7 @@ li.am-nav-item(:class=`{
   }`)
   a(@click='handleClick', :style=`{
       'padding-left': usePadding ? padding + 'em' : false,
-    }`)
+    }`, :href='href')
     i.am-margin-right-xs(v-if='icon', :class='`am-icon-${icon}`')
     slot
 </template>
@@ -21,6 +21,7 @@ export default {
     defaultActive: Boolean,
     disabled: Boolean,
     icon: String,
+    href: String,
   },
   data () {
     return {
@@ -66,6 +67,7 @@ export default {
       if (!this.active && !this.disabled) {
         this.rootNav.active = this.index
       }
+      this.$emit('click')
     },
   },
 }
