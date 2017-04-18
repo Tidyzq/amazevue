@@ -11,6 +11,10 @@ export default {
       type: String,
       default: 'div',
     },
+    contentClass: {
+      type: [ Array, Object, String ],
+      default: 'am-dropdown-content',
+    },
   },
   render (h) {
     return h('div', {
@@ -39,7 +43,7 @@ export default {
             value: this.show,
           } ],
           ref: 'content',
-          staticClass: 'am-dropdown-content',
+          class: this.contentClass,
         }, this.$slots.default),
       ]),
     ])

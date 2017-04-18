@@ -1,46 +1,41 @@
 <template lang='jade'>
-  .am-date-picker.am-dropdown(ref='datepicker')
+  .am-date-picker(ref='datepicker')
     am-button.am-date-picker-btn.am-dropdown-toggle(:active='show', @click='OnClickToggle')
       span.am-selected-placeholder.am-fl(v-if='!value') {{ placeholder }}
       span.am-selected-status.am-fl(v-else) {{ value }}
-    transition(
-      name='am-select-transition',
-      enter-active-class='am-animation-slide-top-fixed',
-      leave-active-class='am-dropdown-animation',
-      @after-enter='AfterOpen',
-      @before-leave='BeforeClose')
-      .am-datepicker.am-datepicker-dropdown(v-if='show', :class='contentClasses', ref='content')
-        date-picker-days(
-          v-if='prior[mode] <= prior.day'
-          v-show='showType === "day"',
-          :date='date',
-          :locales='locales',
-          :minDate='minDate',
-          :maxDate='maxDate',
-          @goUpper='showType = "month"',
-          @select='date = $event')
-        date-picker-monthes(
-          v-if='prior[mode] <= prior.month'
-          v-show='showType === "month"',
-          :date='date',
-          :locales='locales',
-          :minDate='minDate',
-          :maxDate='maxDate',
-          @goUpper='showType = "year"',
-          @select='date = $event, showType = "day"')
-        date-picker-years(
-          v-if='prior[mode] <= prior.year'
-          v-show='showType === "year"',
-          :date='date',
-          :locales='locales',
-          :minDate='minDate',
-          :maxDate='maxDate',
-          @select='date = $event, showType = "month"')
+    am-dropdown(v-model='show', :content-class='contentClasses')
+      date-picker-days(
+        v-if='prior[mode] <= prior.day'
+        v-show='showType === "day"',
+        :date='date',
+        :locales='locales',
+        :minDate='minDate',
+        :maxDate='maxDate',
+        @goUpper='showType = "month"',
+        @select='date = $event')
+      date-picker-monthes(
+        v-if='prior[mode] <= prior.month'
+        v-show='showType === "month"',
+        :date='date',
+        :locales='locales',
+        :minDate='minDate',
+        :maxDate='maxDate',
+        @goUpper='showType = "year"',
+        @select='date = $event, showType = "day"')
+      date-picker-years(
+        v-if='prior[mode] <= prior.year'
+        v-show='showType === "year"',
+        :date='date',
+        :locales='locales',
+        :minDate='minDate',
+        :maxDate='maxDate',
+        @select='date = $event, showType = "month"')
 </template>
 
 <script>
 import * as DateHelper from './utils/dateHelper'
 import AmButton from './Button'
+import AmDropdown from './Dropdown'
 import DatePickerDays from './DatePickerDays'
 import DatePickerMonthes from './DatePickerMonthes'
 import DatePickerYears from './DatePickerYears'
@@ -85,13 +80,13 @@ export default {
     DatePickerMonthes,
     DatePickerYears,
     AmButton,
+    AmDropdown,
   },
   data () {
     return {
       locales,
       prior,
       show: false,
-      active: false,
       showtype: 'day',
     }
   },
@@ -118,7 +113,7 @@ export default {
       },
     },
     contentClasses () {
-      return `am-datepicker-${this.type}`
+      return [ 'am-datepicker', 'am-datepicker-dropdown', `am-datepicker-${this.type}` ]
     },
     maxDate () {
       return this.max ? DateHelper.parseDate(this.max, this.format) : null
@@ -134,34 +129,7 @@ export default {
       }
     },
   },
-  created () {
-    this.$on('open', () => {
-      this.show = true
-    })
-    this.$on('close', () => {
-      this.show = true
-    })
-    this.$on('toggle', () => {
-      this.show = !this.show
-    })
-    this._documentListener = e => {
-      const content = this.$refs.content
-      if (this.active && content && !content.contains(e.target) && content !== e.target) {
-        this.show = false
-      }
-    }
-    document.addEventListener('click', this._documentListener)
-  },
-  beforeDestroy () {
-    document.removeEventListener('click', this._documentListener)
-  },
   methods: {
-    AfterOpen () {
-      this.active = true
-    },
-    BeforeClose () {
-      this.active = false
-    },
     OnClickToggle () {
       this.show = !this.show
     },
@@ -169,7 +137,7 @@ export default {
 }
 </script>
 
-<style lang='less' scoped>
+<style lang='less'>
 @import './less/variables.less';
 
 .am-date-picker {
@@ -178,9 +146,11 @@ export default {
 }
 
 .am-datepicker-dropdown {
+  padding: 0 !important;
   display: block;
   position: absolute;
   top: 100%;
+  animation-duration: .15s;
 }
 
 .am-date-picker-btn {

@@ -1,5 +1,5 @@
 <template lang='jade'>
-  .am-selected.am-dropdown(ref='selected', :class='selectedClasses')
+  .am-selected(ref='selected', :class='selectedClasses')
     am-button.am-selected-btn.am-dropdown-toggle(:active='show', @click='OnClickToggle')
       span.am-selected-placeholder.am-fl(v-if='showPlaceholder') {{ placeholder }}
       span.am-selected-status.am-fl(v-else)
@@ -8,19 +8,14 @@
           | {{ options[val] }}
           a.am-selected-close.am-close-spin(ref='pillCloseBtns') &times;
       i.am-selected-icon.am-icon-caret-down
-    transition(
-      name='am-select-transition',
-      enter-active-class='am-animation-slide-top-fixed',
-      leave-active-class='am-dropdown-animation',
-      @after-enter='AfterOpen',
-      @before-leave='BeforeClose')
-      .am-selected-content.am-dropdown-content(ref='content', v-show='show')
-        ul.am-selected-list(:style='listStyle')
-          slot
+    am-dropdown(v-model='show', content-class='am-dropdown-content am-selected-content')
+      ul.am-selected-list(:style='listStyle')
+        slot
 </template>
 
 <script>
 import AmButton from './Button'
+import AmDropdown from './Dropdown'
 
 export default {
   name: 'AmSelect',
@@ -42,11 +37,11 @@ export default {
   },
   components: {
     AmButton,
+    AmDropdown,
   },
   data () {
     return {
       show: false,
-      active: false,
       options: {},
     }
   },
@@ -62,18 +57,6 @@ export default {
   created () {
     this._select = true
     this.$on('select', this.OnSelect)
-  },
-  mounted () {
-    this._documentListener = e => {
-      const content = this.$refs.content
-      if (this.active && content && (!this.multiple || (!content.contains(e.target) && e.target !== content))) {
-        this.show = false
-      }
-    }
-    document.addEventListener('click', this._documentListener)
-  },
-  beforeDestroy () {
-    document.removeEventListener('click', this._documentListener)
   },
   computed: {
     selectedClasses () {
@@ -101,12 +84,6 @@ export default {
     },
   },
   methods: {
-    AfterOpen () {
-      this.active = true
-    },
-    BeforeClose () {
-      this.active = false
-    },
     OnSelect (val) {
       if (this.multiple) {
         const value = Array.isArray(this.value) ? this.value.slice() : []
@@ -207,14 +184,18 @@ export default {
   transition: all .3s;
 }
 
-.am-selected-content {
-  width: 100%;
-  display: block;
-}
-
 .am-selected-list {
   overflow-x: hidden;
   overflow-y: scroll;
+}
+
+</style>
+
+<style lang='less'>
+
+.am-selected-content {
+  width: 100%;
+  display: block;
 }
 
 </style>
