@@ -4,6 +4,7 @@
     'am-topbar-fixed-top': fixed === 'top',
     'am-topbar-fixed-bottom': fixed === 'bottom',
   }`)
+  slot(name='brand')
   am-button.am-topbar-btn.am-topbar-toggle.am-show-sm-only(size='sm', type='success', @click='handleCollapseToggle')
     span.am-sr-only ...
     span.am-icon-bars
@@ -13,12 +14,7 @@
       'am-in': show
     }`, :style='collapseStyle', ref='collapse')
     .am-topbar-collapse-body(ref='collapseBody')
-      ul.am-nav.am-nav-pills.am-topbar-nav
-        li.am-active: a 1
-        li: a 2
-        li: a 3
-        li: a 4
-        li: a 5
+      slot
 </template>
 
 <script>
@@ -106,6 +102,15 @@ export default {
 
 .am-topbar-nav {
   margin-bottom: 0 !important;
+}
+
+</style>
+
+<style lang='less'>
+@import './less/variables.less';
+
+.am-topbar-inverse a {
+  color: @topbar-link-color;
 }
 
 </style>
