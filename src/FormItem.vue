@@ -24,14 +24,14 @@ export default {
     AmCol,
   },
   computed: {
+    position () {
+      return this._form.labelPosition
+    },
     labelSpan () {
-      return this._form.labelPosition === 'top' ? 12 : this._form.labelSpan
+      return this.position === 'top' ? 12 : this._form.labelSpan
     },
     contentSpan () {
-      if (this._form) {
-        return this._form.labelPosition === 'top' ? 12 : 12 - this.labelSpan
-      }
-      return 12 - this.labelSpan
+      return this.position === 'top' ? 12 : this._form.contentSpan
     },
   },
   watch: {

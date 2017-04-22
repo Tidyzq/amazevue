@@ -63,12 +63,12 @@
       |       am-radio(:label='false') false
       |   am-form-item
       |     am-button(type='primary') Submit
-    h2 Label Span
-    am-form(:label-span='1')
+    h2 Label Span & Content Span
+    am-form(label-position='left', :label-span='{ sm: 12, md: 1 }', :content-span='{ sm: 12, md: 11 }')
       am-form-item(label='Label1')
         am-input(placeholder='Input1', v-model='form3.input')
     pre
-      | am-form(:label-span='1')
+      | am-form(label-position='left', :label-span='{ sm: 12, md: 1 }', :content-span='{ sm: 12, md: 11 }')
       |   am-form-item(label='Label1')
       |     am-input(placeholder='Input1', v-model='form3.input')
     h2 Item Span

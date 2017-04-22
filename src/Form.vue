@@ -17,8 +17,12 @@ export default {
       default: 'right',
     },
     labelSpan: {
-      type: Number,
+      type: [ Number, Object ],
       default: 2,
+    },
+    contentSpan: {
+      type: [ Number, Object ],
+      default: 10,
     },
     gutter: String,
   },
@@ -48,5 +52,10 @@ export default {
 
 <style lang='less' scoped>
 @import './less/variables.less';
+
+// .am-form {
+//   overflow-x: hidden;
+//   overflow-y: visible;
+// }
 
 </style>
