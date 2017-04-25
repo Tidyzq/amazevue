@@ -24,7 +24,6 @@ export default {
 <style lang='less' scoped>
 .am-loading-wrapper {
   position: relative;
-  overflow: auto;
 }
 
 .am-loading-mask {
