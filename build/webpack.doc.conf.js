@@ -54,6 +54,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
+      favicon: 'doc/assets/favicon.png',
       filename: config.doc.index,
       template: 'index.html',
       inject: true,
