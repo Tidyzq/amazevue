@@ -1,5 +1,5 @@
 <template lang='jade'>
-  .grid-page.am-container
+  .grid-page
     h1 Grid
     h2 Basic
     am-row.am-margin-bottom-sm

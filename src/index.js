@@ -76,6 +76,7 @@ const install = function (Vue) {
 }
 
 const Amazevue = {
+  version: '0.1.4',
   install,
   AmAlert,
   AmButton,
