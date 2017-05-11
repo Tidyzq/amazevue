@@ -4,17 +4,18 @@
     'am-topbar-fixed-top': fixed === 'top',
     'am-topbar-fixed-bottom': fixed === 'bottom',
   }`)
-  slot(name='brand')
-  am-button.am-topbar-btn.am-topbar-toggle.am-show-sm-only(size='sm', type='success', @click='handleCollapseToggle')
-    span.am-sr-only ...
-    span.am-icon-bars
-  .am-topbar-collapse(:class=`{
-      'am-collapse': !collapsing,
-      'am-collapsing': collapsing,
-      'am-in': show
-    }`, :style='collapseStyle', ref='collapse')
-    .am-topbar-collapse-body(ref='collapseBody')
-      slot
+  div(:class=`{ 'am-container': container }`)
+    slot(name='brand')
+    am-button.am-topbar-btn.am-topbar-toggle.am-show-sm-only(size='sm', type='success', @click='handleCollapseToggle')
+      span.am-sr-only ...
+      span.am-icon-bars
+    .am-topbar-collapse(:class=`{
+        'am-collapse': !collapsing,
+        'am-collapsing': collapsing,
+        'am-in': show
+      }`, :style='collapseStyle', ref='collapse')
+      .am-topbar-collapse-body(ref='collapseBody')
+        slot
 </template>
 
 <script>
@@ -28,6 +29,7 @@ export default {
       type: String,
       default: 'none',
     },
+    container: Boolean,
   },
   components: {
     AmButton,
