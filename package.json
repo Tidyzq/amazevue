@@ -19,7 +19,8 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "vue": "^2.2.2"
+    "vue": "^2.2.2",
+    "amazeui": "^2.7.2"
   },
   "files": [
     "README.md",
@@ -34,7 +35,6 @@
     "vue"
   ],
   "devDependencies": {
-    "amazeui": "^2.7.2",
     "async-validator": "^1.6.8",
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",

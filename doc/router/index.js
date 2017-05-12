@@ -119,6 +119,6 @@ export default new Router({
       name: 'Dropdown',
       component: Dropdown,
     },
-    { path: '*', redirect: '/' },
+    { path: '*', redirect: '/grid' },
   ],
 })
