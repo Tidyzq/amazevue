@@ -30,11 +30,11 @@ export default new Router({
   mode: 'history',
   base: '/amazevue',
   routes: [
-    {
+    /* {
       path: '/',
       name: 'Home',
       component: Home,
-    }, {
+    }, */ {
       path: '/button',
       name: 'Button',
       component: Button,
