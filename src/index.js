@@ -74,9 +74,9 @@ const install = function (Vue) {
     Vue.component(component.name, component)
   }
 }
-
 const Amazevue = {
-  version: '0.1.5',
+  /* global amazevue */
+  version: amazevue.version,
   install,
   AmAlert,
   AmButton,
