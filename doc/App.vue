@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import StoreMixin from 'doc/mixins/store'
+import StoreMixin from '@/mixins/store'
 
 export default {
   mixins: [
@@ -22,18 +22,18 @@ export default {
   },
   computed: {
     menus () {
-      return [ {
+      return [{
         name: 'Basic',
-        children: [ {
+        children: [{
           name: 'Grid',
           index: 'Grid',
         }, {
           name: 'Button',
           index: 'Button',
-        } ],
+        }],
       }, {
         name: 'Form',
-        children: [ {
+        children: [{
           name: 'Form',
           index: 'Form',
         }, {
@@ -57,10 +57,10 @@ export default {
         }, {
           name: 'File Select',
           index: 'FileSelect',
-        } ],
+        }],
       }, {
         name: 'Data',
-        children: [ {
+        children: [{
           name: 'Table',
           index: 'Table',
         }, {
@@ -69,8 +69,8 @@ export default {
         }, {
           name: 'Pagination',
           index: 'Pagination',
-        } ],
-      } ]
+        }],
+      }]
     },
     // 所有menu的路径信息
     menusPaths () {

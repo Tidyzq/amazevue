@@ -1,34 +1,34 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home'
+// import Home from '../views/Home'
 
-import Button from '../views/Button'
-import Grid from '../views/Grid'
-import Radio from '../views/Radio'
-import Checkbox from '../views/Checkbox'
-import Input from '../views/Input'
-import InputMultiple from '../views/InputMultiple'
-import Select from '../views/Select'
-import DatePicker from '../views/DatePicker'
-import FileSelect from '../views/FileSelect'
-import Form from '../views/Form'
-import Pagination from '../views/Pagination'
-import Table from '../views/Table'
-import Modal from '../views/Modal'
-import Tab from '../views/Tab'
-import Collapse from '../views/Collapse'
-import Loading from '../views/Loading'
-import Alert from '../views/Alert'
-import Message from '../views/Message'
-import Topbar from '../views/Topbar'
-import Nav from '../views/Nav'
-import Dropdown from '../views/Dropdown'
+import Button from '@/views/Button'
+import Grid from '@/views/Grid'
+import Radio from '@/views/Radio'
+import Checkbox from '@/views/Checkbox'
+import Input from '@/views/Input'
+import InputMultiple from '@/views/InputMultiple'
+import Select from '@/views/Select'
+import DatePicker from '@/views/DatePicker'
+import FileSelect from '@/views/FileSelect'
+import Form from '@/views/Form'
+import Pagination from '@/views/Pagination'
+import Table from '@/views/Table'
+import Modal from '@/views/Modal'
+import Tab from '@/views/Tab'
+import Collapse from '@/views/Collapse'
+import Loading from '@/views/Loading'
+import Alert from '@/views/Alert'
+import Message from '@/views/Message'
+import Topbar from '@/views/Topbar'
+import Nav from '@/views/Nav'
+import Dropdown from '@/views/Dropdown'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  base: '/amazevue',
+  // base: '/amazevue',
   routes: [
     /* {
       path: '/',

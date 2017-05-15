@@ -3,7 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import 'amazeui/dist/css/amazeui.css'
-import Amazevue from '../src'
+import 'module/amazevue.css'
+import Amazevue from 'module/amazevue'
 import router from './router'
 import store from './store'
 import Sidebar from './components/Sidebar'
@@ -17,11 +18,16 @@ Vue.component(Sidebar.name, Sidebar)
 Vue.component(MainHeader.name, MainHeader)
 Vue.component(MainFooter.name, MainFooter)
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
+const root = new Vue({
+  // el: '#app',
   router,
   store,
   template: '<App/>',
   components: { App },
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  root.$mount('#app')
+  window.readyToCapture = true
+  document.dispatchEvent(new Event('vue-post-render'))
 })

@@ -8,12 +8,12 @@ var path = require('path')
 var chalk = require('chalk')
 var webpack = require('webpack')
 var config = require('../config')
-var webpackConfig = require('./webpack.prod.conf')
+var webpackConfig = require('./webpack.module.prod.conf')
 
 var spinner = ora('building for production...')
 spinner.start()
 
-rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+rm(config.build.assetsRoot, err => {
   if (err) throw err
   webpack(webpackConfig, function (err, stats) {
     spinner.stop()

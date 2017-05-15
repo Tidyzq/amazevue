@@ -5,13 +5,13 @@ footer
 </template>
 
 <script>
-import src from 'src'
+import amazevue from 'module/amazevue'
 
 export default {
   name: 'main-footer',
   computed: {
     version () {
-      return src.version
+      return amazevue.version
     },
   },
 }

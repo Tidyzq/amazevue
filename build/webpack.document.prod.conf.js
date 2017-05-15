@@ -1,22 +1,23 @@
-var path = require('path')
-var utils = require('./utils')
-var webpack = require('webpack')
-var config = require('../config')
-var merge = require('webpack-merge')
-var baseWebpackConfig = require('./webpack.base.conf')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const path = require('path')
+const utils = require('./utils')
+const webpack = require('webpack')
+const config = require('../config')
+const merge = require('webpack-merge')
+const baseWebpackConfig = require('./webpack.document.base.conf')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const PrerenderSpaPlugin = require('prerender-spa-plugin')
 
-var env = config.doc.env
+const env = config.doc.env
 
 function assetsPath (_path) {
-  var assetsSubDirectory = config.doc.assetsSubDirectory
+  const assetsSubDirectory = config.doc.assetsSubDirectory
   return path.posix.join(assetsSubDirectory, _path)
 }
 
-var webpackConfig = merge(baseWebpackConfig, {
+const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.doc.productionSourceMap,
@@ -28,9 +29,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     path: config.doc.assetsRoot,
     filename: assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: assetsPath('js/[id].[chunkhash].js'),
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.doc.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: config.doc.assetsPublicPath
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -95,12 +94,23 @@ var webpackConfig = merge(baseWebpackConfig, {
         to: config.doc.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    // prerender spa plugin
+    new PrerenderSpaPlugin(
+      config.doc.assetsRoot,
+      [ '/grid' ],
+      {
+        captureAfterDocumentEvent: 'vue-post-render',
+        // captureAfterTime: 3000,
+        publicPath: config.doc.assetsPublicPath,
+        // phantomOptions: '--remote-debugger-port=9000 --remote-debugger-autorun=yes',
+      }
+    )
   ]
 })
 
 if (config.doc.productionGzip) {
-  var CompressionWebpackPlugin = require('compression-webpack-plugin')
+  const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
   webpackConfig.plugins.push(
     new CompressionWebpackPlugin({
@@ -118,7 +128,7 @@ if (config.doc.productionGzip) {
 }
 
 if (config.doc.bundleAnalyzerReport) {
-  var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 

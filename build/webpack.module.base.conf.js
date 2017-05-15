@@ -11,7 +11,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './doc/main.js'
+    app: './src/amazevue.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -24,8 +24,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'src': resolve('src'),
-      'doc': resolve('doc'),
+      '@': resolve('src'),
     }
   },
   module: {

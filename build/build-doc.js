@@ -8,12 +8,12 @@ var path = require('path')
 var chalk = require('chalk')
 var webpack = require('webpack')
 var config = require('../config')
-var webpackConfig = require('./webpack.doc.conf')
+var webpackConfig = require('./webpack.document.prod.conf')
 
 var spinner = ora('building for production...')
 spinner.start()
 
-rm(path.join(config.doc.assetsRoot, config.doc.assetsSubDirectory), err => {
+rm(config.doc.assetsRoot, err => {
   if (err) throw err
   webpack(webpackConfig, function (err, stats) {
     spinner.stop()
@@ -31,5 +31,17 @@ rm(path.join(config.doc.assetsRoot, config.doc.assetsSubDirectory), err => {
       '  Tip: built files are meant to be served over an HTTP server.\n' +
       '  Opening index.html over file:// won\'t work.\n'
     ))
+
+    if (process.env.npm_config_publish) {
+      var ghpages = require('gh-pages');
+
+      ghpages.publish(config.doc.assetsRoot, function (err) {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log(chalk.cyan('  Publish to github pages success.\n'))
+        }
+      });
+    }
   })
 })
