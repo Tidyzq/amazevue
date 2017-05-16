@@ -21,30 +21,30 @@ const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.doc.productionSourceMap,
-      extract: true
-    })
+      extract: true,
+    }),
   },
   devtool: config.doc.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.doc.assetsRoot,
     filename: assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: assetsPath('js/[id].[chunkhash].js'),
-    publicPath: config.doc.assetsPublicPath
+    publicPath: config.doc.assetsPublicPath,
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': env
+      'process.env': env,
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
+        warnings: false,
       },
-      sourceMap: true
+      sourceMap: true,
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: assetsPath('css/[name].[contenthash].css')
+      filename: assetsPath('css/[name].[contenthash].css'),
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
@@ -60,17 +60,17 @@ const webpackConfig = merge(baseWebpackConfig, {
       minify: {
         removeComments: true,
         collapseWhitespace: true,
-        removeAttributeQuotes: true
+        removeAttributeQuotes: true,
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'dependency',
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: function (module, count) {
+      minChunks (module, count) {
         // any required modules inside node_modules are extracted to vendor
         return (
           module.resource &&
@@ -79,21 +79,21 @@ const webpackConfig = merge(baseWebpackConfig, {
             path.join(__dirname, '../node_modules')
           ) === 0
         )
-      }
+      },
     }),
     // extract webpack runtime and module manifest to its own file in order to
     // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
-      chunks: ['vendor']
+      chunks: [ 'vendor' ],
     }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),
         to: config.doc.assetsSubDirectory,
-        ignore: ['.*']
-      }
+        ignore: [ '.*' ],
+      },
     ]),
     // prerender spa plugin
     new PrerenderSpaPlugin(
@@ -105,8 +105,8 @@ const webpackConfig = merge(baseWebpackConfig, {
         publicPath: config.doc.assetsPublicPath,
         // phantomOptions: '--remote-debugger-port=9000 --remote-debugger-autorun=yes',
       }
-    )
-  ]
+    ),
+  ],
 })
 
 if (config.doc.productionGzip) {
@@ -122,7 +122,7 @@ if (config.doc.productionGzip) {
         ')$'
       ),
       threshold: 10240,
-      minRatio: 0.8
+      minRatio: 0.8,
     })
   )
 }

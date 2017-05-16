@@ -1,60 +1,60 @@
-const path = require('path')
+// const path = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.module.base.conf')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const CopyWebpackPlugin = require('copy-webpack-plugin')
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const BannerPlugin = webpack.BannerPlugin
 
 const env = config.build.env
-const package = require('../package.json')
+const amazevue = require('../package.json')
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
-      extract: true
-    })
+      extract: true,
+    }),
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('amazevue.js'),
     library: 'Amazevue',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': env
+      'process.env': env,
     }),
     new BannerPlugin({
       banner:
 `/**
- * ${package.name} v${package.version}
- * (c) ${new Date().getFullYear()} ${package.author}
- * @license ${package.license}
+ * ${amazevue.name} v${amazevue.version}
+ * (c) ${new Date().getFullYear()} ${amazevue.author}
+ * @license ${amazevue.license}
  */`,
       raw: true,
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
+        warnings: false,
       },
-      sourceMap: true
+      sourceMap: true,
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('amazevue.css')
+      filename: utils.assetsPath('amazevue.css'),
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin(),
-  ]
+  ],
 })
 
 if (config.build.productionGzip) {
@@ -70,7 +70,7 @@ if (config.build.productionGzip) {
         ')$'
       ),
       threshold: 10240,
-      minRatio: 0.8
+      minRatio: 0.8,
     })
   )
 }
