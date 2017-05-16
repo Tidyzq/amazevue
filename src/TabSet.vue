@@ -43,7 +43,6 @@ export default {
   data () {
     return {
       tabs: [],
-      show: this.value,
     }
   },
   created () {

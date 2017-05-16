@@ -15,7 +15,7 @@ export default {
     }, [
       h('am-nav', {
         staticClass: 'sidebar-nav',
-        domProps: {
+        props: {
           value: this.nav,
         },
         on: {
@@ -52,7 +52,7 @@ export default {
             slot: 'title',
           }, [ menu.name ]))
           result.push(h('am-sub-nav', {
-            domProps: {
+            props: {
               icon: menu.icon,
             },
             style: {
@@ -61,7 +61,7 @@ export default {
           }, children))
         } else {
           result.push(h('am-nav-item', {
-            domProps: {
+            props: {
               icon: menu.icon,
               index: menu.index,
             },

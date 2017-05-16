@@ -37,11 +37,11 @@ export default {
         },
       }, [
         h(this.contentTag, {
-          directives: [ {
+          directives: [{
             name: 'show',
             rawName: 'v-show',
             value: this.show,
-          } ],
+          }],
           ref: 'content',
           class: this.contentClass,
         }, this.$slots.default),
