@@ -22,18 +22,18 @@ export default {
   },
   computed: {
     menus () {
-      return [ {
+      return [{
         name: 'Basic',
-        children: [ {
+        children: [{
           name: 'Grid',
           index: 'Grid',
         }, {
           name: 'Button',
           index: 'Button',
-        } ],
+        }],
       }, {
         name: 'Form',
-        children: [ {
+        children: [{
           name: 'Form',
           index: 'Form',
         }, {
@@ -57,10 +57,10 @@ export default {
         }, {
           name: 'File Select',
           index: 'FileSelect',
-        } ],
+        }],
       }, {
         name: 'Data',
-        children: [ {
+        children: [{
           name: 'Table',
           index: 'Table',
         }, {
@@ -69,8 +69,35 @@ export default {
         }, {
           name: 'Pagination',
           index: 'Pagination',
-        } ],
-      } ]
+        }],
+      }, {
+        name: 'Other',
+        children: [{
+          name: 'Modal',
+          index: 'Modal',
+        }, {
+          name: 'Collapse',
+          index: 'Collapse',
+        }, {
+          name: 'Loading',
+          index: 'Loading',
+        }, {
+          name: 'Alert',
+          index: 'Alert',
+        }, {
+          name: 'Message',
+          index: 'Message',
+        }, {
+          name: 'Topbar',
+          index: 'Topbar',
+        }, {
+          name: 'Nav',
+          index: 'Nav',
+        }, {
+          name: 'Dropdown',
+          index: 'Dropdown',
+        }],
+      }]
     },
     // 所有menu的路径信息
     menusPaths () {
