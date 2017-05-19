@@ -24,9 +24,10 @@ export default {
   computed: {
     show: {
       get () {
-        return this.ac
+        return this.value
       },
       set (newVal) {
+        this.$emit('input', newVal)
         this.$emit('select', newVal)
       },
     },
@@ -35,15 +36,10 @@ export default {
     value (newVal) {
       this.show = newVal
     },
-    show (newVal) {
-      this.$emit('input', newVal)
-      this.$emit('select', newVal)
-    },
   },
   data () {
     return {
       tabs: [],
-      show: this.value,
     }
   },
   created () {
