@@ -78,7 +78,7 @@ export default {
       let children = []
       if (this.select) {
         const checkbox = h('am-checkbox', {
-          domProps: {
+          props: {
             value: this.selectedAll,
           },
           on: {
@@ -132,16 +132,14 @@ export default {
       let children = []
       if (this.select) {
         const checkbox = h('am-checkbox', {
-          domProps: {
+          props: {
             value: this.selected,
+            label: rowData,
           },
           on: {
             input: event => {
               this.selected = event
             },
-          },
-          props: {
-            label: rowData,
           },
         })
         children = [ checkbox ]

@@ -70,6 +70,33 @@ export default {
           name: 'Pagination',
           index: 'Pagination',
         }],
+      }, {
+        name: 'Other',
+        children: [{
+          name: 'Modal',
+          index: 'Modal',
+        }, {
+          name: 'Collapse',
+          index: 'Collapse',
+        }, {
+          name: 'Loading',
+          index: 'Loading',
+        }, {
+          name: 'Alert',
+          index: 'Alert',
+        }, {
+          name: 'Message',
+          index: 'Message',
+        }, {
+          name: 'Topbar',
+          index: 'Topbar',
+        }, {
+          name: 'Nav',
+          index: 'Nav',
+        }, {
+          name: 'Dropdown',
+          index: 'Dropdown',
+        }],
       }]
     },
     // 所有menu的路径信息
