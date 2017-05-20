@@ -11,13 +11,22 @@ const load = path => {
 }
 
 const routes = []
-for (const config of RouterConfig) {
-  routes.push({
-    path: config.path,
-    name: config.name,
-    component: load(config.name),
-  })
+
+function getRoutes (configs) {
+  for (const config of configs) {
+    if (config.path) {
+      routes.push({
+        path: config.path,
+        name: config.name,
+        component: load(config.name),
+      })
+    } else if (config.children) {
+      getRoutes(config.children)
+    }
+  }
 }
+
+getRoutes(RouterConfig)
 
 routes.push(
   { path: '*', redirect: '/grid' }

@@ -8,7 +8,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-const PrerenderSpaPlugin = require('prerender-spa-plugin')
 
 const env = config.doc.env
 
@@ -95,17 +94,6 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: [ '.*' ],
       },
     ]),
-    // prerender spa plugin
-    new PrerenderSpaPlugin(
-      config.doc.assetsRoot,
-      [ '/grid' ],
-      {
-        captureAfterDocumentEvent: 'vue-post-render',
-        // captureAfterTime: 3000,
-        publicPath: config.doc.assetsPublicPath,
-        // phantomOptions: '--remote-debugger-port=9000 --remote-debugger-autorun=yes',
-      }
-    ),
   ],
 })
 

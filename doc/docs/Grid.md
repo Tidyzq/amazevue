@@ -79,6 +79,16 @@
 ```
 :::
 
+<script>
+import PageMixin from '@/mixins/page'
+
+export default {
+  mixins: [
+    PageMixin,
+  ],
+}
+</script>
+
 <style>
 .am-row {
   margin-bottom: 1rem;

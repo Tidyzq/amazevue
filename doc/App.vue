@@ -3,12 +3,14 @@
   main-header.main-header
   .main-content.am-container
     sidebar.sidebar(v-model='sidebarShow', :nav='navigation', @select='updateNavigation', :menus='menus')
-    router-view.article.am-padding-sm
+    .article.am-padding-sm
+      router-view
   main-footer.main-footer
 </template>
 
 <script>
 import StoreMixin from '@/mixins/store'
+import RouterConfig from '@/router/config'
 
 export default {
   mixins: [
@@ -22,82 +24,7 @@ export default {
   },
   computed: {
     menus () {
-      return [{
-        name: 'Basic',
-        children: [{
-          name: 'Grid',
-          index: 'Grid',
-        }, {
-          name: 'Button',
-          index: 'Button',
-        }],
-      }, {
-        name: 'Form',
-        children: [{
-          name: 'Form',
-          index: 'Form',
-        }, {
-          name: 'Radio',
-          index: 'Radio',
-        }, {
-          name: 'Checkbox',
-          index: 'Checkbox',
-        }, {
-          name: 'Input',
-          index: 'Input',
-        }, {
-          name: 'Input Multiple',
-          index: 'InputMultiple',
-        }, {
-          name: 'Select',
-          index: 'Select',
-        }, {
-          name: 'Date Picker',
-          index: 'DatePicker',
-        }, {
-          name: 'File Select',
-          index: 'FileSelect',
-        }],
-      }, {
-        name: 'Data',
-        children: [{
-          name: 'Table',
-          index: 'Table',
-        }, {
-          name: 'Tab',
-          index: 'Tab',
-        }, {
-          name: 'Pagination',
-          index: 'Pagination',
-        }],
-      }, {
-        name: 'Other',
-        children: [{
-          name: 'Modal',
-          index: 'Modal',
-        }, {
-          name: 'Collapse',
-          index: 'Collapse',
-        }, {
-          name: 'Loading',
-          index: 'Loading',
-        }, {
-          name: 'Alert',
-          index: 'Alert',
-        }, {
-          name: 'Message',
-          index: 'Message',
-        }, {
-          name: 'Topbar',
-          index: 'Topbar',
-        }, {
-          name: 'Nav',
-          index: 'Nav',
-        }, {
-          name: 'Dropdown',
-          index: 'Dropdown',
-        }],
-      }]
+      return RouterConfig
     },
     // 所有menu的路径信息
     menusPaths () {
@@ -161,6 +88,11 @@ body {
   overflow: auto;
 }
 
+pre, code {
+  width: 100%;
+  overflow-x: scroll;
+}
+
 .main-content {
   padding: 51px 0;
   min-height: 100%;
@@ -169,11 +101,12 @@ body {
 }
 
 .sidebar {
-  flex: none;
+  flex: 0 0 auto;
 }
 
 .article {
-  flex: auto;
+  flex: 1 1 auto;
+  overflow-x: hidden;
 }
 
 .main-footer {

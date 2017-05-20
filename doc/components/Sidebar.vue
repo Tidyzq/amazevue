@@ -54,6 +54,7 @@ export default {
           result.push(h('am-sub-nav', {
             props: {
               icon: menu.icon,
+              open: true,
             },
             style: {
               background: `rgb(${color},${color},${color})`,

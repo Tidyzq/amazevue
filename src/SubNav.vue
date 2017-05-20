@@ -26,6 +26,7 @@ export default {
   name: 'AmSubNav',
   props: {
     defaultActive: Boolean,
+    open: Boolean,
     disabled: Boolean,
     icon: String,
   },
@@ -38,7 +39,7 @@ export default {
       rootNav: null,
       parentNav: null,
       items: [],
-      collapse: false,
+      collapse: this.open,
     }
   },
   created () {
