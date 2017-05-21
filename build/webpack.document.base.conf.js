@@ -15,6 +15,7 @@ function resolve (dir) {
 module.exports = {
   entry: {
     app: './doc/main.js',
+    404: './doc/404.js',
   },
   output: {
     path: config.build.assetsRoot,

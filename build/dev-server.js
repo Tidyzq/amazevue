@@ -49,7 +49,16 @@ Object.keys(proxyTable).forEach(function (context) {
 })
 
 // handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
+// app.use(require('connect-history-api-fallback')())
+
+var router = express.Router()
+
+router.get('/amazevue', function (req, res, next) {
+  req.url = '/index.html'
+  next()
+})
+
+app.use(router)
 
 // serve webpack bundle output
 app.use(devMiddleware)
@@ -61,6 +70,18 @@ app.use(hotMiddleware)
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
+
+app.use((req, res, next) => {
+  res.status(404)
+  compiler.outputFileSystem.readFile(path.join(compiler.outputPath, '404.html'), function (err, result) {
+    if (err) {
+      return next(err)
+    }
+    res.set('content-type', 'text/html')
+    res.send(result)
+    res.end()
+  })
+})
 
 var uri = 'http://localhost:' + port
 

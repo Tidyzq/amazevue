@@ -53,9 +53,26 @@ const webpackConfig = merge(baseWebpackConfig, {
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       favicon: 'doc/assets/favicon.png',
-      filename: config.doc.index,
-      template: 'index.html',
+      filename: path.posix.join(config.doc.assetsRoot, 'index.html'),
+      template: 'doc/index.html',
       inject: true,
+      chunks: [ 'manifest', 'vendor', 'app' ],
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+        // more options:
+        // https://github.com/kangax/html-minifier#options-quick-reference
+      },
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency',
+    }),
+    new HtmlWebpackPlugin({
+      favicon: 'doc/assets/favicon.png',
+      filename: path.posix.join(config.doc.assetsRoot, '404.html'),
+      template: 'doc/404.html',
+      inject: true,
+      chunks: [ 'manifest', 'vendor', '404' ],
       minify: {
         removeComments: true,
         collapseWhitespace: true,

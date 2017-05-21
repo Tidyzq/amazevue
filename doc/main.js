@@ -19,16 +19,33 @@ Vue.component(Sidebar.name, Sidebar)
 Vue.component(MainHeader.name, MainHeader)
 Vue.component(MainFooter.name, MainFooter)
 
-const root = new Vue({
-  // el: '#app',
+function resolve (l) {
+  if (l.search) {
+    const repo = l.pathname.split('/')[1]
+    const searches = l.search.slice(1).split('&')
+    const hash = l.hash
+
+    const q = {}
+
+    for (const search of searches) {
+      const split = search.split('=')
+      const key = split[0], val = split.slice(1).join('=').replace(/~and~/g, '&')
+
+      q[key] = val
+    }
+
+    if (q.p) {
+      const url = `/${repo}/${q.p}${q.q ? '?' + q.q : ''}${hash ? '#' + hash : ''}`
+      window.history.replaceState(null, null, url)
+    }
+  }
+}
+
+resolve(window.location)
+
+new Vue({
+  el: '#app',
   router,
   store,
-  template: '<App/>',
-  components: { App },
-})
-
-document.addEventListener('DOMContentLoaded', () => {
-  root.$mount('#app')
-  window.readyToCapture = true
-  document.dispatchEvent(new Event('vue-post-render'))
+  render (h) { return h(App) },
 })

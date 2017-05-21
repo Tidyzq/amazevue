@@ -28,7 +28,15 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       favicon: 'doc/assets/favicon.png',
       filename: 'index.html',
-      template: 'index.html',
+      template: 'doc/index.html',
+      chunks: [ 'app' ],
+      inject: true,
+    }),
+    new HtmlWebpackPlugin({
+      favicon: 'doc/assets/favicon.png',
+      filename: '404.html',
+      template: 'doc/404.html',
+      chunks: [ '404' ],
       inject: true,
     }),
     new FriendlyErrorsPlugin(),
