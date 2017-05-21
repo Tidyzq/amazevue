@@ -34,6 +34,6 @@ routes.push(
 
 export default new Router({
   mode: 'history',
-  // base: '/amazevue',
+  base: '/amazevue',
   routes,
 })
