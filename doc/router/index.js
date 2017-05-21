@@ -18,7 +18,7 @@ function getRoutes (configs) {
       routes.push({
         path: config.path,
         name: config.name,
-        component: load(config.name),
+        component: load(config.file),
       })
     } else if (config.children) {
       getRoutes(config.children)

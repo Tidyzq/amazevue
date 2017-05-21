@@ -64,7 +64,7 @@ export default {
           result.push(h('am-nav-item', {
             props: {
               icon: menu.icon,
-              index: menu.index,
+              index: menu.name,
             },
             style: {
               background: `rgb(${color},${color},${color})`,
