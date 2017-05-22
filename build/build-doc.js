@@ -13,11 +13,28 @@ var webpackConfig = require('./webpack.document.prod.conf')
 var spinner = ora('building for production...')
 spinner.start()
 
-rm(config.doc.assetsRoot, err => {
-  if (err) { throw err }
-  webpack(webpackConfig, function (err, stats) {
-    spinner.stop()
-    if (err) { throw err }
+function promisify (func, self) {
+  self = self || func
+  return function () {
+    var args = Array.prototype.slice.call(arguments)
+    return new Promise((resolve, reject) => {
+      args.push((err, data) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(data)
+        }
+      })
+      func.apply(self, args)
+    })
+  }
+}
+
+promisify(rm)(config.doc.assetsRoot)
+  .then(() => {
+    return promisify(webpack)(webpackConfig)
+  })
+  .then(stats => {
     process.stdout.write(stats.toString({
       colors: true,
       modules: false,
@@ -27,21 +44,21 @@ rm(config.doc.assetsRoot, err => {
     }) + '\n\n')
 
     console.log(chalk.cyan('  Build complete.\n'))
-    console.log(chalk.yellow(
-      '  Tip: built files are meant to be served over an HTTP server.\n' +
-      '  Opening index.html over file:// won\'t work.\n'
-    ))
-
+  })
+  .then(() => {
     if (process.env.npm_config_publish) {
       var ghpages = require('gh-pages')
 
-      ghpages.publish(config.doc.assetsRoot, function (err) {
-        if (err) {
-          console.error(err)
-        } else {
-          console.log(chalk.cyan('  Publish to github pages success.\n'))
-        }
-      })
+      return promisify(ghpages.publish, ghpages)(config.doc.assetsRoot)
+        .then(() => {
+          console.log(chalk.cyan('\n  Publish to github pages success.\n'))
+        })
     }
   })
-})
+  .catch(err => {
+    console.log(chalk.red(err.message))
+    console.log(chalk.red(err.stack))
+  })
+  .then(() => {
+    spinner.stop()
+  })
