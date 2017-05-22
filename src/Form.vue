@@ -44,7 +44,6 @@ export default {
   },
   methods: {
     OnSubmit () {
-      console.log('submit')
     },
   },
 }
