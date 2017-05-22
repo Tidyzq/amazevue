@@ -11,10 +11,9 @@ var git = require('simple-git')()
 var chalk = require('chalk')
 var webpack = require('webpack')
 var config = require('../config')
-var webpackConfig = require('./webpack.module.prod.conf')
 
 var spinner = ora('building for production...')
-// spinner.start()
+spinner.start()
 
 function isVersion (v) {
   return /\d+\.\d+\.\d+/.test(v)
@@ -62,7 +61,7 @@ promisify(rm)(config.build.assetsRoot)
     }
   })
   .then(() => {
-    return promisify(webpack)(webpackConfig)
+    return promisify(webpack)(require('./webpack.module.prod.conf'))
   })
   .then(stats => {
     process.stdout.write(stats.toString({
