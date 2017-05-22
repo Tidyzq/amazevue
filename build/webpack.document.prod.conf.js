@@ -72,7 +72,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: path.posix.join(config.doc.assetsRoot, '404.html'),
       template: 'doc/404.html',
       inject: true,
-      chunks: [ 'manifest', 'vendor', '404' ],
+      chunks: [ 'manifest', '404' ],
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -81,7 +81,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency',
+      chunksSortMode: () => true,
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({

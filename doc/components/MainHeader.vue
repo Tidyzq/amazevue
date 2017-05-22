@@ -3,7 +3,7 @@ header
   am-topbar.header-topbar(inverse, container, fixed='top')
     h1.am-topbar-brand(slot='brand')
       //- am-button.am-fl.am-topbar-btn.am-topbar-toggle.am-show-sm-only(size='sm', type='primary', @click='sidebarShow = !sidebarShow', icon='bars')
-      a(href='/') Amazevue
+      a(href='/amazevue') Amazevue
     am-nav.am-topbar-nav(v-model='topbarNav', mode='pills')
       //- am-nav-item(index='maka', :default-active='!Lite', href='/maka') MAKA
     .am-topbar-right

@@ -30,7 +30,7 @@ module.exports = [{
   }, {
     name: 'Input Multiple',
     file: 'InputMultiple',
-    path: '/Input-multiple',
+    path: '/input-multiple',
   }, {
     name: 'Select',
     file: 'Select',
