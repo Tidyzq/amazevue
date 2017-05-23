@@ -32,7 +32,7 @@ Since we did some modifications on *Amazeui* stylesheets, **you must import *Ama
 
 ## Docs
 
-[document](https://tidyzq.github.com/amazevue)
+[document](https://tidyzq.github.io/amazevue)
 
 This document is kind of humble😅, so any contributions are welcome
 
@@ -45,10 +45,17 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification
+# build module
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+# build module and publish to npm
+npm run build --publish
+
+# build document
+npm run build-doc
+
+# build document and publish to github pages
+npm run build-doc --publish
+
 ```
 
