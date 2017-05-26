@@ -2,7 +2,7 @@
 [Vue2.0](https://vuejs.org) components for [Amaze UI](https://amazeui.org)
 
 [![npm](https://img.shields.io/npm/v/amazevue.svg)](https://www.npmjs.com/package/amazevue)
-[![npm](https://img.shields.io/npm/l/amazevue.svg)](./LICENSE)
+[![npm](https://img.shields.io/npm/l/amazevue.svg)](./LICENSE.txt)
 
 ## Getting Start
 

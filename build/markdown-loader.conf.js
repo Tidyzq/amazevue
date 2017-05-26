@@ -34,10 +34,4 @@ markdown.use(markdownContainer, 'demo', {
   },
 })
 
-var defaultFenceRender = markdown.renderer.rules.fence
-
-markdown.renderer.rules.fence = function () {
-  return defaultFenceRender.apply(this, arguments).replace('pre', 'pre v-pre')
-}
-
 module.exports = markdown
